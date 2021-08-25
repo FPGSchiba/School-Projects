@@ -14,24 +14,37 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.EmptyBot = void 0;
 const botbuilder_1 = require("botbuilder");
 class EmptyBot extends botbuilder_1.ActivityHandler {
-    constructor() {
+    constructor(conversationReferences) {
         super();
+        // Dependency injected dictionary for storing ConversationReference objects used in NotifyController to proactively message users
+        this.conversationReferences1 = conversationReferences;
+        this.onConversationUpdate((context, next) => __awaiter(this, void 0, void 0, function* () {
+            addConversationReference(context.activity);
+            yield next();
+        }));
+        // See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
         this.onMessage((context, next) => __awaiter(this, void 0, void 0, function* () {
-            const replyText = `Echo: ${context.activity.text}`;
-            yield context.sendActivity(botbuilder_1.MessageFactory.text(replyText, replyText));
-            // By calling next() you ensure that the next BotHandler is run.
+            addConversationReference(context.activity);
+            // Echo back what the user said
+            yield context.sendActivity(`You sent '${context.activity.text}'`);
             yield next();
         }));
         this.onMembersAdded((context, next) => __awaiter(this, void 0, void 0, function* () {
             const membersAdded = context.activity.membersAdded;
+            const welcomeText = 'Hello and welcome!';
             for (const member of membersAdded) {
                 if (member.id !== context.activity.recipient.id) {
-                    yield context.sendActivity('Hello world!');
+                    const welcomeMessage = 'Welcome to the Proactive Bot sample.  Navigate to http://localhost:3978/api/notify to proactively message everyone who has previously messaged this bot.';
+                    yield context.sendActivity(welcomeMessage);
                 }
             }
             // By calling next() you ensure that the next BotHandler is run.
             yield next();
         }));
+        function addConversationReference(activity) {
+            const conversationReference = botbuilder_1.TurnContext.getConversationReference(activity);
+            conversationReferences[conversationReference.conversation.id] = conversationReference;
+        }
     }
 }
 exports.EmptyBot = EmptyBot;

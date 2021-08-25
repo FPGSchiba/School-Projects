@@ -1,0 +1,61 @@
+{
+    "_id": "6050711c9d20110b1b42206f",
+    "flow": {
+        "id": "556c0e87-ec0a-4212-8674-46bfc05a875f",
+        "name": "Example Flow",
+        "description": "Kata - MyBot ",
+        "entry": [
+            "Example Flow"
+        ],
+        "slots": [
+            {
+                "name": "name",
+                "type": "text"
+            },
+            {
+                "name": "mail",
+                "type": "email"
+            }
+        ],
+        "steps": [
+            {
+                "id": "e116865d-b73f-49d8-8e90-d20f80ff255f",
+                "type": "utterance",
+                "utterance": "Hello! I am a bot",
+                "displayName": "greeting",
+                "next": {
+                    "any": "0d8688b7-0ee3-4bf5-8a6e-796bdc0953f6"
+                }
+            },
+            {
+                "id": "0d8688b7-0ee3-4bf5-8a6e-796bdc0953f6",
+                "type": "freetext",
+                "utterance": "What is your name?",
+                "slot": "name",
+                "displayName": "0d8688b7-0ee3-4bf5-8a6e-796bdc0953f6",
+                "next": {
+                    "any": "4a770940-c4b6-4cfc-9c45-b48253e9ae22"
+                }
+            },
+            {
+                "id": "4a770940-c4b6-4cfc-9c45-b48253e9ae22",
+                "type": "freetext",
+                "utterance": "Your email is ",
+                "slot": "mail",
+                "displayName": "4a770940-c4b6-4cfc-9c45-b48253e9ae22",
+                "next": {
+                    "any": "d7969eaf-d0cb-41af-90fc-8248d653c216"
+                }
+            },
+            {
+                "id": "d7969eaf-d0cb-41af-90fc-8248d653c216",
+                "type": "utterance",
+                "utterance": "Your name is {name} and your email is {mail}",
+                "displayName": "d7969eaf-d0cb-41af-90fc-8248d653c216",
+                "next": {}
+            }
+        ]
+    },
+    "createAt": "2021-03-16T08:49:32.856Z",
+    "updateAt": "2021-03-16T08:49:32.856Z"
+}

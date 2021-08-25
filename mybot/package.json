@@ -18,13 +18,16 @@
         "url": "https://github.com"
     },
     "dependencies": {
-        "botbuilder": "~4.14.0",
+        "@types/node-fetch": "^2.5.12",
+        "botbuilder-dialogs-adaptive": "^4.14.1-preview",
         "replace": "~1.2.0",
         "restify": "~8.5.1"
     },
     "devDependencies": {
         "@types/express": "^4.17.13",
         "@types/restify": "8.4.2",
+        "botbuilder": "^4.14.1",
+        "botbuilder-dialogs": "^4.14.1",
         "express": "^4.17.1",
         "nodemon": "^2.0.4",
         "tslint": "^6.1.2",
