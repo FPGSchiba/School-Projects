@@ -1,6 +1,4 @@
 "use strict";
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -11,15 +9,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DialogAndWelcomeBot = void 0;
+exports.FlowBot = void 0;
 const dialogBot_1 = require("./dialogBot");
-class DialogAndWelcomeBot extends dialogBot_1.DialogBot {
+class FlowBot extends dialogBot_1.DialogBot {
     constructor(conversationState, userState, dialog) {
         super(conversationState, userState, dialog);
         this.onMembersAdded((context, next) => __awaiter(this, void 0, void 0, function* () {
             const membersAdded = context.activity.membersAdded;
             for (const member of membersAdded) {
                 if (member.id !== context.activity.recipient.id) {
+                    console.log("Runnning MainDialog");
                     yield dialog.run(context, conversationState.createProperty('DialogState'));
                 }
             }
@@ -27,5 +26,5 @@ class DialogAndWelcomeBot extends dialogBot_1.DialogBot {
         }));
     }
 }
-exports.DialogAndWelcomeBot = DialogAndWelcomeBot;
-//# sourceMappingURL=bookingBot.js.map
+exports.FlowBot = FlowBot;
+//# sourceMappingURL=Bot.js.map

@@ -12,58 +12,48 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
 const express_1 = __importDefault(require("express"));
-const app = express_1.default();
-const port = 3978; // default port to listen
-// Import required bot services.
-// See https://aka.ms/bot-services to learn more about the different parts of a bot.
 const botbuilder_1 = require("botbuilder");
-// This bot's main dialog.
-const bookingBot_1 = require("./bots/bookingBot");
-const mainDialog_1 = require("./dialogs/mainDialog");
+const Bot_1 = require("./bots/Bot");
 const bookingDialog_1 = require("./dialogs/bookingDialog");
-const BOOKING_DIALOG = 'bookingDialog';
-// Create adapter.
-// See https://aka.ms/about-bot-adapter to learn more about adapters.
+const welcomeDialog_1 = require("./dialogs/welcomeDialog");
+const mainDialog_1 = require("./dialogs/mainDialog");
+const selectDialog_1 = require("./dialogs/selectDialog");
+require('source-map-support').install();
+const MAIN_WATERFALL_DIALOG = 'mainWaterfallDialog';
+const app = express_1.default();
+const port = 3978;
 const adapter = new botbuilder_1.BotFrameworkAdapter({
     appId: process.env.MicrosoftAppId,
     appPassword: process.env.MicrosoftAppPassword
 });
-// Catch-all for errors.
-const onTurnErrorHandler = (context, error) => __awaiter(void 0, void 0, void 0, function* () {
-    // This check writes out errors to console log .vs. app insights.
-    // NOTE: In production environment, you should consider logging this to Azure
-    //       application insights.
-    console.error(`\n [onTurnError] unhandled error: ${error}`);
-    // Send a trace activity, which will be displayed in Bot Framework Emulator
-    yield context.sendTraceActivity('OnTurnError Trace', `${error}`, 'https://www.botframework.com/schemas/error', 'TurnError');
-    // Send a message to the user
-    yield context.sendActivity('The bot encountered an error or bug.');
-    yield context.sendActivity('To continue to run this bot, please fix the bot source code.');
-    // Clear out state
-    yield conversationState.delete(context);
-});
-adapter.onTurnError = onTurnErrorHandler;
 let conversationState;
 let userState;
 const memoryStorage = new botbuilder_1.MemoryStorage();
 conversationState = new botbuilder_1.ConversationState(memoryStorage);
 userState = new botbuilder_1.UserState(memoryStorage);
-const bookingDialog = new bookingDialog_1.BookingDialog(BOOKING_DIALOG);
-const dialog = new mainDialog_1.MainDialog(bookingDialog);
-const bot = new bookingBot_1.DialogAndWelcomeBot(conversationState, userState, dialog);
-// Create API Server.
+// Initialize Flows here
+const flows = [
+    {
+        Dialog: new bookingDialog_1.BookingDialog("test"),
+        Entry: ["test"]
+    },
+    {
+        Dialog: new welcomeDialog_1.WelcomeDialog(),
+        Entry: ["Example Flow"]
+    }
+];
+const selectDialog = new selectDialog_1.SelectDialog(flows, MAIN_WATERFALL_DIALOG);
+const dialog = new mainDialog_1.MainDialog(flows, selectDialog);
+const bot = new Bot_1.FlowBot(conversationState, userState, dialog);
 app.post("/api/messages", (req, res) => {
     adapter.processActivity(req, res, (context) => __awaiter(void 0, void 0, void 0, function* () {
         // Route to main dialog.
         yield bot.run(context);
     }));
 });
-// start the Express server
-const server = app.listen(port, () => {
+app.listen(port, () => {
     // tslint:disable-next-line:no-console
-    console.log(`server started at http://localhost:${port}`);
+    console.log(`bot started at http://localhost:${port}`);
 });
 //# sourceMappingURL=index.js.map

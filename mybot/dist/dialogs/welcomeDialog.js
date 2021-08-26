@@ -1,6 +1,4 @@
 "use strict";
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -11,89 +9,74 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BookingDialog = void 0;
+exports.WelcomeDialog = void 0;
 const botbuilder_1 = require("botbuilder");
 const botbuilder_dialogs_1 = require("botbuilder-dialogs");
 const cancelAndHelpDialog_1 = require("./cancelAndHelpDialog");
 const CONFIRM_PROMPT = 'confirmPrompt';
 const TEXT_PROMPT = 'textPrompt';
 const WATERFALL_DIALOG = 'waterfallDialog';
-class BookingDialog extends cancelAndHelpDialog_1.CancelAndHelpDialog {
+class WelcomeDialog extends cancelAndHelpDialog_1.CancelAndHelpDialog {
     constructor(id) {
-        super(id || 'bookingDialog');
+        super(id || 'welcomeDialog');
         this.addDialog(new botbuilder_dialogs_1.TextPrompt(TEXT_PROMPT))
             .addDialog(new botbuilder_dialogs_1.ConfirmPrompt(CONFIRM_PROMPT))
             .addDialog(new botbuilder_dialogs_1.WaterfallDialog(WATERFALL_DIALOG, [
-            this.destinationStep.bind(this),
-            this.originStep.bind(this),
-            this.travelDateStep.bind(this),
+            this.greetingStep.bind(this),
+            this.nameStep.bind(this),
+            this.emailStep.bind(this),
             this.confirmStep.bind(this),
             this.finalStep.bind(this)
         ]));
         this.initialDialogId = WATERFALL_DIALOG;
     }
-    destinationStep(stepContext) {
+    greetingStep(stepContext) {
         return __awaiter(this, void 0, void 0, function* () {
-            const testDetails = stepContext.options;
-            if (!testDetails) {
-                const messageText = 'To what city would you like to travel?';
+            const messageText = 'Hello! I am a bot';
+            const msg = botbuilder_1.MessageFactory.text(messageText, messageText, botbuilder_1.InputHints.IgnoringInput);
+            return yield stepContext.prompt(TEXT_PROMPT, { prompt: msg });
+        });
+    }
+    nameStep(stepContext) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const welcomeDetails = stepContext.options;
+            if (!welcomeDetails.name) {
+                const messageText = 'What is your name?';
                 const msg = botbuilder_1.MessageFactory.text(messageText, messageText, botbuilder_1.InputHints.ExpectingInput);
                 return yield stepContext.prompt(TEXT_PROMPT, { prompt: msg });
             }
             else {
-                return yield stepContext.next(testDetails);
+                return yield stepContext.next(welcomeDetails.name);
             }
         });
     }
-    originStep(stepContext) {
+    emailStep(stepContext) {
         return __awaiter(this, void 0, void 0, function* () {
-            const bookingDetails = stepContext.options;
-            // Capture the response to the previous step's prompt
-            bookingDetails.name = stepContext.result;
-            if (!bookingDetails) {
-                const messageText = 'From what city will you be travelling?';
-                const msg = botbuilder_1.MessageFactory.text(messageText, messageText, botbuilder_1.InputHints.ExpectingInput);
-                return yield stepContext.prompt(TEXT_PROMPT, { prompt: msg });
-            }
-            else {
-                return yield stepContext.next(bookingDetails);
-            }
-        });
-    }
-    travelDateStep(stepContext) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const bookingDetails = stepContext.options;
-            bookingDetails.name = stepContext.result;
-            console.log(bookingDetails);
-            const messageText = 'Which Date would you like to travel on?';
+            const welcomeDetails = stepContext.options;
+            welcomeDetails.name = stepContext.result;
+            const messageText = 'Your email is';
             const msg = botbuilder_1.MessageFactory.text(messageText, messageText, botbuilder_1.InputHints.ExpectingInput);
             return yield stepContext.prompt(TEXT_PROMPT, { prompt: msg });
         });
     }
     confirmStep(stepContext) {
         return __awaiter(this, void 0, void 0, function* () {
-            const bookingDetails = stepContext.options;
-            // Capture the results of the previous step
-            bookingDetails.name = stepContext.result;
-            const messageText = `Please confirm, I have you traveling to: ${bookingDetails.name} from: ${bookingDetails.name} on: ${bookingDetails.name}. Is this correct?`;
+            const welcomeDetails = stepContext.options;
+            welcomeDetails.email = stepContext.result;
+            const messageText = `Please confirm, Your name is ${welcomeDetails.name} and your email is ${welcomeDetails.email}. Is this correct?`;
             const msg = botbuilder_1.MessageFactory.text(messageText, messageText, botbuilder_1.InputHints.ExpectingInput);
-            // Offer a YES/NO prompt.
             return yield stepContext.prompt(CONFIRM_PROMPT, { prompt: msg });
         });
     }
     finalStep(stepContext) {
         return __awaiter(this, void 0, void 0, function* () {
             if (stepContext.result === true) {
-                const bookingDetails = stepContext.options;
-                return yield stepContext.endDialog(bookingDetails);
+                const welcomeDetails = stepContext.options;
+                return yield stepContext.endDialog(welcomeDetails);
             }
             return yield stepContext.endDialog();
         });
     }
-    isAmbiguous(timex) {
-        var re = new RegExp("\d{1,2}(\.|\/)\d{1,2}(\.|\/)\d{2,4}");
-        return re.exec(timex) != null;
-    }
 }
-exports.BookingDialog = BookingDialog;
-//# sourceMappingURL=bookingDialog.js.map
+exports.WelcomeDialog = WelcomeDialog;
+//# sourceMappingURL=welcomeDialog.js.map

@@ -1,6 +1,3 @@
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
-
 import { InputHints, MessageFactory } from 'botbuilder';
 import {
     ConfirmPrompt,
@@ -9,7 +6,7 @@ import {
     WaterfallDialog,
     WaterfallStepContext
 } from 'botbuilder-dialogs';
-import { TestDetails } from './bookingDetails';
+import { BookingDetails } from './slots/bookingDetails';
 import { CancelAndHelpDialog } from './cancelAndHelpDialog';
 
 const CONFIRM_PROMPT = 'confirmPrompt';
@@ -34,63 +31,56 @@ export class BookingDialog extends CancelAndHelpDialog {
     }
 
     private async destinationStep(stepContext: WaterfallStepContext): Promise<DialogTurnResult> {
-        const testDetails = stepContext.options as TestDetails;
+        const bookingDetails = stepContext.options as BookingDetails;
 
-        if (!testDetails) {
+        if (!bookingDetails.destination) {
             const messageText = 'To what city would you like to travel?';
             const msg = MessageFactory.text(messageText, messageText, InputHints.ExpectingInput);
             return await stepContext.prompt(TEXT_PROMPT, { prompt: msg });
         } else {
-            return await stepContext.next(testDetails);
+            return await stepContext.next(bookingDetails.destination);
         }
     }
 
     private async originStep(stepContext: WaterfallStepContext): Promise<DialogTurnResult> {
-        const bookingDetails = stepContext.options as TestDetails;
+        const bookingDetails = stepContext.options as BookingDetails;
 
-        // Capture the response to the previous step's prompt
-        bookingDetails.name = stepContext.result;
-        if (!bookingDetails) {
+        bookingDetails.destination = stepContext.result;
+        if (!bookingDetails.origin) {
             const messageText = 'From what city will you be travelling?';
             const msg = MessageFactory.text(messageText, messageText, InputHints.ExpectingInput);
             return await stepContext.prompt(TEXT_PROMPT, { prompt: msg });
         } else {
-            return await stepContext.next(bookingDetails);
+            return await stepContext.next(bookingDetails.origin);
         }
     }
 
     private async travelDateStep(stepContext: WaterfallStepContext): Promise<DialogTurnResult> {
-        const bookingDetails = stepContext.options as TestDetails;
-        bookingDetails.name = stepContext.result;
-        console.log(bookingDetails);
-        const messageText = 'Which Date would you like to travel on?';
+        const bookingDetails = stepContext.options as BookingDetails;
+        bookingDetails.origin = stepContext.result;
+
+        const messageText = 'On which Date will you be Traveling?';
         const msg = MessageFactory.text(messageText, messageText, InputHints.ExpectingInput);
-        return await stepContext.prompt(TEXT_PROMPT, { prompt: msg });
+
+        return await stepContext.prompt(TEXT_PROMPT, {prompt: msg});
     }
 
     private async confirmStep(stepContext: WaterfallStepContext): Promise<DialogTurnResult> {
-        const bookingDetails = stepContext.options as TestDetails;
+        const bookingDetails = stepContext.options as BookingDetails;
 
-        // Capture the results of the previous step
-        bookingDetails.name = stepContext.result;
-        const messageText = `Please confirm, I have you traveling to: ${ bookingDetails.name } from: ${ bookingDetails.name } on: ${ bookingDetails.name }. Is this correct?`;
+        bookingDetails.travelDate = stepContext.result;
+        const messageText = `Please confirm, I have you traveling to: ${ bookingDetails.destination } from: ${ bookingDetails.origin } on: ${ bookingDetails.travelDate }. Is this correct?`;
         const msg = MessageFactory.text(messageText, messageText, InputHints.ExpectingInput);
 
-        // Offer a YES/NO prompt.
         return await stepContext.prompt(CONFIRM_PROMPT, { prompt: msg });
     }
 
     private async finalStep(stepContext: WaterfallStepContext): Promise<DialogTurnResult> {
         if (stepContext.result === true) {
-            const bookingDetails = stepContext.options as TestDetails;
+            const bookingDetails = stepContext.options as BookingDetails;
 
             return await stepContext.endDialog(bookingDetails);
         }
         return await stepContext.endDialog();
-    }
-
-    private isAmbiguous(timex: string): boolean {
-        var re = new RegExp("\d{1,2}(\.|\/)\d{1,2}(\.|\/)\d{2,4}");
-        return re.exec(timex) != null;
     }
 }
