@@ -1,0 +1,53 @@
+# depslib dependency file v1.0
+1630327964 source:d:\projects\school-work\m306\helloworld\src\application\main.c
+	"../system/lib/libDYPS.h"
+
+1604304196 d:\projects\school-work\m306\helloworld\src\system\lib\libdyps.h
+	"../config.h"
+
+1599156755 d:\projects\school-work\m306\helloworld\src\system\config.h
+	"_startup/include/definitions.h"
+	"_startup/include/MK22F25612.h"
+	"_startup/include/MK22F25612_EXT.h"
+
+1598625798 d:\projects\school-work\m306\helloworld\src\system\_startup\include\definitions.h
+
+1595319859 d:\projects\school-work\m306\helloworld\src\system\_startup\include\mk22f25612.h
+	<stdint.h>
+	"core_cm4.h"
+	"system_MK22F25612.h"
+
+1595319859 d:\projects\school-work\m306\helloworld\src\system\_startup\include\cmsis\core_cm4.h
+	<stdint.h>
+	"core_cmInstr.h"
+	"core_cmFunc.h"
+	"core_cm4_simd.h"
+
+1595319859 d:\projects\school-work\m306\helloworld\src\system\_startup\include\cmsis\core_cminstr.h
+	<cmsis_iar.h>
+	<cmsis_ccs.h>
+	<cmsis_csm.h>
+
+1595319859 d:\projects\school-work\m306\helloworld\src\system\_startup\include\cmsis\core_cmfunc.h
+	<cmsis_iar.h>
+	<cmsis_ccs.h>
+	<cmsis_csm.h>
+
+1595319859 d:\projects\school-work\m306\helloworld\src\system\_startup\include\cmsis\core_cm4_simd.h
+	<cmsis_iar.h>
+	<cmsis_ccs.h>
+	<cmsis_csm.h>
+
+1595319859 d:\projects\school-work\m306\helloworld\src\system\_startup\include\system_mk22f25612.h
+	<stdint.h>
+
+1599241463 d:\projects\school-work\m306\helloworld\src\system\_startup\include\mk22f25612_ext.h
+	"definitions.h"
+	"../../config.h"
+
+1595319859 source:d:\projects\school-work\m306\helloworld\src\system\_startup\src\startup_mk22f25612.s
+
+1595319859 source:d:\projects\school-work\m306\helloworld\src\system\_startup\src\system_mk22f25612.c
+	<stdint.h>
+	"MK22F25612.h"
+

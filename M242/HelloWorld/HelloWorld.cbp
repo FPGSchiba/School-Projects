@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="HelloWorld" />
+		<Option pch_mode="2" />
+		<Option compiler="arm-elf-gcc" />
+		<Build>
+			<Target title="Compile">
+				<Option output="build/bin/$(TARGET_NAME)/$(PROJECT_NAME).elf" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="" />
+				<Option object_output="build/obj/$(TARGET_NAME)" />
+				<Option type="5" />
+				<Option compiler="arm-elf-gcc" />
+				<ExtraCommands>
+					<Add after="arm-none-eabi-size build\bin\$(TARGET_NAME)\$(PROJECT_NAME).elf" />
+					<Add after="arm-none-eabi-objcopy -O srec build\bin\$(TARGET_NAME)\$(PROJECT_NAME).elf build\bin\$(TARGET_NAME)\$(PROJECT_NAME).srec" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Debug">
+				<Option output="build/bin/$(TARGET_NAME)/$(PROJECT_NAME).elf" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="" />
+				<Option object_output="build/obj/$(TARGET_NAME)" />
+				<Option type="5" />
+				<Option compiler="arm-elf-gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<ExtraCommands>
+					<Add after="arm-none-eabi-size build\bin\$(TARGET_NAME)\$(PROJECT_NAME).elf" />
+					<Add after="arm-none-eabi-objcopy -O srec build\bin\$(TARGET_NAME)\$(PROJECT_NAME).elf build\bin\$(TARGET_NAME)\$(PROJECT_NAME).srec" />
+					<Add after="UsbdmFlashProgrammer -target=arm -vdd=3V3 -device=MK22FN256M12 -erase=Mass -program build\bin\$(TARGET_NAME)\$(PROJECT_NAME).srec -execute" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Release">
+				<Option output="build/bin/$(TARGET_NAME)/$(PROJECT_NAME).elf" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="" />
+				<Option object_output="build/obj/$(TARGET_NAME)" />
+				<Option type="5" />
+				<Option compiler="arm-elf-gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-Os -s" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="arm-none-eabi-size build\bin\$(TARGET_NAME)\$(PROJECT_NAME).elf" />
+					<Add after="arm-none-eabi-objcopy -O srec build\bin\$(TARGET_NAME)\$(PROJECT_NAME).elf build\bin\$(TARGET_NAME)\$(PROJECT_NAME).srec" />
+					<Add after="UsbdmFlashProgrammer -target=arm -vdd=3V3 -device=MK22FN256M12 -erase=Mass -program build\bin\$(TARGET_NAME)\$(PROJECT_NAME).srec -execute" />
+				</ExtraCommands>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -MMD -MP" />
+			<Add directory="src/system/_startup/include/cmsis" />
+			<Add directory="src/system/_startup/include" />
+			<Add directory="src/application" />
+		</Compiler>
+		<Linker>
+			<Add option="-Wl,-Map,build/bin/$(TARGET_NAME)/$(PROJECT_NAME).map" />
+			<Add option="-mcpu=cortex-m4 -mthumb -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -T src/system/_startup/load/MK22FN256xxx12_flash.ld -Xlinker --gc-sections -lc -Wextra -Wall -Wno-unused-parameter -Wno-unused-function -Wno-unused-label -Wpointer-arith -Wformat -Wreturn-type -Wsign-compare -Wmultichar -Wformat-nonliteral -Winit-self -Wuninitialized -Wno-deprecated -Wformat-security -Werror" />
+			<Add library="DYPS" />
+			<Add directory="src/system/lib/" />
+		</Linker>
+		<Unit filename="src/application/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/system/_startup/include/MK22F25612.h" />
+		<Unit filename="src/system/_startup/include/MK22F25612_EXT.h" />
+		<Unit filename="src/system/_startup/include/cmsis/core_cm4.h" />
+		<Unit filename="src/system/_startup/include/cmsis/core_cm4_simd.h" />
+		<Unit filename="src/system/_startup/include/cmsis/core_cmFunc.h" />
+		<Unit filename="src/system/_startup/include/cmsis/core_cmInstr.h" />
+		<Unit filename="src/system/_startup/include/definitions.h" />
+		<Unit filename="src/system/_startup/include/system_MK22F25612.h" />
+		<Unit filename="src/system/_startup/load/MK22FN256xxx12_flash.ld" />
+		<Unit filename="src/system/_startup/src/startup_MK22F25612.S" />
+		<Unit filename="src/system/_startup/src/system_MK22F25612.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/system/config.h" />
+		<Unit filename="src/system/lib/libDYPS.h" />
+		<Extensions>
+			<debugger>
+				<scriptadd>
+					<remote_debugging target="Debug">
+						<options conn_type="0" serial_baud="115200" ip_address="localhost" ip_port="1234" additional_cmds="monitor reset halt" />
+					</remote_debugging>
+				</scriptadd>
+			</debugger>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
