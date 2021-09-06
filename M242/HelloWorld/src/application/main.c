@@ -1,21 +1,7 @@
 /*
- *   This file is part of the DYPS-ONE
- *
- *   Copyright (C) 2018-today:
- *       Roman Gassmann (GMN), Ing. Büro Gassmann, rog@gassmann-engineering.ch
- *
- *   This program is free software: you can redistribute it and/or modify
- *   it under the terms of the GNU General Public License as published by
- *   the Free Software Foundation, either version 3 of the License, or
- *   (at your option) any later version.
- *
- *   This program is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *   GNU General Public License for more details.
- *
- *   You should have received a copy of the GNU General Public License
- *   along with this program.  If not, see http://www.gnu.org/licenses/gpl-3.0
+ *   Titel: hello World
+ *   Description:
+ *   Author: Jann Erhardt
  *
  */
 
@@ -24,11 +10,27 @@
 int main(void) {
     initP0P1();
     initTouchP0P1("mp 3");
+    int loopCount = 0;
 
     while(1) {
-        P1 = P0;
-        delay_ms(10);
+        int delayTime = loopCount * 100;
+        P1 = 1;
+        for(int i = 0; i<8; i++){
+            delay_ms(delayTime);
+            // P1 = P1 * 2;
+            P1 = P1 << 1; // bit schieben
+        }
+
+        P1 = 128;
+        for(int i = 0; i<8; i++){
+            delay_ms(delayTime);
+            // P1 = P1 / 2;
+            P1 = P1 >> 1;
+        }
+
+        loopCount++;
     }
 
+    P1 = 0;
     return 0;
 }
