@@ -1,6 +1,6 @@
 /*
- *   Titel: hello World
- *   Description:
+ *   Titel: Hello World
+ *   Description: Main.c file for DYPS micro processor.
  *   Author: Jann Erhardt
  *
  */
