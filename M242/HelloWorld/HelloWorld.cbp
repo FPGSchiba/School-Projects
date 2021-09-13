@@ -72,6 +72,10 @@
 			<Option compilerVar="CC" />
 			<Option target="Debug" />
 		</Unit>
+		<Unit filename="src/application/mainv1309.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+		</Unit>
 		<Unit filename="src/system/_startup/include/MK22F25612.h" />
 		<Unit filename="src/system/_startup/include/MK22F25612_EXT.h" />
 		<Unit filename="src/system/_startup/include/cmsis/core_cm4.h" />
