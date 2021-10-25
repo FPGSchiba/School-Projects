@@ -1,0 +1,58 @@
+/*
+ *   Project-Titel: Hello World
+ *   File-Name: application/bitMask.c
+ *   Description: bitMask.c file for DYPS micro processor.
+ *   Author: Jann Erhardt
+ *
+ */
+
+#include "../system/lib/libDYPS.h"
+
+#define LONG_DELAY 1000
+#define SHORT_DELAY 200
+#define INPUT_DELAY 10
+
+
+void Blinken(string Switcher){
+    switch(Switcher){
+        case "SW0":
+            P1 = 0xff;
+            delay_ms(500);
+            break;
+        case "SW1":
+
+    }
+}
+
+int main(void) {
+    initP0P1();
+
+    unsigned char SW0;
+    unsigned char SW1;
+    unsigned char SW2;
+    unsigned char SW3;
+    unsigned char SW4;
+    unsigned char SW5;
+
+    while(1) {
+
+        SW0 = P0_0;
+        SW1 = P0_1;
+        SW2 = P0_2;
+        SW3 = P0_3;
+        SW4 = P0_4;
+        SW5 = P0_5;
+
+        if(SW0){
+            Blinken("SW0")
+            if(SW1){
+
+            }
+        }
+
+        delay_ms(10);
+    }
+
+    P1 = 0;
+    return 0;
+}

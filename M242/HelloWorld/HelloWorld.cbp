@@ -65,6 +65,10 @@
 			<Add library="DYPS" />
 			<Add directory="src/system/lib/" />
 		</Linker>
+		<Unit filename="src/application/bitMask.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+		</Unit>
 		<Unit filename="src/application/main.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -73,6 +77,14 @@
 			<Option target="Debug" />
 		</Unit>
 		<Unit filename="src/application/mainv1309.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="src/application/mainv2009.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="src/application/mainv2709.c">
 			<Option compilerVar="CC" />
 			<Option target="Debug" />
 		</Unit>

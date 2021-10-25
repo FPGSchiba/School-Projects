@@ -1,4 +1,4 @@
-build\obj\Compile\src\application\main.o: src\application\main.c \
+build\obj\Release\src\application\bitMask.o: src\application\bitMask.c \
  src\application\../system/lib/libDYPS.h \
  src\application\../system/lib/../config.h \
  src\application\../system/lib/../_startup/include/definitions.h \
