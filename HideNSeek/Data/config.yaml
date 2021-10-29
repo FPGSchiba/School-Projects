@@ -1,0 +1,4 @@
+files:
+  maps:
+    city: '{data-dir}/maps/map_city_0.png'
+    labyrinth: '{data-dir}/maps/map_labyrinth_1.png'
