@@ -3,6 +3,8 @@ from PIL import Image
 import numpy as np
 from tqdm import tqdm
 
+from src.function.util.config import Config
+
 np.set_printoptions(threshold=sys.maxsize)
 
 converter = {
@@ -55,3 +57,9 @@ class EnvironmentGenerator:
                     if np.array_equal(self.raw_image[y][x], converter[key]):
                         self.matrix[y, x] = key
         return self.matrix
+
+
+if __name__ == '__main__':
+    CONFIG = Config()
+    env_gen = EnvironmentGenerator(CONFIG.files.maps.test)
+    matrix = env_gen.transform_matrix()

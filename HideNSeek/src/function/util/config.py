@@ -14,6 +14,7 @@ class Maps:
     def __init__(self, data):
         self.city = str(data["files"]["maps"]["city"]).replace(str_data, data_dir)
         self.labyrinth = str(data["files"]["maps"]["labyrinth"]).replace(str_data, data_dir)
+        self.test = str(data["files"]["maps"]["test"]).replace(str_data, data_dir)
 
 
 class Files:
@@ -23,6 +24,6 @@ class Files:
 
 class Config:
     def __init__(self):
-        with open(data_dir + "config.yaml", "r+", encoding="UTF-8") as config_file:
+        with open(data_dir + "/config.yaml", "r+", encoding="UTF-8") as config_file:
             self.data = yaml.load(config_file, yaml.FullLoader)
         self.files = Files(self.data)
