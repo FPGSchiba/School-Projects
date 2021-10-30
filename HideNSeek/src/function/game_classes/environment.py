@@ -80,8 +80,9 @@ class Environment:
         # Update the field :
         self.field.put_hider_on_field(self.hider)
         self.field.update_field(self.player)
+        self.MAX_VAL = 2
 
-        observation = self.field.body
+        observation = self.field.body / self.MAX_VAL
 
         return observation
 
@@ -133,10 +134,10 @@ class Environment:
         if True in lose_conds:
             self.game_over = True
             reward = self.PUNISHMENT
-            return reward, self.game_over, score_increased
+            return self.field.body / self.MAX_VAL, reward, self.game_over, score_increased
 
         # Return New Observation , reward, game_over(bool)
-        return reward, self.game_over, score_increased
+        return self.field.body / self.MAX_VAL, reward, self.game_over, score_increased
 
     def seeker_near_hider(self):
         if self.hider.hider_x - 1 <= self.player.x <= self.hider.hider_x + 1:

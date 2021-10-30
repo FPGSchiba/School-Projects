@@ -1,15 +1,30 @@
 import pandas as pd
 import time
+
+import pygame
 from tqdm import tqdm
 import numpy as np
 from random import choice
 
+from src.function.game_classes.environment import Environment
 from src.function.model.agent import save_model_and_weights, DQNAgent, PATH
 
 TstartTime = time.time()
-EPISODES = 100  # Number of episodes
+
+DISCOUNT = 0.99
+REPLAY_MEMORY_SIZE = 3_000  # How many last steps to keep for model training
+MIN_REPLAY_MEMORY_SIZE = 1_000  # Minimum number of steps in a memory to start training
+UPDATE_TARGET_EVERY = 20  # Terminal states (end of episodes)
+MIN_REWARD = 1000  # For model save
+SAVE_MODEL_EVERY = 100  # Episodes
+SHOW_EVERY = 20  # Episodes
+EPISODES = 9999999999  # Number of episodes
+#  Stats settings
 AGGREGATE_STATS_EVERY = 20  # episodes
-SAVE_MODEL_EVERY = 1000  # Episodes
+SHOW_PREVIEW = False
+######################################################################################
+# Models Arch :
+# [{[conv_list], [dense_list], [util_list], MINIBATCH_SIZE, {EF_Settings}, {ECC_Settings}} ]
 
 models_arch = [{"conv_list": [32], "dense_list": [32, 32], "util_list": ["ECC2", "1A-5Ac"],
                 "MINIBATCH_SIZE": 128, "best_only": False,
@@ -74,8 +89,8 @@ for i, m in enumerate(models_arch):
     best_weights = [agent.model.get_weights()]
 
     # Uncomment these two lines if you want to show preview on your screen
-    # WINDOW          = pygame.display.set_mode((env.WINDOW_WIDTH, env.WINDOW_HEIGHT))
-    # clock           = pygame.time.Clock()
+    WINDOW = pygame.display.set_mode((env.WINDOW_WIDTH, env.WINDOW_HEIGHT))
+    clock = pygame.time.Clock()
 
     # Iterate over episodes
     for episode in tqdm(range(1, EPISODES + 1), ascii=True, unit='episodes'):
@@ -103,15 +118,15 @@ for i, m in enumerate(models_arch):
                 # Get random action
                 action = choice(env.ACTION_SPACE)
 
-            new_state, reward, game_over = env.step(action)
+            new_state, reward, game_over, score_increased = env.step(action, score_increased)
 
             # Transform new continuous state to new discrete state and count reward
             episode_reward += reward
 
             # Uncomment the next block if you want to show preview on your screen
             # if SHOW_PREVIEW and not episode % SHOW_EVERY:
-            #     clock.tick(27)
-            #     env.render(WINDOW)
+            #    clock.tick(27)
+            #    env.render(WINDOW)
 
             # Every step we update replay memory and train main network
             agent.update_replay_memory((current_state, action, reward, new_state, game_over))
@@ -134,7 +149,7 @@ for i, m in enumerate(models_arch):
             # Save models, but only when avg reward is greater or equal a set value
             if not episode % SAVE_MODEL_EVERY:
                 # Save Agent :
-                _ = save_model_and_weights(agent, episode)
+                _ = save_model_and_weights(agent, MODEL_NAME, episode, max_reward, average_reward, min_reward)
 
             if average_reward > best_average:
                 best_average = average_reward
@@ -142,7 +157,8 @@ for i, m in enumerate(models_arch):
                 avg_reward_info.append([episode, best_average, epsilon])
                 eps_no_inc_counter = 0
                 # Save Agent :
-                best_weights[0] = save_model_and_weights(agent, episode)
+                best_weights[0] = save_model_and_weights(agent, MODEL_NAME, episode, max_reward, average_reward,
+                                                         min_reward)
 
             if ECC_Enabled and eps_no_inc_counter >= MAX_EPS_NO_INC:
                 epsilon = avg_reward_info[-1][2]  # Get epsilon value of the last best reward
@@ -154,7 +170,8 @@ for i, m in enumerate(models_arch):
                 max_reward_info.append([episode, best_score, epsilon])
 
                 # Save Agent :
-                best_weights[0] = save_model_and_weights(agent, episode)
+                best_weights[0] = save_model_and_weights(agent, MODEL_NAME, episode, max_reward, average_reward,
+                                                         min_reward)
 
             except:
                 pass
