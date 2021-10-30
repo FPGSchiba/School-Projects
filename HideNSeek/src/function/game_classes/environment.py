@@ -1,14 +1,12 @@
+import math
 import random
-from collections import deque
-from datetime import time, datetime
-from random import randint
 
 import numpy as np
 import pygame
 from src.function.game_classes.field import Field
 from src.function.game_classes.hider import Hider
 from src.function.game_classes.seeker import Player
-from src.function.util.stopwatch import Stopwatch
+from src.function.model.agent import DQNAgent
 from src.function.util.Image2Array import EnvironmentGenerator
 from src.function.util.config import Config
 
@@ -32,49 +30,56 @@ color_dict = {
 
 class Environment:
     P_HEIGHT = 2  # Height of the player
-    F_HEIGHT = 100  # Height of the field
+    HEIGHT = 100  # Height of the field
     WIDTH = 100  # Width of the field and the walls
     HEIGHT_MUL = 20  # Height Multiplier (used to draw np.array as blocks in pygame )
     WIDTH_MUL = 20  # Width Multiplier (used to draw np.array as blocks in pygame )
     WINDOW_HEIGHT = 600  # Height of the pygame window
     WINDOW_WIDTH = 600  # Widh of the pygame window
 
-    ENVIRONMENT_SHAPE = (F_HEIGHT, WIDTH, 1)
+    ENVIRONMENT_SHAPE = (HEIGHT, WIDTH, 1)
     ACTION_SPACE = [0, 1, 2, 3, 4]
     ACTION_SPACE_SIZE = len(ACTION_SPACE)
     PUNISHMENT = -100  # Punishment increment
-    REWARD = 10  # Reward increment
+    REWARD = 50  # Reward increment
     score = 0  # Initial Score
 
     MOVE_WALL_EVERY = 4  # Every how many frames the wall moves.
     MOVE_PLAYER_EVERY = 1  # Every how many frames the player moves.
     frames_counter = 0
 
-    def __init__(self):
+    MINI_BATCH_SIZE = 128
+
+    def __init__(self, human):
+        self.max_moves = math.floor((self.WIDTH + self.HEIGHT) * 0.5)
         self.found = False
-        self.field = self.hider = self.player = None
-        self.stopwatch = Stopwatch()
+        self.field = self.hider = self.player = self.agent = None
         self.generator = EnvironmentGenerator(CONFIG.files.maps.city)
         self.generator.transform_matrix()
-        self.current_state = self.reset()
+        self.conv_list = [32]
+        self.dense_list = [32, 32, 32]
+        self.util_list = ["ECC2", "1A-5Ac"]
+        self.current_state = self.reset(human)
         self.val2color = color_dict
         self.game_over = False
         self.MAX_VAL = 0
 
-    def reset(self):
+    def reset(self, human=True):
         self.frames_counter = 0
         self.game_over = False
         self.found = False
-        self.stopwatch.start()
         self.field = Field(self.generator)
+        if not human:
+            self.agent = DQNAgent("Agent", self, self.conv_list, self.dense_list, self.util_list)
+            self.agent.model.load_weights(CONFIG.files.model)
         old_hider_array = np.argwhere(self.field.body == 21)
         old_seeker_array = np.argwhere(self.field.body == 20)
         for hider_pos in old_hider_array:
             self.field.body[hider_pos[0], hider_pos[1]] = 0
         for seeker_pos in old_seeker_array:
             self.field.body[seeker_pos[0], seeker_pos[1]] = 0
-        hider_x, hider_y = self.find_hider_pos()
-        seeker_x, seeker_y = self.find_hider_pos()
+        hider_y, hider_x = self.find_hider_pos()
+        seeker_y, seeker_x = self.find_hider_pos()
         self.hider = Hider(hider_x=hider_x, hider_y=hider_y, material=21, field=self.field)
         self.player = Player(height=self.P_HEIGHT, x=seeker_x, y=seeker_y, speed=1)
         # Update the field :
@@ -117,6 +122,11 @@ class Environment:
         # Update the field :
         self.field.update_field(self.player)
 
+        reward += self.get_near_reward()
+        self.score += reward
+        if reward != 0:
+            score_increased = True
+
         # If the player passed a wall successfully increase the reward +1
         if self.seeker_near_hider():
             reward += self.REWARD
@@ -128,7 +138,7 @@ class Environment:
         # C1 : The player hits a wall
         # C2 : Player's width was far thinner than hole's width
         # C3 : Player fully consumed its stamina (energy)
-        lose_conds = [self.stopwatch.get_time() >= 30]
+        lose_conds = [self.player.moves >= self.max_moves]
 
         # If one lose condition or more happend, the game ends:
         if True in lose_conds:
@@ -145,6 +155,20 @@ class Environment:
                 return True
         return False
 
+    def get_near_reward(self):
+        if self.player.updated:
+            self.player.updated = False
+            old_delta_y = abs(self.player.old_y - self.hider.hider_y)
+            old_delta_x = abs(self.player.old_x - self.hider.hider_x)
+            delta_y = abs(self.player.y - self.hider.hider_y)
+            delta_x = abs(self.player.x - self.hider.hider_x)
+            old_hype = math.sqrt(old_delta_x ** 2 + old_delta_y ** 2)
+            hype = math.sqrt(delta_x ** 2 + delta_y ** 2)
+            delta_hype = hype - old_hype
+            return delta_hype * - 1
+        else:
+            return 0
+
     def render(self, score_increased, WINDOW=None, human=False):
         if human:
             action = 0
@@ -154,14 +178,17 @@ class Environment:
                     self.game_over = True
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_LEFT:
-                        action = 1
+                        action = 0
                     if event.key == pygame.K_RIGHT:
-                        action = 2
+                        action = 1
                     if event.key == pygame.K_UP:
-                        action = 4
-                    if event.key == pygame.K_DOWN:
                         action = 3
-            reward, self.game_over, score_increased = self.step(action, score_increased)
+                    if event.key == pygame.K_DOWN:
+                        action = 4
+            self.current_state, reward, self.game_over, score_increased = self.step(action, score_increased)
+        # else:
+        #     action = self.agent.get_qs(self.current_state, self)
+        #     self.current_state, reward, self.game_over, score_increased = self.step(action, score_increased)
 
         self.field.update_field(self.player)
         for r in range(self.field.body.shape[0]):
@@ -175,9 +202,9 @@ class Environment:
                     pass
 
         self.print_text(WINDOW=WINDOW, text_cords=(self.WINDOW_WIDTH // 2, int(self.WINDOW_HEIGHT * 0.1)),
-                        text=str(self.score), color=(255, 0, 0), center=True)
+                        text=str(round(self.score, 2)), color=(255, 0, 0), center=True)
         self.print_text(WINDOW=WINDOW, text_cords=(self.WINDOW_WIDTH * 0.8, int(self.WINDOW_HEIGHT * 0.1)),
-                        text=self.stopwatch.get_time_string(), color=(255, 0, 0), center=True)
+                        text=str(self.max_moves - self.player.moves), color=(255, 0, 0), center=True)
 
         pygame.display.update()
         return score_increased

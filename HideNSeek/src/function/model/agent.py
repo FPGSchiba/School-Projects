@@ -6,7 +6,7 @@ from keras.models import Model
 from tensorflow.keras.optimizers import Adam
 import random
 import numpy as np
-from modified import ModifiedTensorBoard
+from src.function.model.modified import ModifiedTensorBoard
 
 # ## Constants:
 # RL Constants:
@@ -155,8 +155,8 @@ class DQNAgent:
 
 
 ######################################################################################
-def save_model_and_weights(agent, episode):
+def save_model_and_weights(agent: DQNAgent, episode):
     checkpoint_name = f"{episode}.model"
-    agent.model.save(f'{PATH}models/{checkpoint_name}')
     best_weights = agent.model.get_weights()
+    agent.model.save_weights(f'{PATH}models/{checkpoint_name}')
     return best_weights

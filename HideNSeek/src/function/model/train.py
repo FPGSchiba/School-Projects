@@ -17,24 +17,25 @@ MIN_REPLAY_MEMORY_SIZE = 1_000  # Minimum number of steps in a memory to start t
 UPDATE_TARGET_EVERY = 20  # Terminal states (end of episodes)
 MIN_REWARD = 1000  # For model save
 SAVE_MODEL_EVERY = 100  # Episodes
-SHOW_EVERY = 20  # Episodes
+SHOW_EVERY = 1  # Episodes
 EPISODES = 9999999999  # Number of episodes
 #  Stats settings
 AGGREGATE_STATS_EVERY = 20  # episodes
-SHOW_PREVIEW = False
+SHOW_PREVIEW = True
+HUMAN = True
 ######################################################################################
 # Models Arch :
 # [{[conv_list], [dense_list], [util_list], MINIBATCH_SIZE, {EF_Settings}, {ECC_Settings}} ]
 
-models_arch = [{"conv_list": [32], "dense_list": [32, 32], "util_list": ["ECC2", "1A-5Ac"],
+models_arch = [{"conv_list": [32], "dense_list": [32, 32], "util_list": ["ECC2", "1A-4Ac"],
                 "MINIBATCH_SIZE": 128, "best_only": False,
                 "EF_Settings": {"EF_Enabled": False}, "ECC_Settings": {"ECC_Enabled": False}},
 
-               {"conv_list": [32], "dense_list": [32, 32, 32], "util_list": ["ECC2", "1A-5Ac"],
+               {"conv_list": [32], "dense_list": [32, 32, 32], "util_list": ["ECC2", "1A-4Ac"],
                 "MINIBATCH_SIZE": 128, "best_only": False,
                 "EF_Settings": {"EF_Enabled": False}, "ECC_Settings": {"ECC_Enabled": False}},
 
-               {"conv_list": [32], "dense_list": [32, 32], "util_list": ["ECC2", "1A-5Ac"],
+               {"conv_list": [32], "dense_list": [32, 32], "util_list": ["ECC2", "1A-4Ac"],
                 "MINIBATCH_SIZE": 128, "best_only": False,
                 "EF_Settings": {"EF_Enabled": True, "FLUCTUATIONS": 2},
                 "ECC_Settings": {"ECC_Enabled": True, "MAX_EPS_NO_INC": int(EPISODES * 0.2)}}]
@@ -80,7 +81,7 @@ for i, m in enumerate(models_arch):
     # For stats
     ep_rewards = [best_average]
 
-    env = Environment()
+    env = Environment(HUMAN)
     env.MOVE_WALL_EVERY = 1  # Every how many frames the wall moves.
 
     agent = DQNAgent(f"M{i}", env, m["conv_list"], m["dense_list"], m["util_list"])
@@ -113,7 +114,6 @@ for i, m in enumerate(models_arch):
             if np.random.random() > epsilon:
                 # Get action from Q table
                 action = np.argmax(agent.get_qs(current_state, env))
-
             else:
                 # Get random action
                 action = choice(env.ACTION_SPACE)
@@ -124,9 +124,10 @@ for i, m in enumerate(models_arch):
             episode_reward += reward
 
             # Uncomment the next block if you want to show preview on your screen
-            # if SHOW_PREVIEW and not episode % SHOW_EVERY:
-            #    clock.tick(27)
-            #    env.render(WINDOW)
+            pygame.display.set_caption("Game")
+            if SHOW_PREVIEW and not episode % SHOW_EVERY:
+                clock.tick(27)
+                env.render(score_increased, WINDOW)
 
             # Every step we update replay memory and train main network
             agent.update_replay_memory((current_state, action, reward, new_state, game_over))
@@ -149,7 +150,7 @@ for i, m in enumerate(models_arch):
             # Save models, but only when avg reward is greater or equal a set value
             if not episode % SAVE_MODEL_EVERY:
                 # Save Agent :
-                _ = save_model_and_weights(agent, MODEL_NAME, episode, max_reward, average_reward, min_reward)
+                _ = save_model_and_weights(agent, episode)
 
             if average_reward > best_average:
                 best_average = average_reward
@@ -157,8 +158,7 @@ for i, m in enumerate(models_arch):
                 avg_reward_info.append([episode, best_average, epsilon])
                 eps_no_inc_counter = 0
                 # Save Agent :
-                best_weights[0] = save_model_and_weights(agent, MODEL_NAME, episode, max_reward, average_reward,
-                                                         min_reward)
+                best_weights[0] = save_model_and_weights(agent, episode)
 
             if ECC_Enabled and eps_no_inc_counter >= MAX_EPS_NO_INC:
                 epsilon = avg_reward_info[-1][2]  # Get epsilon value of the last best reward

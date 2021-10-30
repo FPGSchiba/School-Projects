@@ -6,6 +6,7 @@ project_root_name = "HideNSeek"
 while project_root_name != os.path.split(os.getcwd())[-1]:
     os.chdir("..")
 
+project_dir = os.getcwd()
 data_dir = os.path.join(os.getcwd(), "Data")
 str_data = "{data-dir}"
 
@@ -20,6 +21,7 @@ class Maps:
 class Files:
     def __init__(self, data):
         self.maps = Maps(data)
+        self.model = str(data["files"]["model"]).replace("{project-dir}", project_dir)
 
 
 class Config:
