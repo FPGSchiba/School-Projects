@@ -1,7 +1,7 @@
 /*
  *   Project-Titel: Hello World
- *   File-Name: application/main.c
- *   Description: main.c file for DYPS micro processor.
+ *   File-Name: application/mainv0111.c
+ *   Description: mainv0111.c version file for DYPS micro processor.
  *   Author: Jann Erhardt
  *
  */

@@ -72,6 +72,10 @@
 		<Unit filename="src/application/main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="src/application/mainv0111.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+		</Unit>
 		<Unit filename="src/application/mainv0609.c">
 			<Option compilerVar="CC" />
 			<Option target="Debug" />
