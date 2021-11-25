@@ -17,7 +17,9 @@ int main(void) {
 
     while(1) {
         P1 = 0xff;
-        delay_ms(10);
+        delay_ms(1000);
+        P1 = 0x00;
+        delay_ms(1000);
     }
 
     P1 = 0;
