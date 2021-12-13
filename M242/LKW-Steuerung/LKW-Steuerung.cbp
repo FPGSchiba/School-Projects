@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="HelloWorld" />
+		<Option title="LKW-Steuerung" />
 		<Option pch_mode="2" />
 		<Option compiler="arm-elf-gcc" />
 		<Build>
@@ -65,36 +65,8 @@
 			<Add library="DYPS" />
 			<Add directory="src/system/lib/" />
 		</Linker>
-		<Unit filename="src/application/bitMask.c">
-			<Option compilerVar="CC" />
-			<Option target="Debug" />
-		</Unit>
 		<Unit filename="src/application/main.c">
 			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="src/application/mainv0111.c">
-			<Option compilerVar="CC" />
-			<Option target="Debug" />
-		</Unit>
-		<Unit filename="src/application/mainv0609.c">
-			<Option compilerVar="CC" />
-			<Option target="Debug" />
-		</Unit>
-		<Unit filename="src/application/mainv1309.c">
-			<Option compilerVar="CC" />
-			<Option target="Debug" />
-		</Unit>
-		<Unit filename="src/application/mainv2009.c">
-			<Option compilerVar="CC" />
-			<Option target="Debug" />
-		</Unit>
-		<Unit filename="src/application/mainv2709.c">
-			<Option compilerVar="CC" />
-			<Option target="Debug" />
-		</Unit>
-		<Unit filename="src/application/mainv2911.c">
-			<Option compilerVar="CC" />
-			<Option target="Debug" />
 		</Unit>
 		<Unit filename="src/system/_startup/include/MK22F25612.h" />
 		<Unit filename="src/system/_startup/include/MK22F25612_EXT.h" />

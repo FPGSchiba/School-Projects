@@ -239,7 +239,7 @@ LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc
  .FlashConfig   0x00000400       0x10 build\obj\Release\src\system\_startup\src\startup_MK22F25612.o
                 0x00000410                . = ALIGN (0x4)
 
-.text           0x00000410     0xc484
+.text           0x00000410     0xc4d0
                 0x00000410                . = ALIGN (0x4)
  *(.text)
  .text          0x00000410       0x40 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
@@ -478,155 +478,157 @@ LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc
                 0x00005f08                UARTx_RX_TX_IRQHandler
  *(.text*)
  .text.startup.main
-                0x00005f6c       0x2c build\obj\Release\src\application\main.o
+                0x00005f6c       0x74 build\obj\Release\src\application\main.o
                 0x00005f6c                main
  .text.SystemInit
-                0x00005f98      0x140 build\obj\Release\src\system\_startup\src\system_MK22F25612.o
-                0x00005f98                SystemInit
+                0x00005fe0      0x140 build\obj\Release\src\system\_startup\src\system_MK22F25612.o
+                0x00005fe0                SystemInit
  .text.startup.register_fini
-                0x000060d8       0x14 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__call_atexit.o)
- .text.atexit   0x000060ec        0xc c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-atexit.o)
-                0x000060ec                atexit
+                0x00006120       0x14 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__call_atexit.o)
+ .text.atexit   0x00006134        0xc c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-atexit.o)
+                0x00006134                atexit
  .text.__libc_fini_array
-                0x000060f8       0x2c c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-fini.o)
-                0x000060f8                __libc_fini_array
+                0x00006140       0x2c c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-fini.o)
+                0x00006140                __libc_fini_array
  .text.__retarget_lock_acquire_recursive
-                0x00006124        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
-                0x00006124                __retarget_lock_acquire_recursive
+                0x0000616c        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+                0x0000616c                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x00006128        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
-                0x00006128                __retarget_lock_release_recursive
+                0x00006170        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+                0x00006170                __retarget_lock_release_recursive
  .text.__register_exitproc
-                0x0000612c       0x8c c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__atexit.o)
-                0x0000612c                __register_exitproc
+                0x00006174       0x8c c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__atexit.o)
+                0x00006174                __register_exitproc
  *(.rodata)
- .rodata        0x000061b8     0x3408 src\system\lib\\libDYPS.a(dyps_logo.o)
-                0x000061b8                dyps_header_data
-                0x000092b4                dyps_header_data_cmap
-                0x000095b4                DYPS_LOGO
- .rodata        0x000095c0      0xb48 src\system\lib\\libDYPS.a(fonts.o)
-                0x000095c0                FontDigital
-                0x000095d0                FontDigital_data
-                0x000095fd                FontDigital_column_offset
-                0x00009609                FontDigital_char_width
-                0x00009615                FontSymbols_data
-                0x000096b6                FontSymbols_pixel_offset
-                0x000096c2                FontSymbols_char_width
-                0x000096c8                Font13x16_data
-                0x00009c50                Font13x16_pixel_offset
-                0x00009d10                Font13x16_char_width
-                0x00009d6f                Font8x11_data
-                0x00009fb6                Font8x11_pixel_offset
-                0x0000a076                Font8x11_char_width
-                0x0000a0d8                FontSymbols
-                0x0000a0e8                Font13x16
-                0x0000a0f8                Font8x11
- .rodata        0x0000a108     0x2488 src\system\lib\\libDYPS.a(gate_logo.o)
-                0x0000a108                gate_header_data
-                0x0000c281                gate_header_data_cmap
-                0x0000c584                GATE_LOGO
- .rodata        0x0000c590      0x100 src\system\lib\\libDYPS.a(lcd_basic.o)
-                0x0000c664                ROTATE_PIT_ICON
-                0x0000c66c                FM_SYMBOL
-                0x0000c680                IR_SYMBOL
-                0x0000c688                IPOD_SYMBOL
- .rodata        0x0000c690        0xc src\system\lib\\libDYPS.a(tsc2046.o)
+ .rodata        0x00006200     0x3408 src\system\lib\\libDYPS.a(dyps_logo.o)
+                0x00006200                dyps_header_data
+                0x000092fc                dyps_header_data_cmap
+                0x000095fc                DYPS_LOGO
+ .rodata        0x00009608      0xb48 src\system\lib\\libDYPS.a(fonts.o)
+                0x00009608                FontDigital
+                0x00009618                FontDigital_data
+                0x00009645                FontDigital_column_offset
+                0x00009651                FontDigital_char_width
+                0x0000965d                FontSymbols_data
+                0x000096fe                FontSymbols_pixel_offset
+                0x0000970a                FontSymbols_char_width
+                0x00009710                Font13x16_data
+                0x00009c98                Font13x16_pixel_offset
+                0x00009d58                Font13x16_char_width
+                0x00009db7                Font8x11_data
+                0x00009ffe                Font8x11_pixel_offset
+                0x0000a0be                Font8x11_char_width
+                0x0000a120                FontSymbols
+                0x0000a130                Font13x16
+                0x0000a140                Font8x11
+ .rodata        0x0000a150     0x2488 src\system\lib\\libDYPS.a(gate_logo.o)
+                0x0000a150                gate_header_data
+                0x0000c2c9                gate_header_data_cmap
+                0x0000c5cc                GATE_LOGO
+ .rodata        0x0000c5d8      0x100 src\system\lib\\libDYPS.a(lcd_basic.o)
+                0x0000c6ac                ROTATE_PIT_ICON
+                0x0000c6b4                FM_SYMBOL
+                0x0000c6c8                IR_SYMBOL
+                0x0000c6d0                IPOD_SYMBOL
+ .rodata        0x0000c6d8        0xc src\system\lib\\libDYPS.a(tsc2046.o)
  *(.rodata*)
+ .rodata.main.str1.1
+                0x0000c6e4        0x4 build\obj\Release\src\application\main.o
  .rodata.str1.1
-                0x0000c69c       0x35 src\system\lib\\libDYPS.a(lib.o)
+                0x0000c6e8       0x35 src\system\lib\\libDYPS.a(lib.o)
  .rodata.str1.1
-                0x0000c6d1       0x24 src\system\lib\\libDYPS.a(extensions.o)
+                0x0000c71d       0x24 src\system\lib\\libDYPS.a(extensions.o)
                                  0x3d (size before relaxing)
  .rodata.str1.1
-                0x0000c6f5       0xe0 src\system\lib\\libDYPS.a(lcd_basic.o)
+                0x0000c741       0xe0 src\system\lib\\libDYPS.a(lcd_basic.o)
                                  0xf9 (size before relaxing)
  .rodata.str1.1
-                0x0000c7d5       0x92 src\system\lib\\libDYPS.a(tsc2046.o)
+                0x0000c821       0x92 src\system\lib\\libDYPS.a(tsc2046.o)
  .rodata.str1.1
-                0x0000c867        0xe src\system\lib\\libDYPS.a(uart.o)
+                0x0000c8b3        0xe src\system\lib\\libDYPS.a(uart.o)
                                  0x11 (size before relaxing)
- *fill*         0x0000c875        0x3 
+ *fill*         0x0000c8c1        0x3 
  .rodata._global_impure_ptr
-                0x0000c878        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-impure.o)
-                0x0000c878                _global_impure_ptr
+                0x0000c8c4        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-impure.o)
+                0x0000c8c4                _global_impure_ptr
  *(.glue_7)
- .glue_7        0x0000c87c        0x0 linker stubs
+ .glue_7        0x0000c8c8        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0000c87c        0x0 linker stubs
+ .glue_7t       0x0000c8c8        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x0000c87c        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
+ .eh_frame      0x0000c8c8        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
  *(.init)
- .init          0x0000c87c        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crti.o
-                0x0000c87c                _init
- .init          0x0000c880        0x8 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtn.o
+ .init          0x0000c8c8        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crti.o
+                0x0000c8c8                _init
+ .init          0x0000c8cc        0x8 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtn.o
  *(.fini)
- .fini          0x0000c888        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crti.o
-                0x0000c888                _fini
- .fini          0x0000c88c        0x8 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtn.o
-                0x0000c894                . = ALIGN (0x4)
+ .fini          0x0000c8d4        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crti.o
+                0x0000c8d4                _fini
+ .fini          0x0000c8d8        0x8 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtn.o
+                0x0000c8e0                . = ALIGN (0x4)
 
-.vfp11_veneer   0x0000c894        0x0
- .vfp11_veneer  0x0000c894        0x0 linker stubs
+.vfp11_veneer   0x0000c8e0        0x0
+ .vfp11_veneer  0x0000c8e0        0x0 linker stubs
 
-.v4_bx          0x0000c894        0x0
- .v4_bx         0x0000c894        0x0 linker stubs
+.v4_bx          0x0000c8e0        0x0
+ .v4_bx         0x0000c8e0        0x0 linker stubs
 
-.iplt           0x0000c894        0x0
- .iplt          0x0000c894        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
+.iplt           0x0000c8e0        0x0
+ .iplt          0x0000c8e0        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
 
-.rel.dyn        0x0000c894        0x0
- .rel.iplt      0x0000c894        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
+.rel.dyn        0x0000c8e0        0x0
+ .rel.iplt      0x0000c8e0        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x0000c894        0x0
-                0x0000c894                __exidx_start = .
+.ARM            0x0000c8e0        0x0
+                0x0000c8e0                __exidx_start = .
  *(.ARM.exidx*)
-                0x0000c894                __exidx_end = .
+                0x0000c8e0                __exidx_end = .
 
-.ctors          0x0000c894        0x0
-                0x0000c894                __CTOR_LIST__ = .
+.ctors          0x0000c8e0        0x0
+                0x0000c8e0                __CTOR_LIST__ = .
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
  *(SORT_BY_NAME(.ctors.*))
  *(.ctors)
-                0x0000c894                __CTOR_END__ = .
+                0x0000c8e0                __CTOR_END__ = .
 
-.dtors          0x0000c894        0x0
-                0x0000c894                __DTOR_LIST__ = .
+.dtors          0x0000c8e0        0x0
+                0x0000c8e0                __DTOR_LIST__ = .
  *crtbegin.o(.dtors)
  *crtbegin?.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .dtors)
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
-                0x0000c894                __DTOR_END__ = .
+                0x0000c8e0                __DTOR_END__ = .
 
-.preinit_array  0x0000c894        0x0
-                0x0000c894                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x0000c8e0        0x0
+                0x0000c8e0                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x0000c894                PROVIDE (__preinit_array_end = .)
+                0x0000c8e0                PROVIDE (__preinit_array_end = .)
 
-.init_array     0x0000c894        0x8
-                0x0000c894                PROVIDE (__init_array_start = .)
+.init_array     0x0000c8e0        0x8
+                0x0000c8e0                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  .init_array.00000
-                0x0000c894        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__call_atexit.o)
+                0x0000c8e0        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__call_atexit.o)
  *(.init_array*)
- .init_array    0x0000c898        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
-                0x0000c89c                PROVIDE (__init_array_end = .)
+ .init_array    0x0000c8e4        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
+                0x0000c8e8                PROVIDE (__init_array_end = .)
 
-.fini_array     0x0000c89c        0x4
-                0x0000c89c                PROVIDE (__fini_array_start = .)
+.fini_array     0x0000c8e8        0x4
+                0x0000c8e8                PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x0000c89c        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
-                0x0000c8a0                PROVIDE (__fini_array_end = .)
-                0x0000c8a0                __etext = .
-                0x0000c8a0                __DATA_ROM = .
+ .fini_array    0x0000c8e8        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
+                0x0000c8ec                PROVIDE (__fini_array_end = .)
+                0x0000c8ec                __etext = .
+                0x0000c8ec                __DATA_ROM = .
 
-.data           0x1fffc000      0xa34 load address 0x0000c8a0
+.data           0x1fffc000      0xa34 load address 0x0000c8ec
                 0x1fffc000                . = ALIGN (0x4)
                 0x1fffc000                __DATA_RAM = .
                 0x1fffc000                __data_start__ = .
@@ -662,12 +664,12 @@ LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc
  *(.jcr*)
                 0x1fffca34                . = ALIGN (0x4)
                 0x1fffca34                __data_end__ = .
-                0x0000d2d4                __DATA_END = (__DATA_ROM + (__data_end__ - __data_start__))
+                0x0000d320                __DATA_END = (__DATA_ROM + (__data_end__ - __data_start__))
 
-.igot.plt       0x1fffca34        0x0 load address 0x0000d2d4
+.igot.plt       0x1fffca34        0x0 load address 0x0000d320
  .igot.plt      0x1fffca34        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
 
-.bss            0x1fffca34      0x570 load address 0x0000d2d4
+.bss            0x1fffca34      0x574 load address 0x0000d320
                 0x1fffca34                . = ALIGN (0x4)
                 0x1fffca34                __START_BSS = .
                 0x1fffca34                __bss_start__ = .
@@ -688,17 +690,24 @@ LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc
  *fill*         0x1fffca73        0x1 
  .bss           0x1fffca74       0x2c src\system\lib\\libDYPS.a(tsc2046.o)
  *(.bss*)
+ .bss.Aus       0x1fffcaa0        0x1 build\obj\Release\src\application\main.o
+                0x1fffcaa0                Aus
+ .bss.Ein       0x1fffcaa1        0x1 build\obj\Release\src\application\main.o
+                0x1fffcaa1                Ein
+ .bss.Zustand   0x1fffcaa2        0x1 build\obj\Release\src\application\main.o
+                0x1fffcaa2                Zustand
+ *fill*         0x1fffcaa3        0x1 
  .bss.__lock___atexit_recursive_mutex
-                0x1fffcaa0        0x1 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
-                0x1fffcaa0                __lock___atexit_recursive_mutex
+                0x1fffcaa4        0x1 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+                0x1fffcaa4                __lock___atexit_recursive_mutex
  *(COMMON)
- COMMON         0x1fffcaa1      0x500 src\system\lib\\libDYPS.a(uart.o)
-                0x1fffcaa1                Uart0_RX_Buffer
-                0x1fffcba1                Uart0_TX_Buffer
-                0x1fffcfa4                . = ALIGN (0x4)
- *fill*         0x1fffcfa1        0x3 
-                0x1fffcfa4                __bss_end__ = .
-                0x1fffcfa4                __END_BSS = .
+ COMMON         0x1fffcaa5      0x500 src\system\lib\\libDYPS.a(uart.o)
+                0x1fffcaa5                Uart0_RX_Buffer
+                0x1fffcba5                Uart0_TX_Buffer
+                0x1fffcfa8                . = ALIGN (0x4)
+ *fill*         0x1fffcfa5        0x3 
+                0x1fffcfa8                __bss_end__ = .
+                0x1fffcfa8                __END_BSS = .
 
 .heap           0x20000000      0x400
                 0x20000000                . = ALIGN (0x8)
