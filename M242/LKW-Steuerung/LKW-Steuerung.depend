@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1595316259 source:d:\projects\school-work\m242\lkw-steuerung\src\system\_startup\src\startup_mk22f25612.s
+
+1595316259 source:d:\projects\school-work\m242\lkw-steuerung\src\system\_startup\src\system_mk22f25612.c
+	<stdint.h>
+	"MK22F25612.h"
+
+1595316259 d:\projects\school-work\m242\lkw-steuerung\src\system\_startup\include\mk22f25612.h
+	<stdint.h>
+	"core_cm4.h"
+	"system_MK22F25612.h"
+
+1595316259 d:\projects\school-work\m242\lkw-steuerung\src\system\_startup\include\cmsis\core_cm4.h
+	<stdint.h>
+	"core_cmInstr.h"
+	"core_cmFunc.h"
+	"core_cm4_simd.h"
+
+1595316259 d:\projects\school-work\m242\lkw-steuerung\src\system\_startup\include\cmsis\core_cminstr.h
+	<cmsis_iar.h>
+	<cmsis_ccs.h>
+	<cmsis_csm.h>
+
+1595316259 d:\projects\school-work\m242\lkw-steuerung\src\system\_startup\include\cmsis\core_cmfunc.h
+	<cmsis_iar.h>
+	<cmsis_ccs.h>
+	<cmsis_csm.h>
+
+1595316259 d:\projects\school-work\m242\lkw-steuerung\src\system\_startup\include\cmsis\core_cm4_simd.h
+	<cmsis_iar.h>
+	<cmsis_ccs.h>
+	<cmsis_csm.h>
+
+1595316259 d:\projects\school-work\m242\lkw-steuerung\src\system\_startup\include\system_mk22f25612.h
+	<stdint.h>
+

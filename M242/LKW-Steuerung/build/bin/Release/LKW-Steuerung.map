@@ -1,0 +1,885 @@
+Archive member included to satisfy reference by file (symbol)
+
+src\system\lib\\libDYPS.a(lib.o)
+                              build\obj\Release\src\application\main.o (delay_ms)
+src\system\lib\\libDYPS.a(p0p1shell.o)
+                              build\obj\Release\src\application\main.o (initP0P1)
+src\system\lib\\libDYPS.a(timer.o)
+                              src\system\lib\\libDYPS.a(p0p1shell.o) (driver_PIT_Init)
+src\system\lib\\libDYPS.a(buzzer.o)
+                              src\system\lib\\libDYPS.a(p0p1shell.o) (driver_buzzer_init)
+src\system\lib\\libDYPS.a(extensions.o)
+                              src\system\lib\\libDYPS.a(p0p1shell.o) (dyps_initExtTouch)
+src\system\lib\\libDYPS.a(gpio.o)
+                              src\system\lib\\libDYPS.a(p0p1shell.o) (driver_GPIO_initP0)
+src\system\lib\\libDYPS.a(i2c.o)
+                              src\system\lib\\libDYPS.a(extensions.o) (driver_i2c_init)
+src\system\lib\\libDYPS.a(dyps_logo.o)
+                              src\system\lib\\libDYPS.a(lib.o) (DYPS_LOGO)
+src\system\lib\\libDYPS.a(fonts.o)
+                              src\system\lib\\libDYPS.a(p0p1shell.o) (FontSymbols)
+src\system\lib\\libDYPS.a(gate_logo.o)
+                              src\system\lib\\libDYPS.a(lib.o) (GATE_LOGO)
+src\system\lib\\libDYPS.a(lcd_basic.o)
+                              src\system\lib\\libDYPS.a(p0p1shell.o) (lcd_setOrientation)
+src\system\lib\\libDYPS.a(tsc2046.o)
+                              src\system\lib\\libDYPS.a(extensions.o) (tsc_init)
+src\system\lib\\libDYPS.a(spi.o)
+                              src\system\lib\\libDYPS.a(extensions.o) (driver_spi_init)
+src\system\lib\\libDYPS.a(uart.o)
+                              src\system\lib\\libDYPS.a(extensions.o) (driver_uart_initialized)
+c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-exit.o)
+                              c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/crt0.o (exit)
+c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-impure.o)
+                              c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-exit.o) (_global_impure_ptr)
+c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-init.o)
+                              c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/crt0.o (__libc_init_array)
+c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-memset.o)
+                              c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/crt0.o (memset)
+c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__call_atexit.o)
+                              c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-exit.o) (__call_exitprocs)
+c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-atexit.o)
+                              c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__call_atexit.o) (atexit)
+c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-fini.o)
+                              c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__call_atexit.o) (__libc_fini_array)
+c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+                              c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__call_atexit.o) (__retarget_lock_acquire_recursive)
+c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__atexit.o)
+                              c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-atexit.o) (__register_exitproc)
+
+Allocating common symbols
+Common symbol       size              file
+
+Uart0_RX_Buffer     0x100             src\system\lib\\libDYPS.a(uart.o)
+Uart0_TX_Buffer     0x400             src\system\lib\\libDYPS.a(uart.o)
+
+Discarded input sections
+
+ .text          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crti.o
+ .data          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crti.o
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crti.o
+ .data          0x00000000        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
+ .rodata        0x00000000       0x24 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
+ .text          0x00000000       0x7c c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/crt0.o
+ .data          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/crt0.o
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/crt0.o
+ .ARM.extab     0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/crt0.o
+ .ARM.exidx     0x00000000       0x10 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/crt0.o
+ .ARM.attributes
+                0x00000000       0x1c c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/crt0.o
+ .text          0x00000000        0x0 build\obj\Release\src\application\main.o
+ .data          0x00000000        0x0 build\obj\Release\src\application\main.o
+ .bss           0x00000000        0x0 build\obj\Release\src\application\main.o
+ .text.vBlinker
+                0x00000000       0x10 build\obj\Release\src\application\main.o
+ .text.vAusgabeGang
+                0x00000000       0x10 build\obj\Release\src\application\main.o
+ .bss.zBliner   0x00000000        0x1 build\obj\Release\src\application\main.o
+ .bss.zGang     0x00000000        0x1 build\obj\Release\src\application\main.o
+ .bss.zHupe     0x00000000        0x1 build\obj\Release\src\application\main.o
+ .bss.zPower    0x00000000        0x1 build\obj\Release\src\application\main.o
+ .bss.zRichtung
+                0x00000000        0x1 build\obj\Release\src\application\main.o
+ .bss.zSchein   0x00000000        0x1 build\obj\Release\src\application\main.o
+ .data          0x00000000        0x0 build\obj\Release\src\system\_startup\src\startup_MK22F25612.o
+ .bss           0x00000000        0x0 build\obj\Release\src\system\_startup\src\startup_MK22F25612.o
+ .text          0x00000000        0x0 build\obj\Release\src\system\_startup\src\system_MK22F25612.o
+ .data          0x00000000        0x0 build\obj\Release\src\system\_startup\src\system_MK22F25612.o
+ .bss           0x00000000        0x0 build\obj\Release\src\system\_startup\src\system_MK22F25612.o
+ .text.SystemCoreClockUpdate
+                0x00000000      0x160 build\obj\Release\src\system\_startup\src\system_MK22F25612.o
+ .data.SystemCoreClock
+                0x00000000        0x4 build\obj\Release\src\system\_startup\src\system_MK22F25612.o
+ .data          0x00000000        0x0 src\system\lib\\libDYPS.a(lib.o)
+ .bss           0x00000000        0x0 src\system\lib\\libDYPS.a(lib.o)
+ COMMON         0x00000000        0x0 src\system\lib\\libDYPS.a(lib.o)
+ .data          0x00000000        0x0 src\system\lib\\libDYPS.a(timer.o)
+ .data          0x00000000        0x0 src\system\lib\\libDYPS.a(buzzer.o)
+ .data          0x00000000        0x0 src\system\lib\\libDYPS.a(extensions.o)
+ .bss           0x00000000        0x0 src\system\lib\\libDYPS.a(extensions.o)
+ .data          0x00000000        0x0 src\system\lib\\libDYPS.a(gpio.o)
+ .bss           0x00000000        0x0 src\system\lib\\libDYPS.a(gpio.o)
+ .data          0x00000000        0x0 src\system\lib\\libDYPS.a(i2c.o)
+ .bss           0x00000000        0x0 src\system\lib\\libDYPS.a(i2c.o)
+ .text          0x00000000        0x0 src\system\lib\\libDYPS.a(dyps_logo.o)
+ .data          0x00000000        0x0 src\system\lib\\libDYPS.a(dyps_logo.o)
+ .bss           0x00000000        0x0 src\system\lib\\libDYPS.a(dyps_logo.o)
+ .text          0x00000000        0x0 src\system\lib\\libDYPS.a(fonts.o)
+ .data          0x00000000        0x0 src\system\lib\\libDYPS.a(fonts.o)
+ .bss           0x00000000        0x0 src\system\lib\\libDYPS.a(fonts.o)
+ .text          0x00000000        0x0 src\system\lib\\libDYPS.a(gate_logo.o)
+ .data          0x00000000        0x0 src\system\lib\\libDYPS.a(gate_logo.o)
+ .bss           0x00000000        0x0 src\system\lib\\libDYPS.a(gate_logo.o)
+ .data          0x00000000        0x0 src\system\lib\\libDYPS.a(spi.o)
+ .bss           0x00000000        0x0 src\system\lib\\libDYPS.a(spi.o)
+ .bss           0x00000000        0x0 src\system\lib\\libDYPS.a(uart.o)
+ .text          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-exit.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-exit.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-exit.o)
+ .text.exit     0x00000000       0x20 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-exit.o)
+ .debug_frame   0x00000000       0x28 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-exit.o)
+ .ARM.attributes
+                0x00000000       0x2e c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-impure.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-impure.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-impure.o)
+ .data._impure_ptr
+                0x00000000        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-impure.o)
+ .text          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-init.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-init.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-init.o)
+ .text.__libc_init_array
+                0x00000000       0x48 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-init.o)
+ .debug_frame   0x00000000       0x2c c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-init.o)
+ .ARM.attributes
+                0x00000000       0x2e c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-init.o)
+ .text          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-memset.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-memset.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-memset.o)
+ .text.memset   0x00000000       0xa4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-memset.o)
+ .debug_frame   0x00000000       0x2c c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-memset.o)
+ .ARM.attributes
+                0x00000000       0x2e c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-memset.o)
+ .text          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__call_atexit.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__call_atexit.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__call_atexit.o)
+ .text.__call_exitprocs
+                0x00000000       0xc4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__call_atexit.o)
+ .debug_frame   0x00000000       0x5c c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__call_atexit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-atexit.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-atexit.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-atexit.o)
+ .debug_frame   0x00000000       0x20 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-atexit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-fini.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-fini.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-fini.o)
+ .debug_frame   0x00000000       0x34 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-fini.o)
+ .text          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+ .text.__retarget_lock_init
+                0x00000000        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+ .text.__retarget_lock_init_recursive
+                0x00000000        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+ .text.__retarget_lock_close
+                0x00000000        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+ .text.__retarget_lock_close_recursive
+                0x00000000        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+ .text.__retarget_lock_acquire
+                0x00000000        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+ .text.__retarget_lock_try_acquire
+                0x00000000        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+ .text.__retarget_lock_try_acquire_recursive
+                0x00000000        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+ .text.__retarget_lock_release
+                0x00000000        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+ .bss.__lock___arc4random_mutex
+                0x00000000        0x1 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+ .bss.__lock___at_quick_exit_mutex
+                0x00000000        0x1 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+ .bss.__lock___dd_hash_mutex
+                0x00000000        0x1 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+ .bss.__lock___env_recursive_mutex
+                0x00000000        0x1 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+ .bss.__lock___malloc_recursive_mutex
+                0x00000000        0x1 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+ .bss.__lock___sfp_recursive_mutex
+                0x00000000        0x1 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+ .bss.__lock___sinit_recursive_mutex
+                0x00000000        0x1 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+ .bss.__lock___tz_mutex
+                0x00000000        0x1 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+ .debug_frame   0x00000000       0xb0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+ .text          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__atexit.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__atexit.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__atexit.o)
+ .debug_frame   0x00000000       0x34 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__atexit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtend.o
+ .data          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtend.o
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtend.o
+ .rodata        0x00000000       0x24 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtend.o
+ .eh_frame      0x00000000        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtend.o
+ .ARM.attributes
+                0x00000000       0x2e c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtend.o
+ .text          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtn.o
+ .data          0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtn.o
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtn.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+m_interrupts     0x00000000         0x00000400         xr
+m_flash_config   0x00000400         0x00000010         xr
+m_text           0x00000410         0x0003fbf0         xr
+m_data           0x1fffc000         0x00004000         rw
+m_data_2         0x20000000         0x00008000         rw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crti.o
+LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
+LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/crt0.o
+LOAD build\obj\Release\src\application\main.o
+LOAD build\obj\Release\src\system\_startup\src\startup_MK22F25612.o
+LOAD build\obj\Release\src\system\_startup\src\system_MK22F25612.o
+LOAD src\system\lib\\libDYPS.a
+LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libstdc++.a
+LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libm.a
+LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a
+START GROUP
+LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a
+LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a
+END GROUP
+LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtend.o
+LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtn.o
+                0x00000400                HEAP_SIZE = DEFINED (__heap_size__)?__heap_size__:0x400
+                0x00000400                STACK_SIZE = DEFINED (__stack_size__)?__stack_size__:0x400
+
+.interrupts     0x00000000      0x400
+                0x00000000                __VECTOR_TABLE = .
+                0x00000000                . = ALIGN (0x4)
+ *(.isr_vector)
+ .isr_vector    0x00000000      0x400 build\obj\Release\src\system\_startup\src\startup_MK22F25612.o
+                0x00000000                __isr_vector
+                0x00000400                . = ALIGN (0x4)
+
+.flash_config   0x00000400       0x10
+                0x00000400                . = ALIGN (0x4)
+ *(.FlashConfig)
+ .FlashConfig   0x00000400       0x10 build\obj\Release\src\system\_startup\src\startup_MK22F25612.o
+                0x00000410                . = ALIGN (0x4)
+
+.text           0x00000410     0xc7a8
+                0x00000410                . = ALIGN (0x4)
+ *(.text)
+ .text          0x00000410       0x40 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
+ .text          0x00000450       0x48 build\obj\Release\src\system\_startup\src\startup_MK22F25612.o
+                0x00000450                Reset_Handler
+                0x00000494                Reserved54_IRQHandler
+                0x00000494                DebugMon_Handler
+                0x00000494                Reserved88_IRQHandler
+                0x00000494                I2C0_IRQHandler
+                0x00000494                HardFault_Handler
+                0x00000494                Reserved86_IRQHandler
+                0x00000494                Reserved85_IRQHandler
+                0x00000494                SysTick_Handler
+                0x00000494                PendSV_Handler
+                0x00000494                NMI_Handler
+                0x00000494                I2C1_IRQHandler
+                0x00000494                DMA2_IRQHandler
+                0x00000494                Reserved99_IRQHandler
+                0x00000494                LLWU_IRQHandler
+                0x00000494                Reserved84_IRQHandler
+                0x00000494                Reserved92_IRQHandler
+                0x00000494                UART2_RX_TX_IRQHandler
+                0x00000494                SWI_IRQHandler
+                0x00000494                ADC0_IRQHandler
+                0x00000494                UsageFault_Handler
+                0x00000494                I2S0_Tx_IRQHandler
+                0x00000494                SPI1_IRQHandler
+                0x00000494                DefaultISR
+                0x00000494                DMA9_IRQHandler
+                0x00000494                DMA14_IRQHandler
+                0x00000494                Reserved82_IRQHandler
+                0x00000494                CMP1_IRQHandler
+                0x00000494                Reserved71_IRQHandler
+                0x00000494                PORTD_IRQHandler
+                0x00000494                PORTB_IRQHandler
+                0x00000494                Reserved70_IRQHandler
+                0x00000494                ADC1_IRQHandler
+                0x00000494                PIT2_IRQHandler
+                0x00000494                I2S0_Rx_IRQHandler
+                0x00000494                Reserved53_IRQHandler
+                0x00000494                DMA5_IRQHandler
+                0x00000494                RTC_IRQHandler
+                0x00000494                PDB0_IRQHandler
+                0x00000494                Reserved96_IRQHandler
+                0x00000494                FTM1_IRQHandler
+                0x00000494                Reserved61_IRQHandler
+                0x00000494                Reserved95_IRQHandler
+                0x00000494                PIT3_IRQHandler
+                0x00000494                RTC_Seconds_IRQHandler
+                0x00000494                MCG_IRQHandler
+                0x00000494                UART2_ERR_IRQHandler
+                0x00000494                DMA11_IRQHandler
+                0x00000494                Read_Collision_IRQHandler
+                0x00000494                Reserved98_IRQHandler
+                0x00000494                DMA7_IRQHandler
+                0x00000494                Reserved101_IRQHandler
+                0x00000494                USB0_IRQHandler
+                0x00000494                WDOG_EWM_IRQHandler
+                0x00000494                MemManage_Handler
+                0x00000494                Reserved90_IRQHandler
+                0x00000494                Reserved83_IRQHandler
+                0x00000494                SVC_Handler
+                0x00000494                DMA13_IRQHandler
+                0x00000494                DMA3_IRQHandler
+                0x00000494                Reserved100_IRQHandler
+                0x00000494                RNG_IRQHandler
+                0x00000494                DMA0_IRQHandler
+                0x00000494                Reserved97_IRQHandler
+                0x00000494                Reserved91_IRQHandler
+                0x00000494                LPUART0_IRQHandler
+                0x00000494                DMA15_IRQHandler
+                0x00000494                DAC0_IRQHandler
+                0x00000494                Reserved81_IRQHandler
+                0x00000494                Reserved94_IRQHandler
+                0x00000494                DMA4_IRQHandler
+                0x00000494                PIT1_IRQHandler
+                0x00000494                UART0_ERR_IRQHandler
+                0x00000494                DMA_Error_IRQHandler
+                0x00000494                LVD_LVW_IRQHandler
+                0x00000494                SPI0_IRQHandler
+                0x00000494                FTM0_IRQHandler
+                0x00000494                PORTA_IRQHandler
+                0x00000494                MCM_IRQHandler
+                0x00000494                DMA12_IRQHandler
+                0x00000494                PORTE_IRQHandler
+                0x00000494                FTM2_IRQHandler
+                0x00000494                BusFault_Handler
+                0x00000494                Reserved87_IRQHandler
+                0x00000494                DMA8_IRQHandler
+                0x00000494                Reserved93_IRQHandler
+                0x00000494                DMA10_IRQHandler
+                0x00000494                UART1_ERR_IRQHandler
+                0x00000494                UART1_RX_TX_IRQHandler
+                0x00000494                CMP0_IRQHandler
+                0x00000494                PORTC_IRQHandler
+                0x00000494                DMA6_IRQHandler
+                0x00000494                FTF_IRQHandler
+                0x00000494                DMA1_IRQHandler
+ .text          0x00000498      0x214 src\system\lib\\libDYPS.a(lib.o)
+                0x00000498                libdyps_getVersionsStr
+                0x000004a0                libdyps_getVersion
+                0x000004a8                delay_ms
+                0x000004c2                delay_us
+                0x000004da                memcpy
+                0x000004f2                mem_cmp
+                0x00000518                itoa
+                0x00000578                itoaComma
+                0x0000065c                itoh
+ .text          0x000006ac     0x2114 src\system\lib\\libDYPS.a(p0p1shell.o)
+                0x000006ac                initP0P1
+                0x000006dc                setOrientation
+                0x000007a4                handleTouch
+                0x00000efc                refreshP0P1
+                0x00001154                setTouchP0
+                0x00001178                clearTouchP0
+                0x000011b4                drawPit
+                0x0000126c                drawButton
+                0x000012b2                drawP0P1Pits
+                0x000016f0                printCtrls
+                0x00001808                initTouchP0P1
+                0x00001b10                P0P1Service
+                0x000024b0                pitPressed
+                0x000024ee                setPortCaption
+                0x0000254c                setP0Caption
+                0x0000257c                setP1Caption
+                0x000025ac                setPortBitColors
+                0x000026cc                setP0Colors
+                0x000026e8                setP1Colors
+                0x00002704                setP0SwitchType
+                0x00002774                setP0SwitchTypeMask
+                0x000027b8                initP3
+                0x000027bc                initP4
+ .text          0x000027c0      0x15c src\system\lib\\libDYPS.a(timer.o)
+                0x000027c0                driver_TIMER_Init
+                0x0000286c                driver_PIT_Init
+                0x000028b8                PIT0_IRQHandler
+                0x000028f8                LPTMR0_IRQHandler
+ .text          0x0000291c      0x108 src\system\lib\\libDYPS.a(buzzer.o)
+                0x0000291c                TPM_init
+                0x0000299c                driver_buzzer_init
+                0x000029d4                driver_backlight_set
+                0x000029fc                driver_backlight_init
+ .text          0x00002a24      0x258 src\system\lib\\libDYPS.a(extensions.o)
+                0x00002a24                dyps_initExtTouch
+                0x00002b28                dyps_initExtTrafficLight
+                0x00002b3a                dyps_initExtSenso
+                0x00002c2c                dyps_initDebugInterface
+                0x00002c60                dyps_writeDebugMsg
+ .text          0x00002c7c      0x390 src\system\lib\\libDYPS.a(gpio.o)
+                0x00002c7c                driver_GPIO_initP0
+                0x00002cf0                driver_GPIO_initP1
+                0x00002d68                driver_GPIO_initP3
+                0x00002eac                driver_GPIO_initP4
+                0x00002ff0                driver_GPIO_edgeTriggering
+ .text          0x0000300c      0x358 src\system\lib\\libDYPS.a(i2c.o)
+                0x0000300c                driver_i2c_init
+                0x00003068                I2C_pause
+                0x00003080                I2C_wait
+                0x000030a4                I2C_send
+                0x000030b0                I2C_receive
+                0x000030c0                I2C_startTransmission
+                0x000031ac                driver_i2c_checkSlave
+                0x000031c8                driver_i2c_write
+                0x0000320c                driver_i2c_writeRegisterCont
+                0x0000325c                driver_i2c_writeRegister
+                0x00003270                driver_i2c_readRegister
+                0x00003274                driver_i2c_readRegisterCont
+                0x00003282                driver_i2c_writeReadCont
+ .text          0x00003364     0x1e74 src\system\lib\\libDYPS.a(lcd_basic.o)
+                0x00003364                lcd_spi_init
+                0x000033cc                lcd_sleep
+                0x00003460                lcd_wakeup
+                0x000034f4                lcd_setContrast
+                0x000034f6                lcd_getContrast
+                0x00003500                lcd_setOrientation
+                0x000037c8                lcd_getOrientation
+                0x000037d4                lcd_setAddress
+                0x00003970                lcd_setPixel
+                0x00003b34                lcd_drawCircle
+                0x00003c4a                lcd_drawRect
+                0x00003f18                lcd_drawLine
+                0x0000403c                lcd_drawMark
+                0x0000409c                lcd_drawRectFullHeight
+                0x000040bc                lcd_drawRectFullHidth
+                0x000040e0                lcd_clear
+                0x00004100                lcd_setColorFont
+                0x0000410c                lcd_getColorFont
+                0x00004118                lcd_setColorBackground
+                0x00004124                lcd_getColorBackground
+                0x00004130                lcd_getTheme
+                0x0000413c                lcd_setTheme
+                0x00004148                lcd_drawGimpImg
+                0x00004360                lcd_setFont
+                0x00004378                lcd_getFont
+                0x00004384                lcd_getFontHeight
+                0x00004390                lcd_writeChar
+                0x0000491e                lcd_getStringWidth
+                0x00004960                lcd_writeString
+                0x00004990                lcd_writeStringCenter
+                0x000049b8                lcd_init
+                0x00004c24                lcd_writeInt
+                0x00004c70                lcd_drawBitmap
+                0x00004f38                lcd_writeDigit
+                0x00005024                lcd_drawBattery
+ .text          0x000051d8      0x654 src\system\lib\\libDYPS.a(tsc2046.o)
+                0x0000526c                tsc_init
+                0x000052d4                tsc_getIRQ
+                0x000052e8                tsc_spiReadPos
+                0x000053d8                tsc_averageXY
+                0x00005404                tsc_getXY
+                0x00005538                tsc_getCalibData
+                0x00005606                tsc_setCalibrationData
+                0x00005620                tsc_calibrate
+ .text          0x0000582c       0xd8 src\system\lib\\libDYPS.a(spi.o)
+                0x0000582c                driver_spi_init
+                0x00005888                driver_spi_writeRead
+                0x000058b8                driver_spi_writeReadCont
+                0x000058e2                driver_spi_writeCont
+ .text          0x00005904      0x668 src\system\lib\\libDYPS.a(uart.o)
+                0x00005904                get_uart_buffer
+                0x00005920                driver_uart_initialized
+                0x00005938                driver_uart_init
+                0x000059e8                driver_uart_send_arr
+                0x00005a80                driver_uart_send_txt
+                0x00005a96                driver_uart_get_receive_cnt
+                0x00005ac8                driver_uart_send_val8
+                0x00005b54                driver_uart_send_hex
+                0x00005bac                driver_uart_send_val16
+                0x00005c38                driver_uart_send_val32
+                0x00005cc0                driver_uart_get_char
+                0x00005d04                driver_uart_search_pattern
+                0x00005d74                driver_uart_search_pattern_variable
+                0x00005dec                driver_uart_get_received
+                0x00005e4c                driver_uart_feed_forward
+                0x00005e78                UART0_RX_TX_IRQHandler
+                0x00005f08                UARTx_RX_TX_IRQHandler
+ *(.text*)
+ .text.vTempo   0x00005f6c       0x28 build\obj\Release\src\application\main.o
+                0x00005f6c                vTempo
+ .text.vRichtung
+                0x00005f94       0x1c build\obj\Release\src\application\main.o
+                0x00005f94                vRichtung
+ .text.vAusgabeTempo
+                0x00005fb0       0x40 build\obj\Release\src\application\main.o
+                0x00005fb0                vAusgabeTempo
+ .text.vAusgabeSteuerung
+                0x00005ff0       0x34 build\obj\Release\src\application\main.o
+                0x00005ff0                vAusgabeSteuerung
+ .text.vAusgabeBlinker
+                0x00006024       0x48 build\obj\Release\src\application\main.o
+                0x00006024                vAusgabeBlinker
+ .text.vAusgabeSchein
+                0x0000606c       0x50 build\obj\Release\src\application\main.o
+                0x0000606c                vAusgabeSchein
+ .text.startup.main
+                0x000060bc      0x200 build\obj\Release\src\application\main.o
+                0x000060bc                main
+ .text.SystemInit
+                0x000062bc      0x140 build\obj\Release\src\system\_startup\src\system_MK22F25612.o
+                0x000062bc                SystemInit
+ .text.startup.register_fini
+                0x000063fc       0x14 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__call_atexit.o)
+ .text.atexit   0x00006410        0xc c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-atexit.o)
+                0x00006410                atexit
+ .text.__libc_fini_array
+                0x0000641c       0x2c c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-fini.o)
+                0x0000641c                __libc_fini_array
+ .text.__retarget_lock_acquire_recursive
+                0x00006448        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+                0x00006448                __retarget_lock_acquire_recursive
+ .text.__retarget_lock_release_recursive
+                0x0000644c        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+                0x0000644c                __retarget_lock_release_recursive
+ .text.__register_exitproc
+                0x00006450       0x8c c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__atexit.o)
+                0x00006450                __register_exitproc
+ *(.rodata)
+ .rodata        0x000064dc     0x3408 src\system\lib\\libDYPS.a(dyps_logo.o)
+                0x000064dc                dyps_header_data
+                0x000095d8                dyps_header_data_cmap
+                0x000098d8                DYPS_LOGO
+ .rodata        0x000098e4      0xb48 src\system\lib\\libDYPS.a(fonts.o)
+                0x000098e4                FontDigital
+                0x000098f4                FontDigital_data
+                0x00009921                FontDigital_column_offset
+                0x0000992d                FontDigital_char_width
+                0x00009939                FontSymbols_data
+                0x000099da                FontSymbols_pixel_offset
+                0x000099e6                FontSymbols_char_width
+                0x000099ec                Font13x16_data
+                0x00009f74                Font13x16_pixel_offset
+                0x0000a034                Font13x16_char_width
+                0x0000a093                Font8x11_data
+                0x0000a2da                Font8x11_pixel_offset
+                0x0000a39a                Font8x11_char_width
+                0x0000a3fc                FontSymbols
+                0x0000a40c                Font13x16
+                0x0000a41c                Font8x11
+ .rodata        0x0000a42c     0x2488 src\system\lib\\libDYPS.a(gate_logo.o)
+                0x0000a42c                gate_header_data
+                0x0000c5a5                gate_header_data_cmap
+                0x0000c8a8                GATE_LOGO
+ .rodata        0x0000c8b4      0x100 src\system\lib\\libDYPS.a(lcd_basic.o)
+                0x0000c988                ROTATE_PIT_ICON
+                0x0000c990                FM_SYMBOL
+                0x0000c9a4                IR_SYMBOL
+                0x0000c9ac                IPOD_SYMBOL
+ .rodata        0x0000c9b4        0xc src\system\lib\\libDYPS.a(tsc2046.o)
+ *(.rodata*)
+ .rodata.str1.1
+                0x0000c9c0       0x35 src\system\lib\\libDYPS.a(lib.o)
+ .rodata.str1.1
+                0x0000c9f5       0x24 src\system\lib\\libDYPS.a(extensions.o)
+                                 0x3d (size before relaxing)
+ .rodata.str1.1
+                0x0000ca19       0xe0 src\system\lib\\libDYPS.a(lcd_basic.o)
+                                 0xf9 (size before relaxing)
+ .rodata.str1.1
+                0x0000caf9       0x92 src\system\lib\\libDYPS.a(tsc2046.o)
+ .rodata.str1.1
+                0x0000cb8b        0xe src\system\lib\\libDYPS.a(uart.o)
+                                 0x11 (size before relaxing)
+ *fill*         0x0000cb99        0x3 
+ .rodata._global_impure_ptr
+                0x0000cb9c        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-impure.o)
+                0x0000cb9c                _global_impure_ptr
+ *(.glue_7)
+ .glue_7        0x0000cba0        0x0 linker stubs
+ *(.glue_7t)
+ .glue_7t       0x0000cba0        0x0 linker stubs
+ *(.eh_frame)
+ .eh_frame      0x0000cba0        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
+ *(.init)
+ .init          0x0000cba0        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crti.o
+                0x0000cba0                _init
+ .init          0x0000cba4        0x8 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtn.o
+ *(.fini)
+ .fini          0x0000cbac        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crti.o
+                0x0000cbac                _fini
+ .fini          0x0000cbb0        0x8 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtn.o
+                0x0000cbb8                . = ALIGN (0x4)
+
+.vfp11_veneer   0x0000cbb8        0x0
+ .vfp11_veneer  0x0000cbb8        0x0 linker stubs
+
+.v4_bx          0x0000cbb8        0x0
+ .v4_bx         0x0000cbb8        0x0 linker stubs
+
+.iplt           0x0000cbb8        0x0
+ .iplt          0x0000cbb8        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
+
+.rel.dyn        0x0000cbb8        0x0
+ .rel.iplt      0x0000cbb8        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
+
+.ARM.extab
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+
+.ARM            0x0000cbb8        0x0
+                0x0000cbb8                __exidx_start = .
+ *(.ARM.exidx*)
+                0x0000cbb8                __exidx_end = .
+
+.ctors          0x0000cbb8        0x0
+                0x0000cbb8                __CTOR_LIST__ = .
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
+ *(SORT_BY_NAME(.ctors.*))
+ *(.ctors)
+                0x0000cbb8                __CTOR_END__ = .
+
+.dtors          0x0000cbb8        0x0
+                0x0000cbb8                __DTOR_LIST__ = .
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o *crtend?.o) .dtors)
+ *(SORT_BY_NAME(.dtors.*))
+ *(.dtors)
+                0x0000cbb8                __DTOR_END__ = .
+
+.preinit_array  0x0000cbb8        0x0
+                0x0000cbb8                PROVIDE (__preinit_array_start = .)
+ *(.preinit_array*)
+                0x0000cbb8                PROVIDE (__preinit_array_end = .)
+
+.init_array     0x0000cbb8        0x8
+                0x0000cbb8                PROVIDE (__init_array_start = .)
+ *(SORT_BY_NAME(.init_array.*))
+ .init_array.00000
+                0x0000cbb8        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__call_atexit.o)
+ *(.init_array*)
+ .init_array    0x0000cbbc        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
+                0x0000cbc0                PROVIDE (__init_array_end = .)
+
+.fini_array     0x0000cbc0        0x4
+                0x0000cbc0                PROVIDE (__fini_array_start = .)
+ *(SORT_BY_NAME(.fini_array.*))
+ *(.fini_array*)
+ .fini_array    0x0000cbc0        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
+                0x0000cbc4                PROVIDE (__fini_array_end = .)
+                0x0000cbc4                __etext = .
+                0x0000cbc4                __DATA_ROM = .
+
+.data           0x1fffc000      0xa44 load address 0x0000cbc4
+                0x1fffc000                . = ALIGN (0x4)
+                0x1fffc000                __DATA_RAM = .
+                0x1fffc000                __data_start__ = .
+ *(.data)
+ .data          0x1fffc000      0x580 src\system\lib\\libDYPS.a(p0p1shell.o)
+                0x1fffc000                RefreshPit
+                0x1fffc02c                ClearLeftPit
+                0x1fffc058                ClearAllPit
+                0x1fffc084                TypePit
+                0x1fffc0b0                RotatePit
+                0x1fffc0dc                ExchP0P1Pit
+                0x1fffc108                MSBLSBPit
+                0x1fffc134                P0SW
+                0x1fffc294                P0Icon
+                0x1fffc3f4                P1LED
+                0x1fffc554                TouchP0
+                0x1fffc560                TilePos
+ .data          0x1fffc580       0x20 src\system\lib\\libDYPS.a(lcd_basic.o)
+                0x1fffc580                d_theme
+                0x1fffc584                d_font
+                0x1fffc588                display_ili9341
+                0x1fffc594                display_st7789
+ .data          0x1fffc5a0       0x20 src\system\lib\\libDYPS.a(tsc2046.o)
+                0x1fffc5a0                tsc_data
+ .data          0x1fffc5c0       0x48 src\system\lib\\libDYPS.a(uart.o)
+                0x1fffc5c0                Uart_Controls
+ *(.data*)
+ .data.blinkerMax
+                0x1fffc608        0x4 build\obj\Release\src\application\main.o
+                0x1fffc608                blinkerMax
+ .data.iTempo   0x1fffc60c        0x1 build\obj\Release\src\application\main.o
+                0x1fffc60c                iTempo
+ *fill*         0x1fffc60d        0x3 
+ .data.scheinMax
+                0x1fffc610        0x4 build\obj\Release\src\application\main.o
+                0x1fffc610                scheinMax
+ *fill*         0x1fffc614        0x4 
+ .data.impure_data
+                0x1fffc618      0x428 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-impure.o)
+ .data.__atexit_recursive_mutex
+                0x1fffca40        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__call_atexit.o)
+                0x1fffca40                __atexit_recursive_mutex
+ *(.jcr*)
+                0x1fffca44                . = ALIGN (0x4)
+                0x1fffca44                __data_end__ = .
+                0x0000d608                __DATA_END = (__DATA_ROM + (__data_end__ - __data_start__))
+
+.igot.plt       0x1fffca44        0x0 load address 0x0000d608
+ .igot.plt      0x1fffca44        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
+
+.bss            0x1fffca44      0x594 load address 0x0000d608
+                0x1fffca44                . = ALIGN (0x4)
+                0x1fffca44                __START_BSS = .
+                0x1fffca44                __bss_start__ = .
+ *(.bss)
+ .bss           0x1fffca44       0x1c c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
+ .bss           0x1fffca60        0xa src\system\lib\\libDYPS.a(p0p1shell.o)
+                0x1fffca60                p0p1Shell
+ *fill*         0x1fffca6a        0x2 
+ .bss           0x1fffca6c        0x8 src\system\lib\\libDYPS.a(timer.o)
+                0x1fffca6c                tmr_fkt
+                0x1fffca70                pit_fkt
+ .bss           0x1fffca74        0x1 src\system\lib\\libDYPS.a(buzzer.o)
+                0x1fffca74                tpmInitialized
+ *fill*         0x1fffca75        0x1 
+ .bss           0x1fffca76        0xd src\system\lib\\libDYPS.a(lcd_basic.o)
+                0x1fffca76                display
+                0x1fffca82                d_use_monospace
+ *fill*         0x1fffca83        0x1 
+ .bss           0x1fffca84       0x2c src\system\lib\\libDYPS.a(tsc2046.o)
+ *(.bss*)
+ .bss.aBlinker  0x1fffcab0        0x1 build\obj\Release\src\application\main.o
+                0x1fffcab0                aBlinker
+ .bss.aGang     0x1fffcab1        0x1 build\obj\Release\src\application\main.o
+                0x1fffcab1                aGang
+ .bss.aHupe     0x1fffcab2        0x1 build\obj\Release\src\application\main.o
+                0x1fffcab2                aHupe
+ .bss.aPower    0x1fffcab3        0x1 build\obj\Release\src\application\main.o
+                0x1fffcab3                aPower
+ .bss.aRichtung
+                0x1fffcab4        0x1 build\obj\Release\src\application\main.o
+                0x1fffcab4                aRichtung
+ .bss.aSchein   0x1fffcab5        0x1 build\obj\Release\src\application\main.o
+                0x1fffcab5                aSchein
+ .bss.aTempo    0x1fffcab6        0x1 build\obj\Release\src\application\main.o
+                0x1fffcab6                aTempo
+ *fill*         0x1fffcab7        0x1 
+ .bss.blinkerCount
+                0x1fffcab8        0x4 build\obj\Release\src\application\main.o
+                0x1fffcab8                blinkerCount
+ .bss.eBlinker  0x1fffcabc        0x1 build\obj\Release\src\application\main.o
+                0x1fffcabc                eBlinker
+ .bss.eGang     0x1fffcabd        0x1 build\obj\Release\src\application\main.o
+                0x1fffcabd                eGang
+ .bss.eHupe     0x1fffcabe        0x1 build\obj\Release\src\application\main.o
+                0x1fffcabe                eHupe
+ .bss.ePower    0x1fffcabf        0x1 build\obj\Release\src\application\main.o
+                0x1fffcabf                ePower
+ .bss.eRichtungL
+                0x1fffcac0        0x1 build\obj\Release\src\application\main.o
+                0x1fffcac0                eRichtungL
+ .bss.eRichtungR
+                0x1fffcac1        0x1 build\obj\Release\src\application\main.o
+                0x1fffcac1                eRichtungR
+ .bss.eSchein   0x1fffcac2        0x1 build\obj\Release\src\application\main.o
+                0x1fffcac2                eSchein
+ .bss.eTempo    0x1fffcac3        0x1 build\obj\Release\src\application\main.o
+                0x1fffcac3                eTempo
+ .bss.iRückBlinked
+                0x1fffcac4        0x4 build\obj\Release\src\application\main.o
+                0x1fffcac4                iRückBlinked
+ .bss.iRückBlinkend
+                0x1fffcac8        0x1 build\obj\Release\src\application\main.o
+                0x1fffcac8                iRückBlinkend
+ *fill*         0x1fffcac9        0x3 
+ .bss.scheinCount
+                0x1fffcacc        0x4 build\obj\Release\src\application\main.o
+                0x1fffcacc                scheinCount
+ .bss.zTempo    0x1fffcad0        0x1 build\obj\Release\src\application\main.o
+                0x1fffcad0                zTempo
+ *fill*         0x1fffcad1        0x3 
+ .bss.__lock___atexit_recursive_mutex
+                0x1fffcad4        0x1 c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+                0x1fffcad4                __lock___atexit_recursive_mutex
+ *(COMMON)
+ COMMON         0x1fffcad5      0x500 src\system\lib\\libDYPS.a(uart.o)
+                0x1fffcad5                Uart0_RX_Buffer
+                0x1fffcbd5                Uart0_TX_Buffer
+                0x1fffcfd8                . = ALIGN (0x4)
+ *fill*         0x1fffcfd5        0x3 
+                0x1fffcfd8                __bss_end__ = .
+                0x1fffcfd8                __END_BSS = .
+
+.heap           0x20000000      0x400
+                0x20000000                . = ALIGN (0x8)
+                0x20000000                __end__ = .
+                [!provide]                PROVIDE (end = .)
+                0x20000000                __HeapBase = .
+                0x20000400                . = (. + HEAP_SIZE)
+ *fill*         0x20000000      0x400 
+                0x20000400                __HeapLimit = .
+
+.stack          0x20000400      0x400
+                0x20000400                . = ALIGN (0x8)
+                0x20000800                . = (. + STACK_SIZE)
+ *fill*         0x20000400      0x400 
+                0x20008000                __StackTop = (ORIGIN (m_data_2) + LENGTH (m_data_2))
+                0x20007c00                __StackLimit = (__StackTop - STACK_SIZE)
+                0x20008000                PROVIDE (__stack = __StackTop)
+
+.ARM.attributes
+                0x00000000       0x2a
+ *(.ARM.attributes)
+ .ARM.attributes
+                0x00000000       0x1e c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crti.o
+ .ARM.attributes
+                0x0000001e       0x2e c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
+ .ARM.attributes
+                0x0000004c       0x2e build\obj\Release\src\application\main.o
+ .ARM.attributes
+                0x0000007a       0x1b build\obj\Release\src\system\_startup\src\startup_MK22F25612.o
+ .ARM.attributes
+                0x00000095       0x2e build\obj\Release\src\system\_startup\src\system_MK22F25612.o
+ .ARM.attributes
+                0x000000c3       0x33 src\system\lib\\libDYPS.a(lib.o)
+ .ARM.attributes
+                0x000000f6       0x33 src\system\lib\\libDYPS.a(p0p1shell.o)
+ .ARM.attributes
+                0x00000129       0x33 src\system\lib\\libDYPS.a(timer.o)
+ .ARM.attributes
+                0x0000015c       0x33 src\system\lib\\libDYPS.a(buzzer.o)
+ .ARM.attributes
+                0x0000018f       0x33 src\system\lib\\libDYPS.a(extensions.o)
+ .ARM.attributes
+                0x000001c2       0x33 src\system\lib\\libDYPS.a(gpio.o)
+ .ARM.attributes
+                0x000001f5       0x33 src\system\lib\\libDYPS.a(i2c.o)
+ .ARM.attributes
+                0x00000228       0x33 src\system\lib\\libDYPS.a(dyps_logo.o)
+ .ARM.attributes
+                0x0000025b       0x33 src\system\lib\\libDYPS.a(fonts.o)
+ .ARM.attributes
+                0x0000028e       0x33 src\system\lib\\libDYPS.a(gate_logo.o)
+ .ARM.attributes
+                0x000002c1       0x33 src\system\lib\\libDYPS.a(lcd_basic.o)
+ .ARM.attributes
+                0x000002f4       0x33 src\system\lib\\libDYPS.a(tsc2046.o)
+ .ARM.attributes
+                0x00000327       0x33 src\system\lib\\libDYPS.a(spi.o)
+ .ARM.attributes
+                0x0000035a       0x33 src\system\lib\\libDYPS.a(uart.o)
+ .ARM.attributes
+                0x0000038d       0x2e c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-impure.o)
+ .ARM.attributes
+                0x000003bb       0x2e c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__call_atexit.o)
+ .ARM.attributes
+                0x000003e9       0x2e c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-atexit.o)
+ .ARM.attributes
+                0x00000417       0x2e c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-fini.o)
+ .ARM.attributes
+                0x00000445       0x2e c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-lock.o)
+ .ARM.attributes
+                0x00000473       0x2e c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc.a(lib_a-__atexit.o)
+ .ARM.attributes
+                0x000004a1       0x1e c:/program files (x86)/gnu arm embedded toolchain/10 2021.07/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtn.o
+                0x00000001                ASSERT ((__StackLimit >= __HeapLimit), region m_data_2 overflowed with stack and heap)
+OUTPUT(build\bin\Release\LKW-Steuerung.elf elf32-littlearm)
+LOAD linker stubs
+
+.comment        0x00000000       0x74
+ .comment       0x00000000       0x49 build\obj\Release\src\application\main.o
+                                 0x4a (size before relaxing)
+ .comment       0x00000049       0x4a build\obj\Release\src\system\_startup\src\system_MK22F25612.o
+ .comment       0x00000049       0x2b src\system\lib\\libDYPS.a(lib.o)
+                                 0x2c (size before relaxing)
+ .comment       0x00000074       0x2c src\system\lib\\libDYPS.a(p0p1shell.o)
+ .comment       0x00000074       0x2c src\system\lib\\libDYPS.a(timer.o)
+ .comment       0x00000074       0x2c src\system\lib\\libDYPS.a(buzzer.o)
+ .comment       0x00000074       0x2c src\system\lib\\libDYPS.a(extensions.o)
+ .comment       0x00000074       0x2c src\system\lib\\libDYPS.a(gpio.o)
+ .comment       0x00000074       0x2c src\system\lib\\libDYPS.a(i2c.o)
+ .comment       0x00000074       0x2c src\system\lib\\libDYPS.a(dyps_logo.o)
+ .comment       0x00000074       0x2c src\system\lib\\libDYPS.a(fonts.o)
+ .comment       0x00000074       0x2c src\system\lib\\libDYPS.a(gate_logo.o)
+ .comment       0x00000074       0x2c src\system\lib\\libDYPS.a(lcd_basic.o)
+ .comment       0x00000074       0x2c src\system\lib\\libDYPS.a(tsc2046.o)
+ .comment       0x00000074       0x2c src\system\lib\\libDYPS.a(spi.o)
+ .comment       0x00000074       0x2c src\system\lib\\libDYPS.a(uart.o)
