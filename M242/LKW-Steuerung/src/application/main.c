@@ -3,11 +3,15 @@
  *    Projetct-Name: LKW-Steuerung
  **************************************************************
  *    Chages:
- *     - Init (03.01.2021)
+ *     - Init (03.01.2022)
  *       * Implemented Zustände
  *       * Implemented Varialbes
  *       * Implemented Eingabe
  *       * Implemented Verarbeitung
+ *     - Ausgabe (10.01.2022)
+ *       * Implemented Ausgabe
+ *     - Fixes (17.01.2022)
+ *       * Fixed Speed Incrementor
  **************************************************************
  */
 
@@ -71,31 +75,7 @@ int scheinMax = 10;
 
 /* FUNKTIONEN   *
  * VERARBEITUNG *
- * Tempo        */
-int vTempo (int zTempo, int eTempo, int zGang) {
-    switch (eTempo) {
-        case tempoNull:
-            return eTempo;
-        case tempoLangsam:
-            return eTempo;
-        case tempoNormal:
-            if (zGang != gangForwards){
-                return eTempo;
-            } else {
-                return zTempo;
-            }
-        case tempoSchnell:
-            if (zGang != gangForwards){
-                return eTempo;
-            } else {
-                return zTempo;
-            }
-        default:
-            return tempoNull;
-    }
-}
-
-/* Richtung */
+ * Richtung     */
 int vRichtung(int RL, int RR) {
     if (RL & !RR) {
         return richtungLinks;
@@ -263,22 +243,21 @@ int main( void ) {
             /* Gang */
             aGang = eGang;
             /* Tempo */
-            aTempo = zTempo;
             if (eTempo & iTempo) {
                 iTempo = false;
                 int zNewTempo;
-                if (aGang == gangForwards & zTempo >= tempoSchnell) {
+                if ((aGang == gangForwards) & (zTempo >= tempoSchnell)) {
                     zNewTempo = tempoNull;
-                } else if (aGang == gangBackwards & zTempo >= tempoLangsam) {
+                } else if ((aGang == gangBackwards) & (zTempo >= tempoLangsam)) {
                     zNewTempo = tempoNull;
                 } else {
                     zNewTempo = zTempo + 1;
                 }
-                aTempo = vTempo(zTempo, zNewTempo, aGang);
-                zTempo = aTempo;
+                zTempo = zNewTempo;
             } else if (!eTempo) {
                 iTempo = true;
             }
+            aTempo = zTempo;
             /* Richtung */
             aRichtung = vRichtung(eRichtungL, eRichtungR);
             /* Blinker */
@@ -291,7 +270,8 @@ int main( void ) {
             aPower = powerOFF;
         }
 
-        /* AUSGABE */
+        /* AUSGABE *
+         * Power   */
         if (aPower) {
             iRückBlinkend = vAusgabeGang(aGang, aTempo);
             if (iRückBlinkend) {
@@ -301,15 +281,22 @@ int main( void ) {
                 } else {
                     P1_7 = 0;
                     iRückBlinked++;
-                    if (iRückBlinked < 200){
+                    if (iRückBlinked > 200) {
                         iRückBlinked = 0;
                     }
                 }
+            } else {
+                P1_7 = 0;
             }
+            /* Tempo */
             vAusgabeTempo(aTempo);
+            /* Richtung */
             vAusgabeSteuerung(aRichtung);
+            /* Blinker */
             blinkerCount = vAusgabeBlinker(aBlinker, blinkerCount);
+            /* Schein */
             scheinCount = vAusgabeSchein(aSchein, scheinCount);
+            /* Hupe */
             P1_0 = aHupe;
         } else {
             P1 = 0;
