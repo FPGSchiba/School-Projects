@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-test-deploy
+  namespace: default
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      bb: web-test
+  template:
+    metadata:
+      labels:
+        bb: web-test
+    spec:
+      containers:
+      - name: web-test-app
+        image: ubuntu/apache2
+        ports:
+        - containerPort: 80
