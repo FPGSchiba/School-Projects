@@ -36,8 +36,7 @@ const flows:Flow[] = [
     }
 ]
 
-const selectDialog = new SelectDialog(flows, MAIN_WATERFALL_DIALOG)
-const dialog = new MainDialog(flows, selectDialog);
+const dialog = new MainDialog(flows);
 const bot = new FlowBot(conversationState, userState, dialog);
 
 app.post( "/api/messages", ( req, res ) => {

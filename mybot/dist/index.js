@@ -18,7 +18,6 @@ const Bot_1 = require("./bots/Bot");
 const bookingDialog_1 = require("./dialogs/bookingDialog");
 const welcomeDialog_1 = require("./dialogs/welcomeDialog");
 const mainDialog_1 = require("./dialogs/mainDialog");
-const selectDialog_1 = require("./dialogs/selectDialog");
 require('source-map-support').install();
 const MAIN_WATERFALL_DIALOG = 'mainWaterfallDialog';
 const app = express_1.default();
@@ -43,8 +42,7 @@ const flows = [
         Entry: ["Example Flow"]
     }
 ];
-const selectDialog = new selectDialog_1.SelectDialog(flows, MAIN_WATERFALL_DIALOG);
-const dialog = new mainDialog_1.MainDialog(flows, selectDialog);
+const dialog = new mainDialog_1.MainDialog(flows);
 const bot = new Bot_1.FlowBot(conversationState, userState, dialog);
 app.post("/api/messages", (req, res) => {
     adapter.processActivity(req, res, (context) => __awaiter(void 0, void 0, void 0, function* () {

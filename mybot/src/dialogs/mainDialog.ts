@@ -18,12 +18,10 @@ const TEXT_PROMPT = 'TextPrompt'
 export class MainDialog extends ComponentDialog {
 
     private flows: Flow[]
-    private selectDialogID: string
 
-    constructor(Flows: Flow[], dialog: SelectDialog) {
+    constructor(Flows: Flow[]) {
         super('MainDialog');
 
-        this.selectDialogID = dialog.id;
         this.flows = Flows;
 
         if (!Flows) throw new Error('[MainDialog]: Missing parameter \'Flows\' is required');

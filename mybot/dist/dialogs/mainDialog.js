@@ -16,9 +16,8 @@ const botbuilder_dialogs_2 = require("botbuilder-dialogs");
 const MAIN_WATERFALL_DIALOG = 'mainWaterfallDialog';
 const TEXT_PROMPT = 'TextPrompt';
 class MainDialog extends botbuilder_dialogs_2.ComponentDialog {
-    constructor(Flows, dialog) {
+    constructor(Flows) {
         super('MainDialog');
-        this.selectDialogID = dialog.id;
         this.flows = Flows;
         if (!Flows)
             throw new Error('[MainDialog]: Missing parameter \'Flows\' is required');
