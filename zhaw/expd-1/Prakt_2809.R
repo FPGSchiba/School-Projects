@@ -201,6 +201,7 @@ tab <- table(dat$Q00_Schlafzimmer)
 barplot(tab, col = 'skyblue3', main = 'Schlafzimmer Stockwerk', las=2, ylab='Anzahl')
 
 # G
-tab <- table(sort(dat$Q00_Postleitzahl))
-
+vec_plz <- sort(as.numeric(dat$Q00_Postleitzahl))
+vec_plz
+tab <- table(vec_plz)
 barplot(tab, col = 'skyblue3', ylab = 'Anzahl', cex.names = 0.7)
