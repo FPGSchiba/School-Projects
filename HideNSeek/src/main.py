@@ -3,7 +3,7 @@ from time import sleep
 import pygame
 from src.function.game_classes.environment import Environment
 
-human = True
+human = False
 env = Environment(human=human)
 # Change wall speed to 3 (one step every 3 frames)
 env.MOVE_WALL_EVERY = 5

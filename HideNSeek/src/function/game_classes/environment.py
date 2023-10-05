@@ -63,15 +63,17 @@ class Environment:
         self.val2color = color_dict
         self.game_over = False
         self.MAX_VAL = 0
+        self.agent = DQNAgent("Agent", self, self.conv_list, self.dense_list, self.util_list)
 
-    def reset(self, human=True):
+    def reset(self, human=True, train=False):
         self.frames_counter = 0
         self.game_over = False
         self.found = False
         self.field = Field(self.generator)
         if not human:
             self.agent = DQNAgent("Agent", self, self.conv_list, self.dense_list, self.util_list)
-            self.agent.model.load_weights(CONFIG.files.model)
+            if not train:
+                self.agent.model.load_weights(CONFIG.files.model)
         old_hider_array = np.argwhere(self.field.body == 21)
         old_seeker_array = np.argwhere(self.field.body == 20)
         for hider_pos in old_hider_array:
@@ -108,7 +110,7 @@ class Environment:
             textRect.y = text_cords[1]
         WINDOW.blit(text_to_print, textRect)
 
-    def step(self, action, score_increased):
+    def step(self, action: int, score_increased):
         self.frames_counter += 1
         reward = 0
 
@@ -178,17 +180,19 @@ class Environment:
                     self.game_over = True
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_LEFT:
-                        action = 0
-                    if event.key == pygame.K_RIGHT:
                         action = 1
+                    if event.key == pygame.K_RIGHT:
+                        action = 2
                     if event.key == pygame.K_UP:
                         action = 3
                     if event.key == pygame.K_DOWN:
                         action = 4
             self.current_state, reward, self.game_over, score_increased = self.step(action, score_increased)
-        # else:
-        #     action = self.agent.get_qs(self.current_state, self)
-        #     self.current_state, reward, self.game_over, score_increased = self.step(action, score_increased)
+        else:
+            actions = self.agent.get_qs(self.current_state, self)
+            action = np.max(actions)
+            action = np.where((action == actions))[0][0]
+            self.current_state, reward, self.game_over, score_increased = self.step(action, score_increased)
 
         self.field.update_field(self.player)
         for r in range(self.field.body.shape[0]):
@@ -212,3 +216,4 @@ class Environment:
 
 if __name__ == '__main__':
     env = Environment()
+
