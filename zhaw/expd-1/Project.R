@@ -1,8 +1,16 @@
 # ---- Aufgabe 1 ----
 csv_path <- paste(getwd(), '/data/BEV322OD3222.csv')
-dat <- read.csv('.//data/BEV322OD3222.csv')
+dat <- read.csv('./data/BEV322OD3222.csv')
 
 str(dat)
+# --- Variablentypen ---
+# StichtagDatJahr: TBD
+# DatenstandCd   : TBD
+# HerkunftCd     : TBD
+# HerkunftLang   : TBD
+# SexCd          : TBD
+# SexLang        : TBD
+# AnzBestWir     : TBD
 dat
 
 unbekannt <- dat[dat$SexLang == "unbekannt",]
