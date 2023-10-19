@@ -87,5 +87,6 @@ if pm_costs_percent > 12:
 
 if pm_costs_percent < 8:
     print(f'Project Manager uses to little budget: {pm_costs_percent:.2f}%')
+    sys.exit(1)
 
 print(f'Specialist Hours Per Month: {specialist_hours_per_month:.2f} hours')
