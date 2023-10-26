@@ -11,12 +11,14 @@ dat
 # A
 dat$cyl <- factor(dat$cyl, levels = c('two', 'four', 'six', 'eight', 'twelve'))
 
-mosaicplot(table(dat$cyl, dat$wheels), las = 2, xlab = "Number of Cylinders", ylab = "Antriebsart", col = c("orange", "orange3", "tomato", "tomato3", "beige", "brown1"))
+mosaicplot(table(dat$cyl, dat$wheels), las = 2, xlab = "Number of Cylinders", ylab = "Antriebsart", col = c("orange", "orange3", "tomato"))
 
 # B
-barplot(table(dat$cyl, dat$wheels), ylab = "Relative Häufigkeit", legend.text = T, col = c("orange", "orange3", "tomato", "tomato3", "beige", "brown1"))
+barplot(table(dat$wheels, dat$cyl), ylab = "Absolute Häufigkeit", legend.text = T, col = c("orange", "orange3", "tomato"))
 
-barplot(table(dat$cyl, dat$wheels), ylab = "Relative Häufigkeit", legend.text = T, col = c("orange", "orange3", "tomato", "tomato3", "beige", "brown1"), beside = T)
+length(dat$wheels)
+length(dat$cyl)
+barplot(table(dat$wheels, dat$cyl), ylab = "Absolute Häufigkeit", legend.text = T, col = c("orange", "orange3", "tomato"), beside = T)
 
 # C
 par(mfrow=c(1,1))
@@ -30,17 +32,22 @@ dat <- read.xlsx('./data/datDS23t.xlsx')
 
 # A
 str(dat)
-quantile(dat$anreisezeit_an_die_zhaw, na.rm = T) # 30 minuten
+quantile(dat$anreisezeit_an_die_zhaw, na.rm = T) # 30 minuten -> Wrong look at 75% Quantile, because it needs to be above that, so: 55 minuten
 
 # B
 ?quantile
-quantile(dat$anreisezeit_an_die_zhaw, probs = c(0.9), na.rm = T)
+quantile(dat$anreisezeit_an_die_zhaw, probs = c(0.9), na.rm = T) # Nein nur 67 Minuten
+# Andere Lösung:
+ecdf(dat$anreisezeit_an_die_zhaw)(75) # Ergibt die Prozent, die weniger Zeit braucht
+# Andere Lösung
+sum(dat$anreisezeit_an_die_zhaw > 75, na.rm = T) / sum(!is.na(dat$anreisezeit_an_die_zhaw))
 
 # C
 boxplot(dat$anreisezeit_an_die_zhaw)
 hist(dat$anreisezeit_an_die_zhaw)
 
 # geht beides, es sind stetische Daten
+# Unimodal -> Kann einfach mit Boxplot darzustellen
 
 # D
 dat$programmierkenntnisse <- factor(dat$programmierkenntnisse, levels = c('nicht vorhanden', 'gering', 'mittel', 'gross'))

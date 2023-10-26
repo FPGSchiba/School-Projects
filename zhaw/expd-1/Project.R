@@ -130,10 +130,37 @@ kreis_12 <- sum(data[data$KreisLang == "Kreis 12" & data$StichtagDatJahr == 2022
 kreise <- c(rep("Kreis 1", kreis_1), rep("Kreis 2", kreis_2), rep("Kreis 3", kreis_3), rep("Kreis 4", kreis_4), rep("Kreis 5", kreis_5), rep("Kreis 6", kreis_6), rep("Kreis 7", kreis_7), rep("Kreis 8", kreis_8), rep("Kreis 9", kreis_9), rep("Kreis 10", kreis_10), rep("Kreis 11", kreis_11), rep("Kreis 12", kreis_12))
 kreise_fact <- factor(kreise, levels = c("Kreis 1", "Kreis 2", "Kreis 3", "Kreis 4", "Kreis 5", "Kreis 6", "Kreis 7", "Kreis 8", "Kreis 9", "Kreis 10", "Kreis 11", "Kreis 12"), ordered = T)
 
-barplot(table(kreise_fact), col = c("green4"), xlab = "Kreise", ylab = "Anzahl Minderjähriger", main = "Anzahl Minderjähriger in der Stadt Zürich pro Kreis in 2022")
+barplot(table(kreise_fact), col = c("green4"), ylab = "Anzahl Minderjähriger", main = "Anzahl Minderjähriger in der Stadt Zürich pro Kreis in 2022", las = 2)
 
 # Modus: Kreis 11
 
+# Relative Häufigkeit ^
+jug_filtered_data <- data[data$StichtagDatJahr == 2022 & data$AlterV20Kurz == "0-19",]
+sen_filtered_data <- data[data$StichtagDatJahr == 2022 & data$AlterVKurz >= 65,]
+ges_filtered_data <- data[data$StichtagDatJahr == 2022,]
+jug <- c()
+sen <- c()
+ges <- c()
+kreise <- c("Kreis 1", "Kreis 2", "Kreis 3", "Kreis 4", "Kreis 5", "Kreis 6", "Kreis 7", "Kreis 8", "Kreis 9", "Kreis 10", "Kreis 11", "Kreis 12")
+for (kreis in kreise) {
+  temp <- sum(jug_filtered_data[jug_filtered_data$KreisLang == kreis,]$AnzBestWir)
+  jug <- c(jug, temp)
+  temp <- sum(sen_filtered_data[sen_filtered_data$KreisLang == kreis,]$AnzBestWir)
+  sen <- c(sen, temp)
+  temp <- sum(ges_filtered_data[ges_filtered_data$KreisLang == kreis,]$AnzBestWir)
+  ges <- c(ges, temp)
+}
+out_jug <- jug / ges
+out_sen <- sen / ges
+names(out_sen) <- kreise
+names(out_jug) <- kreise
+
+out <- data.frame(senioren=out_sen,jugendliche=out_jug)
+rownames(out) <- kreise
+out
+par(mfrow=c(2,1))
+barplot(out_sen, las = 2, col = "green4", ylab = "Relative Häufigkeit", main = "Anzahl Senioren in der Stadt Zürich pro Kreis in 2022")
+barplot(out_jug, las = 2, col = "green4", ylab = "Relative Häufigkeit", main = "Anzahl Minderjähriger in der Stadt Zürich pro Kreis in 2022")
 
 
 
