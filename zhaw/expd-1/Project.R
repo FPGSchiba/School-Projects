@@ -69,35 +69,72 @@ str(data)
 # AlterVSort     : Nicht beachtet
 # AlterVCd       : Kategoriell - Ordinal
 # AlterVKurz     : Metrisch - Diskret
-# AlterV05Sort   : 
-# AlterV10Cd     : 
-# AlterV10Kurz   : 
-# AlterV20Cd     : 
-# AlterV20Kurz   : 
+# AlterV05Sort   : Kategoriell - Ordinal
+# AlterV10Cd     : Kategoriell - Ordinal
+# AlterV10Kurz   : Kategoriell - Ordinal
+# AlterV20Cd     : Kategoriell - Ordinal
+# AlterV20Kurz   : Kategoriell - Ordinal
 # SexCd          : Kategoriell - Nominal
 # SexLang        : Kategoriell - Nominal
 # SexKurz        : Kategoriell - Nominal
-# KreisCd        : 
-# KreisLang      : 
-# QuarSort       : 
-# QuarCd         : 
-# QuarLang       : 
-# HerkunftSort   : 
-# HerkunftCd     : 
-# HerkunftLang   : 
+# KreisCd        : Kategoriell - Nominal
+# KreisLang      : Kategoriell - Nominal
+# QuarSort       : Kategoriell - Nominal
+# QuarCd         : Kategoriell - Nominal
+# QuarLang       : Kategoriell - Nominal
+# HerkunftSort   : Kategoriell - Nominal
+# HerkunftCd     : Kategoriell - Nominal
+# HerkunftLang   : Kategoriell - Nominal
 # AnzBestWir     : Metrisch - Diskret
 
-man <- data[data$SexKurz == "M" & data$StichtagDatJahr == 1993,]
-woman <- data[data$SexKurz == "W" & data$StichtagDatJahr == 1993,]
 
-man_sum <- sum(man$AnzBestWir)
-woman_sum <- sum(woman$AnzBestWir)
+# Wachstum der Bevölkerung der Stadt Zürich im Kreis 1
+kreis_1 <- data[data$KreisLang == "Kreis 1",]
 
-sums_1993 <- c(man_sum, woman_sum)
+kreis_1_years <- unique(kreis_1[,"StichtagDatJahr"])
+kreis_1_years
 
-dat <- matrix(sums_1993, nrow=1, ncol = 2)
-colnames(dat) <- c("Männer", "Frauen")
+year <- c()
+bev <- c()
 
-barplot(dat, main = "Bestand Männer und Frauen in der Stadt Zürich, Jahr: 1993", col = c("blue"))
+kreis_1_bev <- data.frame(year=integer(), bev=integer())
+
+for (year in kreis_1_years){
+  kreis_1_bev[nrow(kreis_1_bev) + 1,] <- c(year, sum(kreis_1[kreis_1$StichtagDatJahr == year, "AnzBestWir"]))
+}
+
+kreis_1_bev
+
+mean(kreis_1_bev$bev, na.rm = T) # Mean: 5717.2
+
+matplot(kreis_1_bev$year, cbind(kreis_1_bev$bev), type = "l", lty = 1, 
+        col = c("red"), xlab = "Jahr", 
+        ylab = "Bevölkerungsanzahl", main = "Stadt Zürich Bevölkerung Kreis 1")
+
+
+# Anzahl Minderjähriger pro Kreis in 2022
+kreis_1 <- sum(data[data$KreisLang == "Kreis 1" & data$StichtagDatJahr == 2022 & data$AlterV20Kurz == "0-19", "AnzBestWir"])
+kreis_2 <- sum(data[data$KreisLang == "Kreis 2" & data$StichtagDatJahr == 2022 & data$AlterV20Kurz == "0-19", "AnzBestWir"])
+kreis_3 <- sum(data[data$KreisLang == "Kreis 3" & data$StichtagDatJahr == 2022 & data$AlterV20Kurz == "0-19", "AnzBestWir"])
+kreis_4 <- sum(data[data$KreisLang == "Kreis 4" & data$StichtagDatJahr == 2022 & data$AlterV20Kurz == "0-19", "AnzBestWir"])
+kreis_5 <- sum(data[data$KreisLang == "Kreis 5" & data$StichtagDatJahr == 2022 & data$AlterV20Kurz == "0-19", "AnzBestWir"])
+kreis_6 <- sum(data[data$KreisLang == "Kreis 6" & data$StichtagDatJahr == 2022 & data$AlterV20Kurz == "0-19", "AnzBestWir"])
+kreis_7 <- sum(data[data$KreisLang == "Kreis 7" & data$StichtagDatJahr == 2022 & data$AlterV20Kurz == "0-19", "AnzBestWir"])
+kreis_8 <- sum(data[data$KreisLang == "Kreis 8" & data$StichtagDatJahr == 2022 & data$AlterV20Kurz == "0-19", "AnzBestWir"])
+kreis_9 <- sum(data[data$KreisLang == "Kreis 9" & data$StichtagDatJahr == 2022 & data$AlterV20Kurz == "0-19", "AnzBestWir"])
+kreis_10 <- sum(data[data$KreisLang == "Kreis 10" & data$StichtagDatJahr == 2022 & data$AlterV20Kurz == "0-19", "AnzBestWir"])
+kreis_11 <- sum(data[data$KreisLang == "Kreis 11" & data$StichtagDatJahr == 2022 & data$AlterV20Kurz == "0-19", "AnzBestWir"])
+kreis_12 <- sum(data[data$KreisLang == "Kreis 12" & data$StichtagDatJahr == 2022 & data$AlterV20Kurz == "0-19", "AnzBestWir"])
+
+?table
+kreise <- c(rep("Kreis 1", kreis_1), rep("Kreis 2", kreis_2), rep("Kreis 3", kreis_3), rep("Kreis 4", kreis_4), rep("Kreis 5", kreis_5), rep("Kreis 6", kreis_6), rep("Kreis 7", kreis_7), rep("Kreis 8", kreis_8), rep("Kreis 9", kreis_9), rep("Kreis 10", kreis_10), rep("Kreis 11", kreis_11), rep("Kreis 12", kreis_12))
+kreise_fact <- factor(kreise, levels = c("Kreis 1", "Kreis 2", "Kreis 3", "Kreis 4", "Kreis 5", "Kreis 6", "Kreis 7", "Kreis 8", "Kreis 9", "Kreis 10", "Kreis 11", "Kreis 12"), ordered = T)
+
+barplot(table(kreise_fact), col = c("green4"), xlab = "Kreise", ylab = "Anzahl Minderjähriger", main = "Anzahl Minderjähriger in der Stadt Zürich pro Kreis in 2022")
+
+# Modus: Kreis 11
+
+
+
 
 
