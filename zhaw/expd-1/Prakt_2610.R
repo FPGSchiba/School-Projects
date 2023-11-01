@@ -45,6 +45,18 @@ hist(dat$price)
 abline(v=quantile(dat$price,probs=c(0.25,0.5, 0.75)),lty=2)
 
 # C
-dat$cut <- factor(dat$cut, levels = c("Fair","Good","VeryGood","Premium","Ideal"), ordered = T)
+dat$cut <- factor(dat$cut, levels = c("VeryGood","Fair","Good","Premium","Ideal"), ordered = T)
 barplot(table(dat$cut))
 
+# D
+comparision <- data.frame(dat$price, dat$carat, dat$depth)
+pairs(comparision, col=rgb(0,0,0,alpha=0.2))
+
+# E
+# 7000 bis 1700
+
+# F
+boxplot(price ~ clarity, data = dat)
+# Sehr viele ausreisser
+# 2 Klassen sind sehr tief, aber haben hohe ausreisser
+# Alles kann bis 15000 Kosten
