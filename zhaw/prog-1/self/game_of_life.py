@@ -8,12 +8,12 @@ from button import Button
 # Source https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
 
 SIZE = 300
-BEGINNING_CELLS = round((SIZE*SIZE)/20)
+BEGINNING_CELLS = round((SIZE * SIZE) / 20)
 SCALE = 3
 
 FPS = 10
 
-AGE_DEATH_CAP = 10
+AGE_DEATH_CAP = 20
 DEAD_CELL = 0
 MUTATED_CELL = -1
 
@@ -28,32 +28,34 @@ playing = True
 environment = [[DEAD_CELL for _ in range(SIZE)] for _ in range(SIZE)]
 
 pygame.init()
-screen = pygame.display.set_mode((SIZE*SCALE, SIZE*SCALE))
+screen = pygame.display.set_mode((SIZE * SCALE, SIZE * SCALE))
 clock = pygame.time.Clock()
+
 
 def get_num_neighbors(x, y):
     neighbors = 0
-    #Check for errors
+    # Check for errors
     env_size = SIZE - 1
-    if x < env_size and environment[y][x+1] != DEAD_CELL:
+    if x < env_size and environment[y][x + 1] != DEAD_CELL:
         neighbors += 1
-    if x > 0 and environment[y][x-1] != DEAD_CELL:
+    if x > 0 and environment[y][x - 1] != DEAD_CELL:
         neighbors += 1
-    if y < env_size and environment[y+1][x] != DEAD_CELL:
+    if y < env_size and environment[y + 1][x] != DEAD_CELL:
         neighbors += 1
-    if y > 0 and environment[y-1][x] != DEAD_CELL:
+    if y > 0 and environment[y - 1][x] != DEAD_CELL:
         neighbors += 1
-    if x < env_size and y < env_size and environment[y+1][x+1] != DEAD_CELL:
+    if x < env_size and y < env_size and environment[y + 1][x + 1] != DEAD_CELL:
         neighbors += 1
-    if x > 0 and y < env_size and environment[y+1][x-1] != DEAD_CELL:
+    if x > 0 and y < env_size and environment[y + 1][x - 1] != DEAD_CELL:
         neighbors += 1
-    if y > 0 and x < env_size and environment[y-1][x+1] != DEAD_CELL:
+    if y > 0 and x < env_size and environment[y - 1][x + 1] != DEAD_CELL:
         neighbors += 1
-    if y > 0 and x > 0 and environment[y-1][x-1] != DEAD_CELL:
+    if y > 0 and x > 0 and environment[y - 1][x - 1] != DEAD_CELL:
         neighbors += 1
     return neighbors
 
-def draw_cell(x, y, cell): # X = 1 -> Scaled-X: 4
+
+def draw_cell(x, y, cell):  # X = 1 -> Scaled-X: 4
     scaled_x = x * SCALE
     scaled_y = y * SCALE
     pos = (scaled_x, scaled_y)
@@ -62,15 +64,16 @@ def draw_cell(x, y, cell): # X = 1 -> Scaled-X: 4
     elif cell <= MUTATED_CELL:
         cell = abs(cell)
         if cell * 4 < 200:
-            color = (0, 0, cell*4)
+            color = (0, 0, cell * 4)
         else:
             color = (0, 0, 200)
     else:
         if cell * 4 < 200:
-            color = (cell*4, cell*4, cell*4)
+            color = (cell * 4, cell * 4, cell * 4)
         else:
             color = (200, 200, 200)
     screen.fill(color, (pos, (SCALE, SCALE)))
+
 
 def prepare_game():
     global environment
@@ -88,42 +91,43 @@ def prepare_game():
                 generating = False
 
     print(f'Starting Game with: {generated_cells} cells.')
-    screen.fill((255, 255, 255), ((0,0), (SIZE, SIZE)))
+    screen.fill((255, 255, 255), ((0, 0), (SIZE, SIZE)))
     pygame.display.flip()
 
-restartButton = Button(0, 0, 100, 50, screen, 'Restart', prepare_game)
+
 prepare_game()
 
 while playing:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             playing = False
+    new_environment = environment
 
-    for y, row in enumerate(environment):
+    for y, row in enumerate(new_environment):
         for x, cell in enumerate(row):
             draw_cell(x, y, cell)
             num_neighbors = get_num_neighbors(x, y)
             if cell == DEAD_CELL:
                 if num_neighbors == 3:
-                    environment[y][x] += 1
+                    new_environment[y][x] += 1
             else:
                 if random.random() < INSTANT_DEATH_CHANCE and not cell <= MUTATED_CELL:
-                    environment[y][x] = DEAD_CELL
+                    new_environment[y][x] = DEAD_CELL
                 elif (num_neighbors > 3 or num_neighbors < 2) and not cell <= MUTATED_CELL:
-                    environment[y][x] = DEAD_CELL
+                    new_environment[y][x] = DEAD_CELL
                 else:
                     # Check for mutation
                     if cell <= MUTATED_CELL:
-                        environment[y][x] -= 1
+                        new_environment[y][x] -= 1
                     else:
-                        environment[y][x] += 1
+                        new_environment[y][x] += 1
                         if random.random() < MUTATION_CHANCE:
-                            environment[y][x] = MUTATED_CELL
+                            new_environment[y][x] = MUTATED_CELL
                 if cell > AGE_DEATH_CAP or cell < -AGE_DEATH_CAP*2:
-                    environment[y][x] = DEAD_CELL
+                    new_environment[y][x] = DEAD_CELL
 
-    restartButton.process()
     pygame.display.flip()
+    environment = new_environment
     clock.tick(FPS)
 
 pygame.quit()

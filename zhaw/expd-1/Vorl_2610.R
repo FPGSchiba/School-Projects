@@ -11,8 +11,8 @@ scatter.smooth(dat$city.mpg, dat$hwy.mpg)
 scatter.smooth(dat$city.mpg, dat$ps)
 
 #C
-# city ~ hwy: Stark monoton zunehmend
-# city ~ ps: Mitel exponentiell abnehmend
+# city ~ hwy: Stark linear zunehmend
+# city ~ ps: Mitel monoton abnehmend
 
 # ---- Aufgabe 2 ----
 load('./data/wohnungen.rda')
