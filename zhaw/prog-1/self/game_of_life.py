@@ -95,6 +95,7 @@ def prepare_game():
     pygame.display.flip()
 
 
+restart_btton = Button(0,0, 100, 40, screen, 'Restart', prepare_game)
 prepare_game()
 
 while playing:
@@ -126,6 +127,7 @@ while playing:
                 if cell > AGE_DEATH_CAP or cell < -AGE_DEATH_CAP*2:
                     new_environment[y][x] = DEAD_CELL
 
+    restart_btton.process()
     pygame.display.flip()
     environment = new_environment
     clock.tick(FPS)
