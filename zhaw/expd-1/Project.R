@@ -165,3 +165,44 @@ barplot(out_jug, las = 2, col = "green4", ylab = "Relative Häufigkeit", main = 
 
 
 
+
+# ---- Aufgabe 2 ----
+dev.off()
+# Idea: Box Plots AnzBestWir -> AltersGruppen
+year_2022 <- data[data$StichtagDatJahr == 2022,]
+
+alters_gruppen <- c("0-19", "20-39", "40-59", "60-79", "80-99")
+
+# Zu finden: Innerhalb der Gruppen der Bestand für 1 Alter
+alters_data <- data.frame("start"=1:20)
+for (gruppe in alters_gruppen) {
+  for (alter in unique(year_2022[year_2022$AlterV20Kurz == gruppe,]$AlterVKurz)) {
+    print(str(alter))
+    alters_data[alter, "summe"] <- sum(year_2022[year_2022$AlterVKurz == alter,]$AnzBestWir)
+    alters_data[alter, "gruppe"] <- gruppe
+    alters_data[alter, "alter"] <- alter
+  }
+}
+alters_data <- subset(alters_data, select = -start)
+alters_data
+
+par(mfcol=c(1,1), mar=c(2,2,2,7), xpd =T)
+boxplot(summe ~ gruppe, data = alters_data, main="20 Jahres Gruppen im Jahr 2022", xlab = "Altersgruppe", ylab="Anzahl Personen")
+points_y <- c(rep(1, 20), rep(2, 20), rep(3, 20), rep(4, 20), rep(5, 19))
+library(RColorBrewer)
+n <- 20
+qual_col_pals <- brewer.pal.info[brewer.pal.info$category == 'qual',]
+col_vector_20 <- tail(unlist(mapply(brewer.pal, qual_col_pals$maxcolors, rownames(qual_col_pals))), 20)
+col_vector <- head(rep(col_vector_20, 5), -1)
+symb_vector <- 0:19
+points(y=alters_data$summe, x=points_y, col = col_vector, pch=symb_vector)
+legend(x=6, y=10500, col = col_vector_20, legend = 0:19, pch=symb_vector)
+
+plot(x=alters_data$alter, y=alters_data$summe, type = "o", ylab="Anzahl", xlab="Alter", main="Anzahl Personen pro Alter im Jahr 2022")
+
+
+
+
+
+
+

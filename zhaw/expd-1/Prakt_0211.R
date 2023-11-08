@@ -92,11 +92,50 @@ dead_birbs <- birbs[birbs$Alive == "N", c("number", "week.number")]
 length(dead_tutels$number)
 length(alive_tutels$number)
 
-alive_birbs$number <- c(alive_birbs$number, rep(0, length(dead_tutels$number) - length(alive_tutels$number)))
+?plot
+par(mfrow=c(1,2))
+plot(dead_birbs$week.number, dead_birbs$number, type = "l", col = "red", main = "Birds", ylab = "number", xlab = "week")
+lines(alive_birbs$week.number, alive_birbs$number, type = "l", col="green")
+legend("topleft", fill = c("red", "green"), legend = c("Dead", "Alive"))
 
-matplot(alive_tutels$week.number, cbind(alive_tutels$number, dead_tutels$number), type = "l", lty = 1, 
-        col = c("green", "red"), xlab = "Wochen", 
-        ylab = "Anzhal Tiere", main = "Tote und Lebendige Turtles gefunden")
+plot(alive_tutels$week.number, alive_tutels$number, type = "l", col = "red", main = "Turtles", ylab = "number", xlab = "week")
+lines(dead_tutels$week.number, dead_tutels$number, type = "l", col="green")
+legend("topleft", fill = c("red", "green"), legend = c("Dead", "Alive"))
+
+
+# K
+dev.off()
+library(RgoogleMaps)
+MyMap<-MapBackground(lat=dat$Latitude,lon=dat$Longitude)
+PlotOnStaticMap(MyMap,lat=dat$Latitude,lon=dat$Longitude)
+
+install.packages("devtools", dependencies = T)
+devtools::install_github("stadiamaps/ggmap") #InstalliertdasPaketggmap
+install.packages("tmaptools", depedencies = T) #InstalliertdasPakettmaptools
+
+
+library(tmaptools)
+library(ggmap)
+register_stadiamaps('3f745b26-0f44-4aab-9921-e5b617ab44cb')
+###Kartenausschnitt(BoundingBox)auswählenmitderFunktionbb
+bbox = bb(cx=-87.68528, cy=28.75389, xlim=c(-96,-81), ylim=c(24,31))
+###BoundigBoxmusseineMatrixsein
+bboxDF<-matrix(bbox,nrow=1)
+###KoordinatenDeepwaterHorizonalsDataFrame
+coordDwH<-data.frame(lat=28.75389, long=-87.68528)
+###Kartewirdheruntergeladen(Netzzugang)
+mapGolfMexiko<-get_stadiamap(bbox=bboxDF,zoom=6)
+###KarteZeicheninkl.derKoordinatendergefundenenTiere
+ggmap(mapGolfMexiko) + #Kartezeichnen
+  geom_point(data=dat,
+             aes(x=Longitude,y=Latitude, #Fundorteeinzeichnen
+                 color=Alive,shape=Type))+
+  geom_point(data=coordDwH, #KreuzDwH
+             mapping=aes(x=long,y=lat), shape=3,color="black")+
+  geom_text(data=coordDwH, #BeschriftungDwH
+            mapping=aes(x=long,y=lat), label='DeepwaterHorizon',
+            hjust=0,nudge_x=0.2,size=3)
+
 
 
        
