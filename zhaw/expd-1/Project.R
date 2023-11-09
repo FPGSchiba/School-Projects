@@ -163,9 +163,6 @@ barplot(out_sen, las = 2, col = "green4", ylab = "Relative Häufigkeit", main = 
 barplot(out_jug, las = 2, col = "green4", ylab = "Relative Häufigkeit", main = "Anzahl Minderjähriger in der Stadt Zürich pro Kreis in 2022")
 
 
-
-
-
 # ---- Aufgabe 2 ----
 dev.off()
 # Idea: Box Plots AnzBestWir -> AltersGruppen
@@ -190,7 +187,6 @@ par(mfcol=c(1,1), mar=c(2,2,2,7), xpd =T)
 boxplot(summe ~ gruppe, data = alters_data, main="20 Jahres Gruppen im Jahr 2022", xlab = "Altersgruppe", ylab="Anzahl Personen")
 points_y <- c(rep(1, 20), rep(2, 20), rep(3, 20), rep(4, 20), rep(5, 19))
 library(RColorBrewer)
-n <- 20
 qual_col_pals <- brewer.pal.info[brewer.pal.info$category == 'qual',]
 col_vector_20 <- tail(unlist(mapply(brewer.pal, qual_col_pals$maxcolors, rownames(qual_col_pals))), 20)
 col_vector <- head(rep(col_vector_20, 5), -1)
