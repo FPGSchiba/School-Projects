@@ -196,9 +196,9 @@ legend(x=6, y=10500, col = col_vector_20, legend = 0:19, pch=symb_vector)
 
 plot(x=alters_data$alter, y=alters_data$summe, type = "o", ylab="Anzahl", xlab="Alter", main="Anzahl Personen pro Alter im Jahr 2022")
 
-
-
-
+data$AltersArt <- NaN
+data[data$AlterVKurz > 65,]$AltersArt <- "senioren"
+is.na(data$Alersart)
 
 
 
