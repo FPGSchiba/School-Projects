@@ -7,7 +7,7 @@ PROG1 P04 1.4: Caesar Cipher
 """
 import re
 
-SHIFT = 5
+SHIFT = -2
 
 
 def encrypt(message: str):
@@ -62,9 +62,8 @@ def decrypt(message: str):
     return encrypted
 
 print(encrypt('''
-this python script shall pass my test with flying colors and not fail.
-If this fails it was not very intended and I am sorry my friend, but this is wrong.
-If you see this is is not wrong. So we will have faith in you and pray to the gods.
-I will also be very interested to see if it can pass your Python senses, or if it will fail.
-As I said before we will hope for the best and not tolarate any error to get as many points as we can.
+Once upon a time in the whimsical world of programming, a group of quirky snakes decided to host a comedy night in the enchanted forest of algorithms. The headlining act was a Python named Monty, renowned for his slippery sense of humor and knack for debugging life's absurdities.
+As Monty slithered onto the stage, the crowd of algorithms and data structures hissed with anticipation. "Why did the Python cross the road?" Monty hissed, his audience hanging on every byte. "To slither into the other byte!"
+The forest echoed with laughter, a chorus of "hiss-terical" amusement. Monty continued, weaving tales of mischievous bugs and clever tricks, each punchline punctuated by a sibilant punch from the audience. "You know you're a Python programmer when your code is more organized than your sock drawer!"
+The laughter cascaded through the trees like a joyful syntax error. Even the wise old compiler chuckled, emitting a low hum of approval. In this magical realm where the language of laughter transcended syntax, Python ruled as the supreme jester, proving that in the kingdom of code, a bit of humor is the most powerful debug spell of all.
 '''))
