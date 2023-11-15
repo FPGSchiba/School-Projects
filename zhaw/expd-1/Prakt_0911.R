@@ -47,6 +47,7 @@ agg
 
 # Apply Familie
 X <- matrix(1:20, nrow=4)
+X
 apply(X, MARGIN = 1, FUN = sum)
 apply(X, MARGIN = 2, FUN = sum)
 
@@ -115,12 +116,48 @@ merged2_dat <- merge(merged_dat, new_dat, by=c("Kantonskuerzel"), all.x = T)
 merged2_dat
 
 
+# ---- Aufgabe 2 ----
+load('./data/currencies.rda')
+head(currencies)
 
+# A
+plot(currencies$Time, currencies$EUR.CHF, type='l', col=c("red"), ylim = c(0.01,1.8))
+lines(currencies$Time, currencies$USD.CHF, col="blue", lty=1)
+lines(currencies$Time, currencies$GBP.CHF, col="green", lty=1)
+lines(currencies$Time, currencies$JPY.CHF, col="yellow", lty=1)
 
+# B
+library(tidyr)
+dat <- currencies %>% pivot_longer(
+                    cols = ends_with(".CHF"),
+                    names_to = "currencyRate",
+                    values_to = "value")
+head(dat)
+# C
+plot(value ~ Time, data = dat, col=c("red", "blue", "green", "yellow"), type="p", pch=16)
 
+# ---- Aufgabe 3 ----
+?airquality
 
+head(airquality)
 
+# A
+airquality[airquality$Wind >= 12, "windstatus"] <- "windig"
+airquality[airquality$Wind < 12, "windstatus"] <- "nicht-windig"
+airquality$windstatus <- factor(airquality$windstatus, levels = c("windig", "nicht-windig"))
 
+# B
+unique(airquality$Month)
+table(airquality$Month, airquality$windstatus)
 
+# C
+aggregate(Solar.R ~ Month, data = airquality, FUN=mean, na.rm=T)
+aggregate(Wind ~ Month, data = airquality, FUN=mean, na.rm=T)
 
+# D
+str(airquality)
+aggregate(Ozone~Month, data = airquality, FUN=mean, na.rm=T)
+aggregate(Solar.R ~ Month, data = airquality, FUN=mean, na.rm=T)
+aggregate(Wind ~ Month, data = airquality, FUN=mean, na.rm=T)
+aggregate(Temp ~ Month, data = airquality, FUN=mean, na.rm=T)
 
