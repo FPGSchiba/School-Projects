@@ -66,8 +66,8 @@ data <- read.csv('./data/BEV390OD3903.csv')
 str(data)
 # --- Variablentypen ---
 # StichtagDatJahr: Metrisch - Diskret
-# AlterVSort     : Nicht beachtet
-# AlterVCd       : Kategoriell - Ordinal
+# AlterVSort     : Metrisch - Diskret
+# AlterVCd       : Metrisch - Diskret
 # AlterVKurz     : Metrisch - Diskret
 # AlterV05Sort   : Kategoriell - Ordinal
 # AlterV10Cd     : Kategoriell - Ordinal

@@ -1,0 +1,102 @@
+---
+title: "Projektarbeit - Bevölkerung Kanton Zürich"
+author: "Blum, Nele und Erhardt, Jann"
+format: pdf
+editor: visual
+toc: true
+---
+
+# Einleitung
+
+TBD: eine generelle Einleitung.
+
+## Datensatz
+
+Link auf den Datensatz und kurze Erklärung.
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F)
+dat <- data <- read.csv('./data/BEV390OD3903.csv')
+```
+
+# Aufgabe 1
+
+## Datentypen
+
+```{r inspect}
+library(knitr)
+kable(head(head(dat, n = 4)), format = "simple")
+```
+
+| Variablen Name      | Daten typ             |
+|---------------------|-----------------------|
+| **StichtagDatJahr** | Metrisch - Diskret    |
+| **AlterVSort**      | Metrisch - Diskret    |
+| **AlterVCd**        | Metrisch - Diskret    |
+| **AlterVKurz**      | Metrisch - Diskret    |
+| **AlterV05Sort**    | Kategoriell - Ordinal |
+| **AlterV10Cd**      | Kategoriell - Ordinal |
+| **AlterV10Kurz**    | Kategoriell - Ordinal |
+| **AlterV20Cd**      | Kategoriell - Ordinal |
+| **AlterV20Kurz**    | Kategoriell - Ordinal |
+| **SexCd**           | Kategoriell - Nominal |
+| **SexLang**         | Kategoriell - Nominal |
+| **SexKurz**         | Kategoriell - Nominal |
+| **KreisCd**         | Kategoriell - Nominal |
+| **KreisLang**       | Kategoriell - Nominal |
+| **QuarSort**        | Kategoriell - Nominal |
+| **QuarCd**          | Kategoriell - Nominal |
+| **QuarLang**        | Kategoriell - Nominal |
+| **HerkunftSort**    | Kategoriell - Nominal |
+| **HerkunftCd**      | Kategoriell - Nominal |
+| **HerkunftLang**    | Kategoriell - Nominal |
+| **AnzBestWir**      | Metrisch - Diskret    |
+
+## Vorbereitung
+
+TBD: Kurze vorbereitungsbeschreibung mit snippets
+
+```{r aufgabe-1-vorb}
+jug_filtered_data <- data[data$StichtagDatJahr == 2022 & data$AlterV20Kurz == "0-19",]
+sen_filtered_data <- data[data$StichtagDatJahr == 2022 & data$AlterVKurz >= 65,]
+ges_filtered_data <- data[data$StichtagDatJahr == 2022,]
+jug <- c()
+sen <- c()
+ges <- c()
+kreise <- c("Kreis 1", "Kreis 2", "Kreis 3", "Kreis 4", "Kreis 5", "Kreis 6", "Kreis 7", "Kreis 8", "Kreis 9", "Kreis 10", "Kreis 11", "Kreis 12")
+
+for (kreis in kreise) {
+  temp <- sum(jug_filtered_data[jug_filtered_data$KreisLang == kreis,]$AnzBestWir)
+  jug <- c(jug, temp)
+  temp <- sum(sen_filtered_data[sen_filtered_data$KreisLang == kreis,]$AnzBestWir)
+  sen <- c(sen, temp)
+  temp <- sum(ges_filtered_data[ges_filtered_data$KreisLang == kreis,]$AnzBestWir)
+  ges <- c(ges, temp)
+}
+out_jug <- jug / ges
+out_sen <- sen / ges
+names(out_sen) <- kreise
+names(out_jug) <- kreise
+names(jug) <- kreise
+names(sen) <- kreise
+```
+
+## Darstellung 1
+
+```{r aufgabe-1-dar-1}
+barplot(out_jug, las = 2, col = "green4", ylab = "Relative Häufigkeit", main = "Anzahl Minderjähriger in der Stadt Zürich pro Kreis in 2022")
+```
+
+TBD: Beschreibung und Notizen zur grafik
+
+## Darstellung 2
+
+```{r aufgabe-1-dar-2}
+barplot(out_sen, las = 2, col = "green4", ylab = "Relative Häufigkeit", main = "Anzahl Senioren in der Stadt Zürich pro Kreis in 2022")
+```
+
+TBD: Beschreibung und Notizen zur beschreibung
+
+## Kennzahlen
+
+Arithmetisches Mittel: `r mean(jug)` Median: `r median(sen)`

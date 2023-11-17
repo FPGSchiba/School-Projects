@@ -1,0 +1,128 @@
+---
+title: "Praktikum 09"
+author: "Jann Erhardt"
+date: "`r format(Sys.time(), '%d. %B, %Y')`"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+# Beispiel Titel
+
+## Beispiel Untertitel
+
+Hier schreiben wir ganz normalen Text. Ein Wort kann auch **fett** (bzw. **fett**) geschrieben werden oder auch in *kursiv* (bzw. *kursiv*).
+
+Auch Auflistungen kann man erstellen
+
+-   Punkt 1
+-   Punkt 2
+
+oder mit Zahlen
+
+1.  Punkt x
+2.  Punkt y
+
+Weitere Hilfe finden Sie unter Help/Markdown Quick Reference oder auch auf der Webseite <http://rmarkdown.rstudio.com>.
+
+## Erstellen des Dokumentes
+
+Wenn Sie oben auf den Knopf **Knit PDF**, **Knit Word** oder **Knit HTML** klicken, dann wird ihr RMD in das entsprechende Format (PDF, Word oder HTML) umgewandelt. Das generierte Dokument finden Sie im selben Ordner, in dem Sie das RMD abgespeichert haben. Um ein PDF zu zeugen, brauchen Sie allenfalls noch die Installation (MiKTex), HTML und Word sollte immer funktionieren.
+
+Um dieses Dokument zu kompilieren, muss sich der Datensatz `tomaten.csv` im gleichen Ordner wie das R-Markdown-File befinden.
+
+## R-Chunk
+
+### First Chunk
+
+In allen Chunks wird nun echo = T gesetzt. Der erste Chunk wird auch verwendet, um Daten zu laden oder andere Settings zu machen. Gloabel optionen, default sind `echo = F` und `message = F`.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T)
+```
+
+Mit Markdown kann man direkt R-Code und entsprechende Graphiken in ein Dokument einbetten. Das geschieht in einem sogenannten R-Chunk.
+
+```{r data}
+## Daten einlesen
+tomaten <- read.table("./data/tomaten.csv", header=TRUE, sep=";") #Daten im gleichen File wie Rmd-File
+tomaten$fertilizer <- as.factor(tomaten$fertilizer)
+summary(tomaten)
+```
+
+Hier eine Abbildung:
+
+```{r boxplot}
+boxplot(weight~fertilizer, data=tomaten)
+```
+
+Mit dem kleinen gruenen Pfeil am R-Chunk koennen Sie Ihren R-Code testen, ob er fehlerfrei durchlaeuft.
+
+Den R-Code kann man auch verstecken und nur der Output dargestellen, dazu verwenden Sie das Argument *echo* beim R-Chunk (`echo = FALSE`).
+
+```{r diameter, echo=FALSE}
+plot(tomaten$diameter, tomaten$weight,
+     col=c("green", "blue", "red", "orange")[tomaten$fertilizer],
+     las = 1, xlab = "Diameter", ylab = "Gewicht")
+legend("topleft", legend = levels(tomaten$fertilizer),
+       col=c("green", "blue", "red", "orange"), pch=1)
+```
+
+Mit *fig.height* und *fig.width* kann man die Hoehe und Breite der Abbildungen steuern.
+
+```{r scatter-smooth, echo=FALSE, fig.height=4, fig.width=4}
+tomaten$weight3W <- tomaten$weight^(1/3)
+scatter.smooth(tomaten$diameter, tomaten$weight3W, lpars = list(col = "red"))
+```
+
+*out.width* steuert, wieviel Prozent der Seitenbreite die Grafik einnehmen soll.
+
+```{r scatter-smooth-2, echo=FALSE, out.width="10%",}
+tomaten$weight3W <- tomaten$weight^(1/3)
+scatter.smooth(tomaten$diameter, tomaten$weight3W, lpars = list(col = "red"))
+```
+
+Daneben gibt es noch weitere Chunk-Optionen. Z.B:
+
+-   message: sollen R-Message ausgegeben werden
+-   warning: sollen Warnungen ausgegeben werden
+-   results: mit hide werden die Resultate versteckt (ansonsten weglassen)
+-   fig.show: mit hide werden die Abbildungen versteckt (ansonsten weglassen)
+
+```{r scatter-smooth-3, echo=TRUE, out.width="10%", fig.show = "hide"}
+tomaten$weight3W <- tomaten$weight^(1/3)
+scatter.smooth(tomaten$diameter, tomaten$weight3W, lpars = list(col = "red"))
+```
+
+## R-Output im Text
+
+R-Output kann auch direkt in den Text integriert werden. Zum Beispiel Mittelwert des Tomatengewicht: `r round(mean(tomaten$weight),3)` g oder Standardabweichung des Tomatengewichts: `r round(sd(tomaten$weight),3)` g.
+
+## Tabellen
+
+Man kann auch Tabellen erstellen. Es gibt dafuer es mehrere Moeglichkeiten, zum Beispiel mit pandoc.table aus dem R-Package pander. Wichtig ist, dass Sie in den Chunk-Optionen results als asis angeben und das Paket vorher installiert haben.
+
+```{r pander, echo = F, results = "asis", warning = FALSE}
+library(pander)
+pandoc.table(head(tomaten, n = 4), justify = 'left')
+```
+
+### Tabelle mit Kniter
+
+```{r kniter-table, echo = F}
+library(knitr)
+kable(head(iris))
+```
+
+## Formel
+
+Eine Formel kann via LaTeX erstellt und in R-Markdown eingefügt werden mit `$$` Sylmbolen angefangen und aufgehört werden.
+This can be quite handy :D
+
+$$
+r_1 = \sum_{i=2}^n{x_i*y_i}
+$$
+
+## Weitere Hilfe
+
+Weitere Hilfe finden Sie auf den Vorlesungsfolien oder auf der Webseite <http://rmarkdown.rstudio.com>.

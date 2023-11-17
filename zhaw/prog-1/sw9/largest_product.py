@@ -7,7 +7,6 @@ PROG1 P09 9.2: Largesr product in a Grid
 """
 import random
 import threading
-from typing import Tuple, List
 
 SIZE = 20
 KERNEL_SIZE = 4
