@@ -200,5 +200,5 @@ data$AltersArt <- NaN
 data[data$AlterVKurz > 65,]$AltersArt <- "senioren"
 is.na(data$Alersart)
 
-
+?knitr::kable
 
