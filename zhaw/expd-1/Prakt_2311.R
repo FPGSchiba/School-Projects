@@ -1,0 +1,64 @@
+# ---- GGPlot ----
+install.packages("ggplot2", dependencies = T)
+library(ggplot2)
+
+# Ohne angabe der Shape des Plots
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy))
+
+# Standard GGPlot
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy))+
+  geom_point()
+
+# Weitere Variable als Farbe
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy, color = class))+
+  geom_point()
+
+# Weitere Variable als Shape der Punkte
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy, shape = drv))+
+  geom_point()
+
+# Beides Kombiniert
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy, shape = drv, color = class))+
+  geom_point()
+
+# Geom Überschreiben
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy, shape = drv, color = class))+
+  geom_point(color = "blue", shape = 17)
+
+# ACHTUNG: Farben und shapes nicht im AES shreiben, da diese auf Daten gemapped werden.
+test <- ggplot(data = mpg, mapping = aes(x = displ, y = hwy, color = "blue"))+
+  geom_point()
+
+# Bild speichern:
+
+# letzte speichern
+ggsave(filename = "Test.pdf")
+
+# Spezifisches GGPlot Objekt speichern
+ggsave(filename = "Test.pdf", plot = test)
+
+
+# ---- Aufgabe 1 ----
+library(ggplot2)
+
+str(iris)
+# A & B
+ggplot(data = iris, mapping = aes(x = Sepal.Length, y = Sepal.Width, color = Species, size = Petal.Width))+
+  geom_point()
+
+# ---- Aufgabe 2 ----
+library(ggplot2)
+
+# A & B
+ggplot(data = iris, mapping = aes(x = Species, y = Sepal.Width))+
+  geom_boxplot(fill = "pink")
+
+# C
+ggplot(data = iris, mapping = aes(x = Sepal.Width, fill = Species))+
+  geom_density(alpha=0.5)
+
+# D
+ggplot(data = iris, mapping = aes(x = Species, y = Sepal.Width, fill = Species))+
+  geom_violin() +
+  geom_point() +
+  geom_jitter(width = 0.1)

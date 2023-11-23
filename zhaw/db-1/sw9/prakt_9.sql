@@ -22,7 +22,7 @@ SELECT besucher.name, besucher.gebtag FROM besucher join (
     gast2 on gast2.bname = besucher.name AND gast2.bvorname = besucher.vorname;
 
 -- Aufgabe 6
--- TBD
+SELECT name, vorname from besucher EXCEPT ALL (SELECT bname, bvorname from gast UNION ALL SELECT bname, bvorname from lieblingsbier);
 
 -- Aufgabe 7
 SELECT besucher.name, besucher.vorname FROM besucher join
@@ -39,3 +39,9 @@ on besucher.name = lieblingsbier.bname AND besucher.vorname = lieblingsbier.bvor
 WHERE sortiment.bsorte = lieblingsbier.bsorte;
 
 -- Aufgabe 9
+SELECT bsorte from lieblingsbier join
+    (besucher join gast on vorname = bvorname and name = bname) on name = lieblingsbier.bname and vorname = lieblingsbier.bvorname
+WHERE starts_with(name, 'P') and rname = 'Löwen';
+
+-- Aufgabe 10
+SELECT strasse from (SELECT count(strasse) as amount, strasse from restaurant GROUP BY strasse) WHERE amount >= 3;

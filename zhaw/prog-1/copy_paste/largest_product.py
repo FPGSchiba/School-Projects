@@ -1,6 +1,6 @@
 def find_largest_product(liste) -> (int,int,int,int,int):
     ROWS = len(liste)
-    COLS = len(liste[1])
+    COLS = len(liste[0])
     start_x = 0
     start_y = 0
     end_x = 0
@@ -35,7 +35,6 @@ def find_largest_product(liste) -> (int,int,int,int,int):
                     start_x = row
                     end_y = col + 3
                     end_x = row + 3
-
             # Quer ufe
             if row >= 3 and col < COLS - 3:
                 score = liste[row][col] * liste[row - 1][col + 1] * liste[row - 2][col + 2] * liste[row - 3][col + 3]
@@ -45,4 +44,4 @@ def find_largest_product(liste) -> (int,int,int,int,int):
                     end_x = row
                     start_y = col + 3
                     start_x = row - 3
-    return (topscore, ((start_x, start_y), (end_x, end_y)))
+    return topscore, ((start_x, start_y), (end_x, end_y))

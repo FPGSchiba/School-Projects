@@ -152,12 +152,16 @@ for (kreis in kreise) {
 }
 out_jug <- jug / ges
 out_sen <- sen / ges
-names(out_sen) <- kreise
-names(out_jug) <- kreise
 
-out <- data.frame(senioren=out_sen,jugendliche=out_jug)
-rownames(out) <- kreise
-out
+kreise_dat <- NaN
+kreise
+kreise_dat <- data.frame(kreis = kreise, jug = out_jug, sen = out_sen)
+kreise_dat
+
+ggplot(kreise_dat, aes(x=kreis, y=jug))+
+  geom_bar(fill="green4", stat = "identity")+
+  labs(y="Relative Häufigkeit", title = "Anzahl Senioren in der Stadt Zürich pro Kreis in 2022", x="")
+
 par(mfrow=c(2,1))
 barplot(out_sen, las = 2, col = "green4", ylab = "Relative Häufigkeit", main = "Anzahl Senioren in der Stadt Zürich pro Kreis in 2022")
 barplot(out_jug, las = 2, col = "green4", ylab = "Relative Häufigkeit", main = "Anzahl Minderjähriger in der Stadt Zürich pro Kreis in 2022")

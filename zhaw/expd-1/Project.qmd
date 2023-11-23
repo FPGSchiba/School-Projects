@@ -64,7 +64,6 @@ jug <- c()
 sen <- c()
 ges <- c()
 kreise <- c("Kreis 1", "Kreis 2", "Kreis 3", "Kreis 4", "Kreis 5", "Kreis 6", "Kreis 7", "Kreis 8", "Kreis 9", "Kreis 10", "Kreis 11", "Kreis 12")
-
 for (kreis in kreise) {
   temp <- sum(jug_filtered_data[jug_filtered_data$KreisLang == kreis,]$AnzBestWir)
   jug <- c(jug, temp)
@@ -99,4 +98,4 @@ TBD: Beschreibung und Notizen zur beschreibung
 
 ## Kennzahlen
 
-Arithmetisches Mittel: `r mean(jug)` Median: `r median(sen)`
+Arithmetisches Mittel: **`r mean(jug)`** Median: **`r median(sen)`**.
