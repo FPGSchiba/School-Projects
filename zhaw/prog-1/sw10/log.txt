@@ -1,0 +1,10 @@
+[25.11.2023 15:00:55] (info) | Guess 1: shoots (0, 0) misses.
+[25.11.2023 15:01:09] (info) | Guess 2: shoots (1, 9) misses.
+[25.11.2023 15:01:18] (info) | Guess 3: shoots (7, 4) misses.
+[25.11.2023 15:01:21] (info) | Guess 4: shoots (5, 8) misses.
+[25.11.2023 15:01:23] (info) | Guess 5: shoots (5, 9) misses.
+[25.11.2023 15:01:25] (info) | Guess 6: shoots (5, 6) misses.
+[25.11.2023 15:01:26] (info) | Guess 7: shoots (3, 4) misses.
+[25.11.2023 15:01:29] (info) | Guess 8: shoots (9, 3) misses.
+[25.11.2023 15:01:34] (info) | Guess 9: shoots (0, 7) misses.
+[25.11.2023 15:01:37] (info) | Guess 10: shoots (2, 5) misses.
