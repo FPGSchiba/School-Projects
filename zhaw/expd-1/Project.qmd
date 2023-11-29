@@ -1,7 +1,15 @@
 ---
 title: "Projektarbeit - Bevölkerung Kanton Zürich"
 author: "Blum, Nele und Erhardt, Jann"
-format: pdf
+format:
+  pdf:
+    include-in-header: 
+      text: |
+        \usepackage{scrlayer-scrpage}
+        \rohead{Blum, Nele und Erhardt, Jann}
+        \lofoot{Explorative Datenanalyse 1
+        
+        ZHAW School of Engineering}
 editor: visual
 toc: true
 ---
@@ -10,14 +18,24 @@ toc: true
 
 TBD: eine generelle Einleitung.
 
+In dieser Projektarbeit wird eine Analyse auf den Bevölkerungsstand der Stadt Zürich von den Jahren 1993 bis 2022 gemacht.
+
+Gefunden?
+
+Vorausnehmen?
+
 ## Datensatz
 
 Link auf den Datensatz und kurze Erklärung.
+
+Der [Datensatz](https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_quartier_alter_herkunft_geschlecht_od3903) wurde von der Offiziellen statistik Stelle der Stadt Zürich heruntergeladen und enthält, wie erwähnt Daten des Bevölkerungsstandes der Stadt Zürich. Diese Daten sind sehr Detailiert aufbereitet, da Alter, Herkunft, Geschlecht Kreis, Quartier und Jahr festgehalten werden.
 
 ```{r setup, echo = F}
 knitr::opts_chunk$set(echo = F)
 dat <- data <- read.csv('./data/BEV390OD3903.csv')
 ```
+
+{{< pagebreak >}}
 
 # Aufgabe 1
 
@@ -25,7 +43,12 @@ dat <- data <- read.csv('./data/BEV390OD3903.csv')
 
 ```{r inspect}
 library(knitr)
-kable(head(head(dat, n = 4)), format = "simple")
+library(magrittr)
+data.frame(variable = names(mtcars),
+           classe = sapply(mtcars, typeof),
+           first_values = sapply(mtcars, function(x) paste0(head(x),  collapse = ", ")),
+           row.names = NULL) %>% 
+  kable()
 ```
 
 | Variablen Name      | Daten typ             |
@@ -51,6 +74,8 @@ kable(head(head(dat, n = 4)), format = "simple")
 | **HerkunftCd**      | Kategoriell - Nominal |
 | **HerkunftLang**    | Kategoriell - Nominal |
 | **AnzBestWir**      | Metrisch - Diskret    |
+
+{{< pagebreak >}}
 
 ## Vorbereitung
 
@@ -88,6 +113,8 @@ barplot(out_jug, las = 2, col = "green4", ylab = "Relative Häufigkeit", main = 
 
 TBD: Beschreibung und Notizen zur grafik
 
+{{< pagebreak >}}
+
 ## Darstellung 2
 
 ```{r aufgabe-1-dar-2}
@@ -98,4 +125,76 @@ TBD: Beschreibung und Notizen zur beschreibung
 
 ## Kennzahlen
 
-Arithmetisches Mittel: **`r mean(jug)`** Median: **`r median(sen)`**.
+Das Arithmetische Mittel des Bevölkerungsbestandes an Jugendlichen im Jahre 2022 ist: **`r mean(jug)`**.
+
+Der Median des Bevölkerungsstandes an Senioren im Jahre 2022 ist: **`r median(sen)`**.
+
+Diese beiden Werte Sagen nicht viel über den Bestand allgemein aus, aber können trotzdem den Bestand an Senioren und Jugendlichen gut darstellen.
+
+{{< pagebreak >}}
+
+# Aufgabe 2
+
+TBD: Aufgabenstellung
+
+## Vorbereitung
+
+TBD: Vorbereitungsbeschreibung
+
+```{r aufgabe-2-vorb, echo=F}
+year_2022 <- data[data$StichtagDatJahr == 2022,]
+
+alters_gruppen <- c("0-19", "20-39", "40-59", "60-79", "80-99")
+
+# Zu finden: Innerhalb der Gruppen der Bestand für 1 Alter
+alters_data <- data.frame("start"=1:20)
+for (gruppe in alters_gruppen) {
+  for (alter in unique(year_2022[year_2022$AlterV20Kurz == gruppe,]$AlterVKurz)) {
+    alters_data[alter, "summe"] <- sum(year_2022[year_2022$AlterVKurz == alter,]$AnzBestWir)
+    alters_data[alter, "gruppe"] <- gruppe
+    alters_data[alter, "alter"] <- alter
+  }
+}
+alters_data <- subset(alters_data, select = -start)
+```
+
+## Darstellung 1
+
+```{r aufgabe-2-dar-1}
+#| layout-ncol: 2
+#| fig-cap: 
+#|  - "Boxplot"
+#|  - "Line Plot"
+#| fig-height: 6
+boxplot(summe ~ gruppe, data = alters_data, main="20 Jahres Gruppen im Jahr 2022", xlab = "Altersgruppe", ylab="Anzahl Personen")
+plot(x=alters_data$alter, y=alters_data$summe, type = "o", ylab="Anzahl", xlab="Alter", main="Anzahl Personen pro Alter im Jahr 2022")
+```
+
+TBD: Bild Beschreibung
+
+### Variation
+
+```{r aufgabe-2-dar-1v}
+par(mfcol=c(1,1), mar=c(2,2,2,7), xpd =T)
+boxplot(summe ~ gruppe, data = alters_data, main="20 Jahres Gruppen im Jahr 2022 mit Alter", xlab = "Altersgruppe", ylab="Anzahl Personen")
+points_y <- c(rep(1, 20), rep(2, 20), rep(3, 20), rep(4, 20), rep(5, 19))
+library(RColorBrewer)
+qual_col_pals <- brewer.pal.info[brewer.pal.info$category == 'qual',]
+col_vector_20 <- tail(unlist(mapply(brewer.pal, qual_col_pals$maxcolors, rownames(qual_col_pals))), 20)
+col_vector <- head(rep(col_vector_20, 5), -1)
+symb_vector <- 0:19
+points(y=alters_data$summe, x=points_y, col = col_vector, pch=symb_vector)
+legend(x=5.8, y=10000, col = col_vector_20, legend = 0:19, pch=symb_vector, cex=0.6)
+```
+
+TBD: Beschreibung & Erklärung
+
+{{< pagebreak >}}
+
+## Darstellung 2
+
+TBD: Nele Code here ;)
+
+```{r aufgabe-2-dar-2}
+plot(dat$StichtagDatJahr, dat$AnzBestWir, main="Unusable Plot, please remove")
+```
