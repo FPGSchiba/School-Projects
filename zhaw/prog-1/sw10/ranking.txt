@@ -1,0 +1,36 @@
+==================== RANKINGS ====================
+========== DISTANCE ==========
+1. bratsjon: 66.39 km
+2. selesaro: 43.32 km
+3. erharjan: 27.13 km
+4. gampegia: 16.77 km
+5. jakabnat: 0.65 km
+6. Cohenlii: 0.54 km
+========== ELEVATION ==========
+1. erharjan: 70.30 m
+2. Cohenlii: 19.62 m
+3. jakabnat: 13.00 m
+4. selesaro: 4.40 m
+5. bratsjon: 0.10 m
+6. gampegia: 0.00 m
+========== MAX SPEED ==========
+1. selesaro: 306.06 m/s
+2. bratsjon: 21.00 m/s
+3. jakabnat: 14.96 m/s
+4. gampegia: 9.22 m/s
+5. erharjan: 4.17 m/s
+6. Cohenlii: 2.87 m/s
+========== AVG SPEED ==========
+1. bratsjon: 8.20 m/s
+2. gampegia: 4.54 m/s
+3. erharjan: 4.17 m/s
+4. selesaro: 3.93 m/s
+5. jakabnat: 3.07 m/s
+6. Cohenlii: 1.31 m/s
+========== TIME ==========
+1. bratsjon: 03.00h 46.00m 04.00s
+2. selesaro: 03.00h 03.00m 56.00s
+3. erharjan: 01.00h 48.00m 30.51s
+4. gampegia: 01.00h 05.00m 54.00s
+5. Cohenlii:        06.00m 39.49s
+6. jakabnat:        03.00m 34.00s

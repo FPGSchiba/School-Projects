@@ -43,12 +43,14 @@ dat <- data <- read.csv('./data/BEV390OD3903.csv')
 
 ```{r inspect}
 library(knitr)
+library(kableExtra)
 library(magrittr)
-data.frame(variable = names(mtcars),
-           classe = sapply(mtcars, typeof),
-           first_values = sapply(mtcars, function(x) paste0(head(x),  collapse = ", ")),
+data.frame(Variable = names(data),
+           Datentyp = sapply(data, typeof),
+           "Erste Werte" = sapply(data, function(x) paste0(head(x, 1),  collapse = ", ")),
            row.names = NULL) %>% 
-  kable()
+  kable() %>%
+    kable_styling(full_width = F, position='left', font_size = 10)
 ```
 
 | Variablen Name      | Daten typ             |
