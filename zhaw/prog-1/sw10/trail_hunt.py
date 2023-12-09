@@ -6,11 +6,9 @@ PROG1 P10 9.2: Trail hunt
 @author: Jann Erhardt
 """
 import datetime
-import json
 import os.path
 import sys
 import math
-from typing import List, Tuple
 
 import xmltodict
 

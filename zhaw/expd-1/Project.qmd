@@ -14,6 +14,8 @@ editor: visual
 toc: true
 ---
 
+{{< pagebreak >}}
+
 # Einleitung
 
 TBD: eine generelle Einleitung.
@@ -41,18 +43,6 @@ dat <- data <- read.csv('./data/BEV390OD3903.csv')
 
 ## Datentypen
 
-```{r inspect}
-library(knitr)
-library(kableExtra)
-library(magrittr)
-data.frame(Variable = names(data),
-           Datentyp = sapply(data, typeof),
-           "Erste Werte" = sapply(data, function(x) paste0(head(x, 1),  collapse = ", ")),
-           row.names = NULL) %>% 
-  kable() %>%
-    kable_styling(full_width = F, position='left', font_size = 10)
-```
-
 | Variablen Name      | Daten typ             |
 |---------------------|-----------------------|
 | **StichtagDatJahr** | Metrisch - Diskret    |
@@ -76,6 +66,21 @@ data.frame(Variable = names(data),
 | **HerkunftCd**      | Kategoriell - Nominal |
 | **HerkunftLang**    | Kategoriell - Nominal |
 | **AnzBestWir**      | Metrisch - Diskret    |
+
+{{< pagebreak >}}
+
+
+```{r inspect}
+library(knitr)
+library(kableExtra)
+library(magrittr)
+data.frame(Variable = names(data),
+           Datentyp = sapply(data, typeof),
+           "Erste Werte" = sapply(data, function(x) paste0(head(x, 1),  collapse = ", ")),
+           row.names = NULL) %>% 
+  kable() %>%
+    kable_styling(full_width = F, position='center', font_size = 10)
+```
 
 {{< pagebreak >}}
 
@@ -139,9 +144,6 @@ Diese beiden Werte Sagen nicht viel über den Bestand allgemein aus, aber könne
 
 TBD: Aufgabenstellung
 
-## Vorbereitung
-
-TBD: Vorbereitungsbeschreibung
 
 ```{r aufgabe-2-vorb, echo=F}
 year_2022 <- data[data$StichtagDatJahr == 2022,]
@@ -195,8 +197,6 @@ TBD: Beschreibung & Erklärung
 
 ## Darstellung 2
 
-TBD: Nele Code here ;)
-
 ```{r aufgabe-2-dar-2}
 dat$Altersgruppen <- NULL
 dat[dat$AlterV20Kurz == "0-19", "Altersgruppen"] <- "0-19"
@@ -210,8 +210,13 @@ altersgruppen_table <- table(factor(dat$Altersgruppen, levels = c("0-19", "20-39
 df_altersgruppen <- as.data.frame(altersgruppen_table)
 par(mfcol=c(1,1), mar=c(4.5,4,0,7), xpd =T)
 barplot(altersgruppen_table, las = 1, ylim = c(0,11000), col = c("turquoise", "yellow", "green", "red", "orange", "blue"), beside = T, las = 2)
-legend(x=87, y=9000, col = c("turquoise", "yellow", "green", "red", "orange", "blue"), pch = 15, legend = unique(data$Altersgruppen))
+gruppen <- unique(data$AlterV20Kurz)
+legend(x=87, y=9000, col = c("turquoise", "yellow", "green", "red", "orange", "blue"), pch = 15, legend = gruppen)
 ```
+
+Beschreibung kommt hier.
+
+{{< pagebreak >}}
 
 # Aufgabe 4
 
@@ -242,6 +247,7 @@ ggplot(data= df_altersgruppen, aes(x = Var2, y = Freq, colour = Var1)) +
 ```
 Beschreibung der Grafik kommt hier.
 
+{{< pagebreak >}}
 
 ## Darstellung 2
 
