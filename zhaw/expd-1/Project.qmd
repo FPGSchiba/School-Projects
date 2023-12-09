@@ -177,7 +177,7 @@ TBD: Bild Beschreibung
 ### Variation
 
 ```{r aufgabe-2-dar-1v}
-par(mfcol=c(1,1), mar=c(2,2,2,7), xpd =T)
+par(mfcol=c(1,1), mar=c(2.5,2.5,2,3), xpd =T)
 boxplot(summe ~ gruppe, data = alters_data, main="20 Jahres Gruppen im Jahr 2022 mit Alter", xlab = "Altersgruppe", ylab="Anzahl Personen")
 points_y <- c(rep(1, 20), rep(2, 20), rep(3, 20), rep(4, 20), rep(5, 19))
 library(RColorBrewer)
@@ -198,5 +198,78 @@ TBD: Beschreibung & Erklärung
 TBD: Nele Code here ;)
 
 ```{r aufgabe-2-dar-2}
-plot(dat$StichtagDatJahr, dat$AnzBestWir, main="Unusable Plot, please remove")
+dat$Altersgruppen <- NULL
+dat[dat$AlterV20Kurz == "0-19", "Altersgruppen"] <- "0-19"
+dat[dat$AlterV20Kurz == "80-99","Altersgruppen"] <- "80-99"
+dat[dat$AlterV20Kurz == "20-39","Altersgruppen"] <- "20-39"
+dat[dat$AlterV20Kurz == "40-59","Altersgruppen"] <- "40-59"
+dat[dat$AlterV20Kurz == "60-79","Altersgruppen"] <- "60-79"
+dat[dat$AlterV20Kurz == "100 u. älter","Altersgruppen"] <- "100 u. älter"
+kreise <- c("Kreis 1", "Kreis 2", "Kreis 3", "Kreis 4", "Kreis 5", "Kreis 6", "Kreis 7", "Kreis 8", "Kreis 9", "Kreis 10", "Kreis 11", "Kreis 12")
+altersgruppen_table <- table(factor(dat$Altersgruppen, levels = c("0-19", "20-39", "40-59", "60-79", "80-99","100 u. älter"),labels = c("0-19", "20-39", "40-59", "60-79", "80-99","100+"), ordered = T), factor(dat$KreisLang, levels = kreise, ordered = T))
+df_altersgruppen <- as.data.frame(altersgruppen_table)
+par(mfcol=c(1,1), mar=c(4.5,4,0,7), xpd =T)
+barplot(altersgruppen_table, las = 1, ylim = c(0,11000), col = c("turquoise", "yellow", "green", "red", "orange", "blue"), beside = T, las = 2)
+legend(x=87, y=9000, col = c("turquoise", "yellow", "green", "red", "orange", "blue"), pch = 15, legend = unique(data$Altersgruppen))
 ```
+
+# Aufgabe 4
+
+## Darstellung 1
+
+```{r aufgabe-4-dar-1}
+#| layout-ncol: 1
+#| fig-width: 8
+#| fig-height: 4.5
+library(ggplot2)
+data$Altersgruppen <- NULL
+data[data$AlterV20Kurz == "0-19", "Altersgruppen"] <- "0-19"
+data[data$AlterV20Kurz == "80-99","Altersgruppen"] <- "80-99"
+data[data$AlterV20Kurz == "20-39","Altersgruppen"] <- "20-39"
+data[data$AlterV20Kurz == "40-59","Altersgruppen"] <- "40-59"
+data[data$AlterV20Kurz == "60-79","Altersgruppen"] <- "60-79"
+data[data$AlterV20Kurz == "100 u. älter","Altersgruppen"] <- "100 u. älter"
+
+altersgruppen_table <- table(factor(data$Altersgruppen, levels = c("0-19", "20-39", "40-59", "60-79", "80-99","100 u. älter"), 
+                                    labels = c("0-19", "20-39", "40-59", "60-79", "80-99","100+")),
+                             factor(data$KreisLang, levels = c("Kreis 1", "Kreis 2", "Kreis 3", "Kreis 4", "Kreis 5", "Kreis 6", "Kreis 7", "Kreis 8", "Kreis 9", "Kreis 10", "Kreis 11", "Kreis 12"), ordered = T))
+df_altersgruppen <- as.data.frame(altersgruppen_table)
+
+ggplot(data= df_altersgruppen, aes(x = Var2, y = Freq, colour = Var1)) +
+  geom_point(position = position_jitter(width = 0.15, height = 0), size = 4) +
+  guides(color = guide_legend(order = 1)) +
+  labs(title = "Bevölkerungsanzahl pro Kreis und Gruppe im Jahr 2000", x = "", y = "Anzahl Personen", colour = "Altersgruppen")
+```
+Beschreibung der Grafik kommt hier.
+
+
+## Darstellung 2
+
+
+```{r aufg-4-dar-2}
+time_v <- unique(data$StichtagDatJahr)
+groups <- unique(data$AlterV20Kurz)
+group <- c()
+time <- c()
+value <- c()
+
+for (year in time_v) {
+  temp <- data[data$StichtagDatJahr == year,]
+  for (g in groups) {
+    value <- c(value, sum(temp[temp$AlterV20Kurz == g,]$AnzBestWir))
+    group <- c(group, g)
+    time <- c(time, year)
+  }
+}
+
+group <- factor(group, levels = c("0-19", "20-39", "40-59", "60-79", "80-99", "100 u. älter"), ordered = T, labels = c("0-19", "20-39", "40-59", "60-79", "80-99","100+"))
+
+groups_over_time <- data.frame(time=time, group=group, value=value)
+
+ggplot(groups_over_time, aes(x=time, y=value, fill=group)) + 
+  geom_area() + 
+  labs(fill = "Altersgruppen", title = "Bevölkerungswachstum bis 2022", x = "Zeit (Jahre)", y = "Bevölkerungsanzhal")
+```
+
+
+Noch eine Beschreibung, zu guter letzt.

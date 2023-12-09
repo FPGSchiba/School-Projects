@@ -206,3 +206,29 @@ is.na(data$Alersart)
 
 ?knitr::kable
 
+
+# ---- Aufgabe 4 ----
+
+time_v <- unique(data$StichtagDatJahr)
+groups <- unique(data$AlterV20Kurz)
+group <- c()
+time <- c()
+value <- c()
+data
+
+for (year in time_v) {
+  temp <- data[data$StichtagDatJahr == year,]
+  for (g in groups) {
+    value <- c(value, sum(temp[temp$AlterV20Kurz == g,]$AnzBestWir))
+    group <- c(group, g)
+    time <- c(time, year)
+  }
+}
+
+group <- factor(group, levels = c("0-19", "20-39", "40-59", "60-79", "80-99", "100 u. älter"), ordered = T)
+
+groups_over_time <- data.frame(time=time, group=group, value=value)
+groups_over_time
+
+ggplot(groups_over_time, aes(x=time, y=value, fill=group)) + 
+  geom_area()

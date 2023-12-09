@@ -3,7 +3,7 @@
 PROG1 P09 9.3: Battleship
 
 @date: 25.11.2023
-@author: Jann Erhardt
+@author: Jann Erhardt, Nele Blum, Chris Eggenberger
 """
 import datetime
 import os
@@ -91,8 +91,10 @@ def get_input() -> tuple[int, int]:
     else:
         row = int(inp[1:])
     if row < SIZE and column < SIZE:
-        return column, row
+        return row, column
 
+
+player_name = input('Player Name: ')
 
 while guesses < MAX_GUESSES:
     show(board, guesses)
@@ -101,7 +103,7 @@ while guesses < MAX_GUESSES:
         target_value = board[target[0]][target[1]]
         if target_value == WATER:
             board[target[0]][target[1]] = HIT
-            log(f'Guess {guesses + 1}: shoots ({target[0]}, {target[1]}) misses.')
+            log(f'{player_name} | Guess {guesses + 1}: shoots ({target[0]}, {target[1]}) misses.')
         elif target_value == HIT:
             print('The location you selected, was already hit, please select again.')
             log(f'Guess {guesses + 1}: shoots at already shot spot: ({target[0]}, {target[1]})', 'warning')
@@ -109,15 +111,15 @@ while guesses < MAX_GUESSES:
             continue
         elif target_value == SHIP:
             print('You Hit the Ship and won the Game!')
-            log(f'Guess {guesses + 1}: shoots ({target[0]}, {target[1]}) Hits ship.')
+            log(f'{player_name} | Guess {guesses + 1}: shoots ({target[0]}, {target[1]}) Hits ship.')
             break
         guesses += 1
     else:
         print('Please select values within the bound of the board.')
-        log(f'Guess {guesses + 1}: Shoots at Spot not within Field: ({target[0]}, {target[1]})', 'error')
+        log(f'{player_name} | Guess {guesses + 1}: Shoots at Spot not within Field: ({target[0]}, {target[1]})', 'error')
         input('Press [enter] to continue...')
         continue
 
 if guesses == MAX_GUESSES:
     print('You do not have any Guesses left, please try again.')
-    log(f'Ship was at ({rand_x}, {rand_y}) - nice try ;)')
+    log(f'{player_name} | Ship was at ({rand_x}, {rand_y}) - nice try ;)')

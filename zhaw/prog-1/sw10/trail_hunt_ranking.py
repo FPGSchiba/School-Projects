@@ -13,6 +13,23 @@ from trail_hunt import get_ranking_values
 FILES = glob.glob('./trails/*.gpx')
 RANKING_FILE = 'ranking.txt'
 
+RANKINGS = ['distance', 'elevation', 'speed-max', 'speed-avg', 'time']
+RANKING_META = {
+    'heading': {
+        'distance': ' DISTANCE ',
+        'elevation': ' ELEVATION ',
+        'speed-max': ' MAX SPEED ',
+        'speed-avg': ' AVG SPEED ',
+        'time': ' TIME '
+    },
+    'einheit': {
+        'distance': 'km',
+        'elevation': 'm',
+        'speed-max': 'm/s',
+        'speed-avg': 'm/s'
+    }
+}
+
 
 def zpad(val, n):
     bits = val.split('.')
@@ -77,28 +94,18 @@ def generate_rankings():
             'speed-avg': value[4],
             'time': value[5]
         }
-    distance_rankings = get_ranking_for_variable(values, 'distance')
-    elevation_ranking = get_ranking_for_variable(values, 'elevation')
-    max_speed_ranking = get_ranking_for_variable(values, 'speed-max')
-    avg_speed_ranking = get_ranking_for_variable(values, 'speed-avg')
-    time_ranking = get_ranking_for_variable(values, 'time')
     with open(RANKING_FILE, 'w+', encoding='utf-8') as rank_file:
-        rank_file.write('='*20 + ' RANKINGS ' + '='*20 + '\n')
-        rank_file.write('='*10 + ' DISTANCE ' + '='*10 + '\n')
-        for index, student in enumerate(distance_rankings):
-            rank_file.write(f'{index + 1}. {student}: {values[student]["distance"]:.2f} km' + '\n')
-        rank_file.write('=' * 10 + ' ELEVATION ' + '=' * 10 + '\n')
-        for index, student in enumerate(elevation_ranking):
-            rank_file.write(f'{index + 1}. {student}: {values[student]["elevation"]:.2f} m' + '\n')
-        rank_file.write('=' * 10 + ' MAX SPEED ' + '=' * 10 + '\n')
-        for index, student in enumerate(max_speed_ranking):
-            rank_file.write(f'{index + 1}. {student}: {values[student]["speed-max"]:.2f} m/s' + '\n')
-        rank_file.write('=' * 10 + ' AVG SPEED ' + '=' * 10 + '\n')
-        for index, student in enumerate(avg_speed_ranking):
-            rank_file.write(f'{index + 1}. {student}: {values[student]["speed-avg"]:.2f} m/s' + '\n')
-        rank_file.write('=' * 10 + ' TIME ' + '=' * 10 + '\n')
-        for index, student in enumerate(time_ranking):
-            rank_file.write(f'{index + 1}. {student}: {get_time_string(values[student]["time"])}' + '\n')
+        rank_file.write('=' * 20 + ' RANKINGS ' + '=' * 20 + '\n')
+    for current_var in RANKINGS:
+        current_ranking = get_ranking_for_variable(values, current_var)
+        with open(RANKING_FILE, 'a', encoding='utf-8') as rank_file:
+            rank_file.write('=' * 10 + RANKING_META["heading"][current_var] + '=' * 10 + '\n')
+            if current_var != 'time':
+                for index, student in enumerate(current_ranking):
+                    rank_file.write(f'{index + 1}. {student}: {values[student][current_var]:.2f} {RANKING_META["einheit"][current_var]}' + '\n')
+            else:
+                for index, student in enumerate(current_ranking):
+                    rank_file.write(f'{index + 1}. {student}: {get_time_string(values[student]["time"])}' + '\n')
 
 
 if __name__ == '__main__':
