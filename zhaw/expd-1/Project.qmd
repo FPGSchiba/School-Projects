@@ -24,7 +24,7 @@ Wir haben uns hauptsächlich mit den Altersgruppen in den Verschiedenen Kreisen 
 
 ## Datensatz
 
-Der [Datensatz](https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_quartier_alter_herkunft_geschlecht_od3903) wurde von der Offiziellen statistik Stelle der Stadt Zürich heruntergeladen und enthält, wie erwähnt Daten des Bevölkerungsstandes der Stadt Zürich. Diese Daten sind sehr Detailiert aufbereitet, da Alter, Herkunft, Geschlecht Kreis, Quartier und Jahr festgehalten werden.
+Der [Datensatz](https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_quartier_alter_herkunft_geschlecht_od3903) wurde von der offiziellen Statistikstelle der Stadt Zürich heruntergeladen und enthält, Daten des Bevölkerungsstandes der Stadt Zürich. Diese Daten sind sehr detailliert aufbereitet, da Alter, Herkunft, Geschlecht Kreis, Quartier und Jahr festgehalten sind
 
 ```{r setup, echo = F}
 knitr::opts_chunk$set(echo = F)
@@ -93,37 +93,28 @@ names(sen) <- kreise
 ## Darstellung 1
 
 ```{r aufgabe-1-dar-1}
+#| fig-width: 6
 barplot(out_jug, las = 2, col = "green4", ylab = "Relative Häufigkeit", main = "Anzahl Minderjähriger in der Stadt Zürich pro Kreis in 2022")
 ```
 
-Wie in der Oberen Graphik abgelesen werden kann, haben Kreis 2 und Kreis 12 die grösste Anzahl an Jugendlichen mit knapp 20%.
+Wie in der oberen Grafik abgelesen werden kann, haben Kreis 2 und Kreis 12 die grösste Anzahl an Jugendlichen mit knapp 20%.
 Dies könnte mit der Lage oder den Preisen der Wohnungen in diesen Kreisen zutun haben, muss aber nicht.
-Interessant hier ist auch, dass es keine klare Verteilung gibt, sondern klare Unterschiede im Anteil der Jugendliche Pro Kreis.
-
-{{< pagebreak >}}
+Interessant ist hier auch, dass es keine klare Verteilung gibt, sondern klare Unterschiede im Anteil der Jugendliche pro Kreis.
 
 ## Darstellung 2
 
 ```{r aufgabe-1-dar-2}
+#| fig-width: 6
 barplot(out_sen, las = 2, col = "green4", ylab = "Relative Häufigkeit", main = "Anzahl Senioren in der Stadt Zürich pro Kreis in 2022")
 ```
 
-Wie man in der Obrigen darstellung erkennen kann, sind fast 20% vom Kreis 7 65 oder Älter.
-Dies könnte mit der Lage des Kreis 7 zusammenhängen, könnte aber auch einfach Zufall sein, dass dieser Kreis mehr ältere Leute besitzt.
-
-## Kennzahlen
-
-Das Arithmetische Mittel des Bevölkerungsbestandes an Jugendlichen im Jahre 2022 ist: **`r mean(jug)`**.
-
-Der Median des Bevölkerungsstandes an Senioren im Jahre 2022 ist: **`r median(sen)`**.
-
-Diese beiden Werte Sagen nicht viel über den Bestand allgemein aus, aber können trotzdem den Bestand an Senioren und Jugendlichen gut darstellen.
+Diese Grafik beschreibt die relative Häufigkeit der Senior:innen in den unterschiedlichen Kreisen. Im Zürcher Kreis 7 leben mit einem Bevölkerungsanteil von 20 % die meisten Senior:innen. Dies könnte mit der Lage des Kreis 7 zusammenhängen, kann aber auch Zufall sein.
 
 {{< pagebreak >}}
 
 # Aufgabe 2
 
-Aufgabe 2 befasst sich mit Bi-Varianten darstellungen. Wir werden hier nur Daten des Jahres 2022 Verwenden und diese im Zusammenhang mit Alter und Anzahl Bevölkerung betrachten. 
+Aufgabe 2 befasst sich mit Bi-Varianten Darstellungen. Wir werden hier nur Daten des Jahres 2022 verwenden und diese im Zusammenhang mit Alter und Anzahl Bevölkerung betrachten. 
 
 
 ```{r aufgabe-2-vorb, echo=F}
@@ -155,9 +146,9 @@ boxplot(summe ~ gruppe, data = alters_data, main="20 Jahres Gruppen im Jahr 2022
 plot(x=alters_data$alter, y=alters_data$summe, type = "o", ylab="Anzahl", xlab="Alter", main="Anzahl Personen pro Alter im Jahr 2022")
 ```
 
-Wie man im Linechart und im Boxplot erkennen kann, gibt es viel mehr 20-39 Jährige, als in den anderen Altersgruppen. Dies ist nich weiter speziell, aber es ist trotzdem interessant zu sehen, von welchem Alter es weniger Bewohner in der Stadt Zürich gibt.
-Dies muss nicht umbedingt mit der Geburtrate zusammenhängen, sondern könnte auch von den steigenden Wohnungs und Land Preisen stammen.
-Dies ist aber keine Kausaler Zusammenhang, sondern nur Gedanken.
+Wie man im Linechart und im Boxplot erkennen kann, gibt es viel mehr 20-39 Jährige, als in den anderen Altersgruppen. Dies ist nicht weiter speziell, aber es ist trotzdem interessant zu sehen, von welchem Alter es weniger Bewohner in der Stadt Zürich gibt.
+Dies muss nicht unbedingt mit der Geburtrate zusammenhängen, sondern könnte auch von den steigenden Wohnungs- und Landpreisen stammen.
+Dies ist aber keine kausaler Zusammenhang, sondern nur Gedanken.
 
 ### Variation
 
@@ -174,10 +165,10 @@ points(y=alters_data$summe, x=points_y, col = col_vector, pch=symb_vector)
 legend(x=5.8, y=10000, col = col_vector_20, legend = 0:19, pch=symb_vector, cex=0.6)
 ```
 
-Um diese Darstellung ein wenig besser zu Verstehen, muss man die Legende anschauen. Diese gibt bei in welchem Alter die genaue Summe der Bevölkerung befindet.
-Also in der Bevölkerungsgruppe: 20-39 ist der Punkt 0 auf der Anzhal 20 Jähriger im Jahr 2022 und der Punkt 17 bei den 37 Jährigen.
+Um diese Darstellung ein wenig besser zu verstehen, muss man die Legende anschauen. Diese gibt an, in welchem Alter sich die genaue Summe der Bevölkerung befindet.
+In der Bevölkerungsgruppe: 20-39 ist der Punkt 0 auf der Anzahl 20 Jähriger im Jahr 2022 und der Punkt 17 bei den 37- Jährigen.
 Man sieht hier also die Altersverteilung im Jahr 2022.
-Wir haben aber nichts spezielles in dieser Graphik entdecken können, weshalb diese Grphik nur als Variation bezeichnet wird.
+Wir haben aber nichts Spezielles in dieser Grafik entdecken können, weshalb diese Grafik nur als Variation bezeichnet wird.
 
 {{< pagebreak >}}
 
@@ -200,13 +191,13 @@ gruppen <- unique(data$AlterV20Kurz)
 legend(x=87, y=9000, col = c("turquoise", "yellow", "green", "red", "orange", "blue"), pch = 15, legend = gruppen)
 ```
 
-Beschreibung kommt hier.
+Absolute Anzahl der Zürcher Bevölkerung, in Altersgruppen eingeteilt und gefärbt und auf die Kreise aufgeteilt. Es fällt auf, dass im Kreis 1 die Altersgruppe 0-19 im Vergleich untervertreten ist. 
 
 {{< pagebreak >}}
 
 # Aufgabe 4
 
-Die Aufgabe 4 befasst sich mit Multi-Varianten darstellugen. Wir haben uns weiterhin mit den Altersgruppen auseinander gesetzt und diese versucht in mehr Kontext auch mit Kreis und Zeit zu stellen.
+Die Aufgabe 4 befasst sich mit Multi-Variaten Darstellungen. Wir haben uns weiterhin mit den Altersgruppen auseinander gesetzt und diese versucht in mehr Kontext auch mit Kreis und Zeit zu stellen.
 
 ## Darstellung 1
 
@@ -241,6 +232,7 @@ In dieser Grafik ist die Verteilung der unterschiedlichen Altersgruppen pro Krei
 
 
 ```{r aufg-4-dar-2}
+#| fig-width: 6
 time_v <- unique(data$StichtagDatJahr)
 groups <- unique(data$AlterV20Kurz)
 group <- c()
@@ -266,6 +258,6 @@ ggplot(groups_over_time, aes(x=time, y=value, fill=group)) +
 ```
 
 
-In dieser Graphik sieht man den Verlauf der Einzelnen Altersgruppen in der Stadt Zürich.
+In dieser Grafik sieht man den Verlauf der einzelnen Altersgruppen in der Stadt Zürich.
 Die Gruppen älter als 80 Jahren blieben in den letzten 30 Jahren bestehen und zeigen eher eine schwache Abnahme.
-Die Altergruppen: 20-39 und 40-59 hingegen sehen eher starken anstieg über die letzten 30 Jahren, was aber auch zu erwarten ist.
+Die Altergruppen 20-39 und 40-59 hingegen zeigen einen eher starken Anstieg über die letzten 30 Jahren auf, was aber auch zu erwarten war.

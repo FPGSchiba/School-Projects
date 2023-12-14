@@ -109,4 +109,24 @@ WHERE NOT EXISTS (
 -- A3
 ----------
 
+SELECT k.kid, k.kname from kafeesorte as k join lieferung as l
+    on k.kid = l.kid
+group by k.kid, k.kname
+having count(distinct l.fid) = (SELECT count(*) from fabrik);
 
+----------
+-- A4
+----------
+
+SELECT s.sid, abgaben, lieferungen from (
+    SELECT a.sid, count(a.sid) as abgaben
+    from abgabe as a
+    group by a.sid
+) as s
+join (
+    SELECT l.sid, count(l.sid) as lieferungen
+    from lieferung as l
+    group by l.sid
+) as l
+    on s.sid = l.sid
+WHERE s.abgaben > 5 and l.lieferungen > 3;
