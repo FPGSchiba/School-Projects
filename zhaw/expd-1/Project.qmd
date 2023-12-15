@@ -1,5 +1,5 @@
 ---
-title: "Projektarbeit - Bevölkerung Kanton Zürich"
+title: "Projektarbeit - Bevölkerung Stadt Zürich"
 author: "Blum, Nele und Erhardt, Jann"
 format:
   pdf:
