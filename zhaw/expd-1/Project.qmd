@@ -23,11 +23,11 @@ toc-title: Inhalt
 
 In dieser Projektarbeit wird eine Analyse auf den Bevölkerungsstand der Stadt Zürich von den Jahren 1993 bis 2022 gemacht.
 
-Wir haben uns hauptsächlich mit den Altersgruppen in den Verschiedenen Kreisen der Stadt Zürich befasst und konnten einige Graphiken machen, die Aussagen über die Verteilung der Altersgruppen über die Kreise machen können.
+Wir haben uns hauptsächlich mit den Altersgruppen in den verschiedenen Kreisen der Stadt Zürich befasst und konnten einige Graphiken machen, die Aussagen über die Verteilung der Altersgruppen über die Kreise machen können.
 
 ## Datensatz
 
-Der [Datensatz](https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_quartier_alter_herkunft_geschlecht_od3903) wurde von der offiziellen Statistikstelle der Stadt Zürich heruntergeladen und enthält, Daten des Bevölkerungsstandes der Stadt Zürich. Diese Daten sind sehr detailliert aufbereitet, da Alter, Herkunft, Geschlecht Kreis, Quartier und Jahr festgehalten sind
+Der [Datensatz](https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_quartier_alter_herkunft_geschlecht_od3903) wurde von der offiziellen Statistikstelle der Stadt Zürich heruntergeladen und enthält, Daten des Bevölkerungsstandes der Stadt Zürich. Diese Daten sind sehr detailliert aufbereitet, da Alter, Herkunft, Geschlecht Kreis, Quartier und Jahr festgehalten sind.
 
 ```{r setup, echo = F}
 knitr::opts_chunk$set(echo = F)
@@ -100,7 +100,7 @@ Interessant ist hier auch, dass es keine klare Verteilung gibt, sondern klare Un
 ```{r aufgabe-1-dar-2}
 #| fig-width: 6
 #| fig-height: 2.6
-barplot(out_sen, las = 2, col = "green4", ylab = "Relative Häufigkeit", main = "Anzahl Senioren in der Stadt Zürich pro Kreis in 2022")
+barplot(out_sen, las = 2, col = "green4", ylab = "Relative Häufigkeit", main = "Anzahl Senior:innen in der Stadt Zürich pro Kreis in 2022")
 ```
 
 Diese Grafik beschreibt die relative Häufigkeit der Senior:innen in den unterschiedlichen Kreisen. Im Zürcher Kreis 7 leben mit einem Bevölkerungsanteil von 20 % die meisten Senior:innen. Dies könnte mit der Lage des Kreis 7 zusammenhängen, kann aber auch Zufall sein.
@@ -109,7 +109,7 @@ Diese Grafik beschreibt die relative Häufigkeit der Senior:innen in den untersc
 
 # Aufgabe 2
 
-Aufgabe 2 befasst sich mit Bi-Varianten Darstellungen. Wir werden hier nur Daten des Jahres 2022 verwenden und diese im Zusammenhang mit Alter und Anzahl Bevölkerung betrachten. 
+Aufgabe 2 befasst sich mit bivariaten Darstellungen. Wir werden hier nur Daten des Jahres 2022 verwenden und diese im Zusammenhang mit Alter und Anzahl Bevölkerung betrachten. 
 
 
 ```{r aufgabe-2-vorb, echo=F}
@@ -141,8 +141,8 @@ boxplot(summe ~ gruppe, data = alters_data, main="20 Jahres Gruppen im Jahr 2022
 plot(x=alters_data$alter, y=alters_data$summe, type = "o", ylab="Anzahl", xlab="Alter", main="Anzahl Personen pro Alter im Jahr 2022")
 ```
 
-Wie man im Linechart und im Boxplot erkennen kann, gibt es viel mehr 20-39 Jährige, als in den anderen Altersgruppen. Dies ist nicht weiter speziell, aber es ist trotzdem interessant zu sehen, von welchem Alter es weniger Bewohner in der Stadt Zürich gibt.
-Dies muss nicht unbedingt mit der Geburtrate zusammenhängen, sondern könnte auch von den steigenden Wohnungs- und Landpreisen stammen.
+Wie man im Linechart und im Boxplot erkennen kann, gibt es viel mehr 20-39 Jährige als in den anderen Altersgruppen. Dies ist nicht weiter speziell, aber es ist trotzdem interessant zu sehen, von welchem Alter es weniger Bewohner in der Stadt Zürich gibt.
+Dies muss nicht unbedingt mit der Geburtenrate zusammenhängen, sondern könnte auch von den steigenden Wohnungs- und Landpreisen stammen.
 
 <!-- ### Variation -->
 
@@ -191,7 +191,7 @@ Absolute Anzahl der Zürcher Bevölkerung, in Altersgruppen eingeteilt und gefä
 
 # Aufgabe 4
 
-Die Aufgabe 4 befasst sich mit Multi-Variaten Darstellungen. Wir haben uns weiterhin mit den Altersgruppen auseinander gesetzt und diese versucht in mehr Kontext auch mit Kreis und Zeit zu stellen.
+Die Aufgabe 4 befasst sich mit multivariaten Darstellungen. Wir haben uns weiterhin mit den Altersgruppen auseinander gesetzt und diese versucht in mehr Kontext auch mit Kreis und Zeit zu stellen.
 
 ## Darstellung 1
 
